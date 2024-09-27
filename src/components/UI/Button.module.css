@@ -1,0 +1,13 @@
+.button-icon {
+  background-color: transparent;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-icon:hover {
+    color: rgb(253, 6, 2);
+}
