@@ -1,42 +1,17 @@
 .mainHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .logo {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
-.navigation:first-of-type {
-    width: 15%;
-}
-
-.navigation:last-of-type {
-    width: 12%;
-    align-self: right;
-}
-
-.navigation ul{
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    padding-left: 0;
-}
-
-.navItem button {
-    background-color: none;
-    border: none;
-    background-color: transparent;
-    font-size: 1rem;
-    border-bottom: 1px solid transparent;
-}
-
-.navItem button:hover {
-    border-bottom: 1px solid rgb(221, 4, 4);;
-    color: rgb(221, 4, 4);
+.logo h1 {
+    font-weight: 500;
 }

@@ -1,0 +1,26 @@
+.main-navigation ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 0;
+}
+
+.main-navigation li {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 5rem;
+    text-align: center;
+}
+
+.main-navigation li a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid transparent;
+}
+
+.main-navigation li a:hover,
+.main-navigation li a.active {
+  border-bottom: 1px solid rgb(221, 4, 4);
+  color: rgb(221, 4, 4);
+}

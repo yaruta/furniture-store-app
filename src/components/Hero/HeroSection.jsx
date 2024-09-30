@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-import classes from "./Accordion.module.css";
-import { accItems } from "../store/accordion";
+import classes from "./HeroSection.module.css";
+import { accItems } from "../../store/hero";
 
-import AccordionItem from "./AccordionItem";
-import AccordionButton from "./AccordionButton";
+import HeroItem from "./HeroItem";
+import Button from "../UI/Button";
 import PreviousIcon from "../Icons/PreviousIcon";
 import NextIcon from '../Icons/NextIcon';
 
-function Accordion() {
+function HeroSection() {
   const defaultValue = {
     image: accItems[0].image,
     collection: accItems[0].collection,
@@ -73,12 +73,12 @@ function Accordion() {
   }
 
   return (
-    <section className={classes.accordion}>
-      <AccordionButton onClick={handlePrevious}><PreviousIcon/></AccordionButton>
-      <AccordionItem {...selectedImage} />
-      <AccordionButton onClick={handleNext}><NextIcon /></AccordionButton>
+    <section className={classes.hero}>
+      <Button onClick={handlePrevious} className={classes["hero-button"]}><PreviousIcon/></Button>
+      <HeroItem {...selectedImage} />
+      <Button onClick={handleNext} className={classes["hero-button"]}><NextIcon /></Button>
     </section>
   );
 }
 
-export default Accordion;
+export default HeroSection;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import classes from "./ProductItem.module.css";
-import productImage from "../../assets/images/collection-3-2.png";
+import productImage from "../../assets/images/product-1.png";
 import FavoritesIcon from "../Icons/FavoritesIcon";
 import AddIcon from "../Icons/AddIcon";
 import Button from "../UI/Button";

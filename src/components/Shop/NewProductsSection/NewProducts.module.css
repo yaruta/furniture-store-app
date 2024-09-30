@@ -1,0 +1,20 @@
+.new-products {
+  width: 75%;
+  margin: 4rem auto;
+  border-top: 1px solid rgb(185, 183, 183);
+  padding-top: 2rem;
+}
+
+.new-products h2 {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+#products {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 2rem;
+  padding-left: 0;
+  margin-top: 1rem;
+}

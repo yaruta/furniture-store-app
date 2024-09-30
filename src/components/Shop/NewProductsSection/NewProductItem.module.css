@@ -1,0 +1,39 @@
+.new-item {
+    position: relative;
+}
+
+.new-item img{
+    width: 100%;
+    z-index: 0;
+}
+
+.new-bage {
+    position: absolute;
+    left: .5rem;
+    top: .5rem;
+    background-color: rgb(245, 11, 7, 0.6);
+    color: white;
+    padding: .2rem;
+    text-transform: uppercase;
+    z-index: 1;
+    font-size: .7rem;
+}
+
+.item-info {
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0;
+    background-color: rgba(6, 6, 6, 0.5);
+    width: 100%;
+    padding-left: 1rem;
+    color: white;
+    box-sizing: border-box;
+}
+
+.item-info h2 {
+    margin: 0;
+}
+
+.item-info p {
+    margin-top: 0;
+}

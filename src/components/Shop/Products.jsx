@@ -1,5 +1,6 @@
-import ProductItem from "./ProductItem";
 import classes from './Products.module.css';
+
+import ProductItem from "./ProductItem";
 import ProductsNavigation from "./ProductsNavigation";
 import ProductsPagesNavigation from "./ProductsPagesNavigation";
 

@@ -1,0 +1,42 @@
+.hero-item {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Oswald", sans-serif;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.hero-item img {
+  width: 50%;
+  height: 30rem;
+  object-fit: cover;
+  margin-top: 2rem;
+}
+
+.hero-info {
+  width: 50%;
+  margin-left: 2rem;
+  text-align: left;
+  align-self: flex-end;
+  font-weight: 200;
+}
+
+.hero-info .collection {
+  text-transform: uppercase;
+  margin-bottom: 0;
+  font-weight: 400;
+}
+
+.hero-info .title {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: 0;
+}
+
+.hero-info p {
+  white-space: pre-wrap;
+}
+
+

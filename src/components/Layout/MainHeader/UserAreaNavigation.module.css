@@ -1,0 +1,15 @@
+.navigation {
+    width: 12%;
+}
+
+.navigation ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+}
+
+.nav-button {
+    width: 2rem;
+    height: 2rem;
+}

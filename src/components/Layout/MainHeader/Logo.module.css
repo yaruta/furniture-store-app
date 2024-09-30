@@ -1,0 +1,17 @@
+.logo {
+  text-transform: uppercase;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logo a h1 {
+  font-weight: 500;
+  font-family: "Oswald", sans-serif;
+  color: rgb(245, 11, 7);
+}
+
+.logo a:hover h1 {
+  color: black;
+}
