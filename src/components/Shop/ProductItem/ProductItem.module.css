@@ -1,0 +1,45 @@
+.item {
+    border-bottom: 1px solid rgb(168, 168, 168);
+    padding-bottom: 1rem;
+}
+
+.image-section {
+  position: relative;
+}
+
+.image-section img {
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.info-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.price {
+  font-weight: bold;
+  margin: 0;
+}
+
+.actions {
+  width: 10%;
+}
+
+.add-button {
+  width: 2rem;
+  height: 2rem;
+  fill: rgb(40, 39, 39);
+}

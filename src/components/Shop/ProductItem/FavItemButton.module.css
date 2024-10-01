@@ -1,0 +1,11 @@
+.favorites-icon {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background-color: transparent;
+    border: none;
+}
+
+.favorites-icon svg:hover {
+    fill: rgb(245, 11, 7);
+}

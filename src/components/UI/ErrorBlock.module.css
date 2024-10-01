@@ -1,0 +1,26 @@
+.error-block {
+  width: 75%;
+  box-shadow: 0 0 10px rgb(207, 207, 207);
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-icon {
+    background-color: rgb(202, 64, 62);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    color: white;
+    font-size: 2rem;
+    margin: 1.5rem 3rem;
+}
+
+.error-block-text {
+    width: 80%;
+}
