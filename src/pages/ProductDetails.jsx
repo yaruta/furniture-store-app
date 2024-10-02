@@ -1,7 +1,9 @@
+import ProductDetails from "../components/Shop/ProductDetails/ProductDetails";
+
 function ProductDetailsPage() {
   return (
     <>
-      <h1>Products Details</h1>
+      <ProductDetails />
     </>
   );
 }

@@ -6,6 +6,11 @@
     border: none;
 }
 
+.favorites-icon-details {
+    background-color: transparent;
+    border: none;
+}
+
 .favorites-icon svg:hover {
     fill: rgb(245, 11, 7);
 }

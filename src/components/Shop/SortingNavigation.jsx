@@ -6,13 +6,6 @@ function SortingNavigation() {
       <div className={classes["sort-products"]}>
         <div>
           <select>
-            <option>6</option>
-            <option>9</option>
-            <option>12</option>
-          </select>
-        </div>
-        <div>
-          <select>
             <option>Beliebheit</option>
             <option>Preis aufsteigend</option>
             <option>Preis ansteigend</option>
@@ -20,7 +13,7 @@ function SortingNavigation() {
         </div>
       </div>
       <div>
-        <span>25 Artikel</span>
+        <span>25 Artikeln</span>
         <span>Filter</span>
       </div>
     </section>

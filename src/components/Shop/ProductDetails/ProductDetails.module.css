@@ -1,0 +1,96 @@
+.item-details {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.item-details-column {
+    width: 50%;
+    margin: 3rem 2rem;
+}
+
+.item-details-column img {
+    width: 100%;
+}
+
+.info-section .header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h2 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.info-section .collection {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgb(191, 189, 189);
+    padding-bottom: .75rem;
+}
+
+
+.info-section .price {
+    margin-top: .75rem;
+    margin-bottom: 1.5rem;
+}
+
+.info-section .price span:first-of-type {
+    font-size: 1.3rem;
+}
+
+.info-section .price span:last-of-type {
+    font-size: .8rem;
+}
+
+.color {
+    border: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.color legend {
+    margin-bottom: .5rem;
+}
+
+.color input {
+    display: none;
+}
+ 
+.color label{
+    padding-left: .75rem;
+    padding-right: .75rem;
+    border-radius: 1rem;
+    margin-right: .5rem;
+    border: 3px solid transparent;
+}
+
+.color input:checked+label {
+    border: 3px solid rgb(245, 11, 7);
+}
+
+.amount {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    line-height: 1.5rem;
+    border: 1px solid rgb(191, 189, 189);
+    box-sizing: border-box;
+}
+
+.description {
+    border-top: 1px solid rgb(191, 189, 189);
+    padding-top: 2rem;
+    font-weight: 200;
+}
+
+.back {
+    position: absolute;
+    top: 2.5rem;
+    left: -11rem;
+}

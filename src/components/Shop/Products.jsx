@@ -8,6 +8,7 @@ import SortingNavigation from "./SortingNavigation";
 import ProductsPagesNavigation from "./ProductsPagesNavigation";
 import PageContent from "../UI/PageContent";
 import ErrorBlock from "../UI/ErrorBlock";
+import { useState } from "react";
 
 function Products() {
   const { data, isPending, isError, error } = useQuery({
@@ -42,7 +43,9 @@ function Products() {
     content = (
       <ul id={classes.products}>
         {!isPending &&
-          data.map((product) => <ProductItem key={product.id} {...product} />)}
+          Object.values(data).map((product) => (
+            <ProductItem key={product.id} {...product} />
+          ))}
       </ul>
     );
   }
