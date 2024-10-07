@@ -1,9 +1,7 @@
+import AboutSection from "../components/About/AboutSection";
+
 function AboutPage() {
-  return (
-    <>
-      <h1>About</h1>
-    </>
-  );
+  return <AboutSection />;
 }
 
 export default AboutPage;

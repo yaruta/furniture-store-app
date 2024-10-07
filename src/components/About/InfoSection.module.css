@@ -1,0 +1,38 @@
+.infoSection {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.infoSection h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.infoItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+}
+
+.infoItem {
+  background-color: rgb(230, 228, 228);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 200;
+}
+
+.infoItem h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.info {
+  text-align: center;
+  margin: 2rem;
+  font-weight: 200;
+}
