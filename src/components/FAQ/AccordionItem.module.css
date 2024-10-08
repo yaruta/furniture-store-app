@@ -1,0 +1,28 @@
+.accordionItem {
+  list-style: none;
+  border-top: 1px solid black;
+}
+
+.accordionItem h3 {
+  font-weight: 400;
+}
+
+.accordionItem h3:hover {
+  color: rgb(245, 11, 7);
+}
+
+.accordionItem p {
+  font-weight: 300;
+}
+
+.open {
+  display: block;
+}
+
+.close {
+  display: none;
+}
+
+.active {
+    color: rgb(245, 11, 7);
+  }
