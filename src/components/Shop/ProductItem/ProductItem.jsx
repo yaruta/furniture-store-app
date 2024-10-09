@@ -6,6 +6,7 @@ import Button from "../../UI/Button";
 import FavItemButton from "./FavItemButton";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
+import { currencyFormatter } from "../../../util/formatting";
 
 function ProductItem({ id, name, collection, price, image, color }) {
   const dispatch = useDispatch();
@@ -36,9 +37,7 @@ function ProductItem({ id, name, collection, price, image, color }) {
             <Link to={`/shop/${id}`}>
               <h2 className={classes.title}>{name}</h2>
             </Link>
-            <p className={classes.price}>{`${(price * 1)
-              .toFixed(2)
-              .replace(".", ",")}€`}</p>
+            <p className={classes.price}>{currencyFormatter.format(price).replace(/\s+/, "") }</p>
           </div>
           <div className={classes.actions}>
             <Button className={classes["add-button"]} onClick={addItemToCart}>

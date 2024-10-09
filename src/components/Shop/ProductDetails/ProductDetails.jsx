@@ -1,4 +1,7 @@
 import classes from "./ProductDetails.module.css";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store/cart-slice";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProduct } from "../../../util/http";
 import { Link, useParams } from "react-router-dom";
@@ -9,9 +12,8 @@ import AddButton from "./AddButton";
 import PreviousIcon from "../../Icons/PreviousIcon";
 import ProductColor from "./ProductColor";
 import ProductQuantity from "./ProductQuantity";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { cartActions } from "../../../store/cart-slice";
+import { currencyFormatter } from "../../../util/formatting";
+
 
 function ProductDetails() {
   const dispatch = useDispatch();
@@ -81,10 +83,8 @@ function ProductDetails() {
             </div>
             <p className={classes.collection}>{data.collection}</p>
             <p className={classes.price}>
-              <span>{`${(data.price * 1)
-                .toFixed(2)
-                .replace(".", ",")}€ `}</span>
-              <span>inkl. MwSt</span>
+              <span>{currencyFormatter.format(data.price).replace(/\s+/, "")}</span>
+              <span>{` inkl. MwSt`}</span>
             </p>
             <form action="">
               <ProductColor colors={data.color} onColor={handleSelectColor} />

@@ -6,6 +6,7 @@ import { uiActions } from "../../store/ui-slice";
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
 import CtaButton from "../UI/CTAButton";
+import { currencyFormatter } from "../../util/formatting";
 
 export default function Cart() {
   const { items, totalPrice } = useSelector((state) => state.cart);
@@ -28,7 +29,7 @@ export default function Cart() {
       </ul>
       <div className={classes.cartTotal}>
         <span>Zwischensumme</span>
-        <span>{totalPrice}</span>
+        <span>{currencyFormatter.format(totalPrice)}</span>
       </div>
       <div className={classes.cartActions}>
         <CtaButton title="Warenkorb anzeigen" path="/" />

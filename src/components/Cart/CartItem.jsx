@@ -2,6 +2,7 @@ import classes from "./CartItem.module.css";
 import cartImage from "../../assets/images/product-1.png";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
+import { currencyFormatter } from "../../util/formatting";
 
 function CartItem({
   id,
@@ -32,8 +33,12 @@ function CartItem({
           </div>
           <p className={classes.collection}>{collection}</p>
           <p className={classes.color}>{`Color: ${color}`}</p>
-          <p className={classes.quantity}>{`Qty: ${quantity}`}</p>
-          <p className={classes.price}>{`${totalPrice}$`}</p>
+          <p
+            className={classes.quantity}
+          >{`${quantity} x ${currencyFormatter.format(price)}`}</p>
+          <p className={classes.price}>
+            {currencyFormatter.format(totalPrice)}
+          </p>
         </div>
       </article>
     </li>
