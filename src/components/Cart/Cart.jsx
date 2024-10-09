@@ -23,7 +23,7 @@ export default function Cart() {
       </div>
       <ul className={classes.cartList}>
         {items.map((cartItem) => (
-          <CartItem key={cartItem.id} {...cartItem}/>
+          <CartItem key={`${cartItem.id}${cartItem.color}`} {...cartItem}/>
         ))}
       </ul>
       <div className={classes.cartTotal}>

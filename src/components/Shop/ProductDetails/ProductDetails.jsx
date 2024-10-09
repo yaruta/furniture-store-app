@@ -7,12 +7,46 @@ import ErrorBlock from "../../UI/ErrorBlock";
 import FavItemButton from "../ProductItem/FavItemButton";
 import AddButton from "./AddButton";
 import PreviousIcon from "../../Icons/PreviousIcon";
+import ProductColor from "./ProductColor";
+import ProductQuantity from "./ProductQuantity";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../store/cart-slice";
+
 function ProductDetails() {
+  const dispatch = useDispatch();
+
   const params = useParams();
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products", { id: params.productId }],
     queryFn: ({ signal, queryKey }) => fetchProduct({ signal, ...queryKey[1] }),
   });
+
+  const [selectedColor, setSelectedColor] = useState();
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  function handleSelectColor(color) {
+    setSelectedColor(color);
+  }
+
+  function handleSelectQuantity(quantity) {
+    setSelectedQuantity(quantity);
+  }
+
+  function handleAddItemToCart() {
+    dispatch(
+      cartActions.addItem({
+        id: data.id,
+        name: data.name,
+        collection: data.collection,
+        price: data.price,
+        image: data.image,
+        quantity: selectedQuantity,
+        color: selectedColor,
+      })
+    );
+  }
+
   let content;
   if (isPending) {
     content = (
@@ -52,35 +86,12 @@ function ProductDetails() {
                 .replace(".", ",")}€ `}</span>
               <span>inkl. MwSt</span>
             </p>
-            <fieldset className={classes.color}>
-              <legend>Farbe</legend>
-              {Object.values(data.color).map((colorItem, index) => {
-                return (
-                  <span key={colorItem}>
-                    <input
-                      type="radio"
-                      id={colorItem}
-                      name="color"
-                      value={colorItem}
-                      defaultChecked={index===0}
-                    />
-                    <label
-                      htmlFor={colorItem}
-                      style={{ backgroundColor: colorItem }}
-                    ></label>
-                  </span>
-                );
-              })}
-            </fieldset>
-            <input
-              type="number"
-              min={1}
-              max={8}
-              defaultValue={1}
-              className={classes.amount}
-            />
+            <form action="">
+              <ProductColor colors={data.color} onColor={handleSelectColor} />
+              <ProductQuantity onQuantity={handleSelectQuantity} />
+            </form>
           </div>
-          <AddButton>Add to Cart</AddButton>
+          <AddButton onClick={handleAddItemToCart}>Add to Cart</AddButton>
           <p className={classes.description}>{data.description}</p>
         </div>
       </>
