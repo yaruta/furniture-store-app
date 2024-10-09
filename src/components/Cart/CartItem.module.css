@@ -1,69 +1,89 @@
 .cartItem {
-    list-style: none;
+  list-style: none;
 }
 
 .cartItem > article {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgb(203, 201, 201);
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(203, 201, 201);
 }
 
 .itemImage {
-    width: 30%;
-    margin-right: 1rem;
+  width: 30%;
+  margin-right: 1rem;
 }
 
 .itemImage img {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .itemInfo {
-    width: 70%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .itemInfo p {
-    margin: 0;
+  margin: 0;
 }
 
-.itemInfo .header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.itemInfo .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .itemInfo .header h3 {
-    margin: 0;
-    font-weight: 400;
+  margin: 0;
+  font-weight: 400;
 }
 
 .itemInfo .header button {
-    border: none;
-    background-color: transparent;
-    color: grey;
-    font-weight: 200;
-    text-align: center;
-    width: 2rem;
+  border: none;
+  background-color: transparent;
+  color: grey;
+  font-weight: 200;
+  text-align: center;
+  width: 2rem;
 }
 
 .itemInfo .header button:hover {
-    color: rgb(245, 11, 7);
+  color: rgb(245, 11, 7);
 }
 
 .itemInfo .collection {
-    font-weight: 300;
+  font-weight: 300;
 }
 
-.itemInfo .color,
-.itemInfo .quantity {
-    font-weight: 300;
-    font-size: .9rem;
-    color: rgb(119, 119, 119);
+.itemInfo .details {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: rgb(119, 119, 119);
+}
+
+.itemInfo .details div {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.quantity {
+  height: 1.5rem;
+  border: none;
+  outline: none;
+  width: 2rem;
+  appearance: none;
+  text-align: center;
 }
 
 .itemInfo .price {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
