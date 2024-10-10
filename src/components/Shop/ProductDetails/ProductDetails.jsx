@@ -1,10 +1,11 @@
 import classes from "./ProductDetails.module.css";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProduct } from "../../../util/http";
 import { Link, useParams } from "react-router-dom";
+import { favoritesActions } from "../../../store/favorites-slice";
 import PageContent from "../../UI/PageContent";
 import ErrorBlock from "../../UI/ErrorBlock";
 import FavItemButton from "../ProductItem/FavItemButton";
@@ -14,11 +15,13 @@ import ProductColor from "./ProductColor";
 import ProductQuantity from "./ProductQuantity";
 import { currencyFormatter } from "../../../util/formatting";
 
-
 function ProductDetails() {
   const dispatch = useDispatch();
 
   const params = useParams();
+  const favoriteItems = useSelector(state => state.favorites.items);
+  const isFav = favoriteItems.find(item => item.id === params.productId) !== undefined;
+
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products", { id: params.productId }],
     queryFn: ({ signal, queryKey }) => fetchProduct({ signal, ...queryKey[1] }),
@@ -45,6 +48,19 @@ function ProductDetails() {
         image: data.image,
         quantity: selectedQuantity,
         color: selectedColor,
+      })
+    );
+  }
+
+  function handleAddToFavorite() {
+    dispatch(
+      favoritesActions.toggleFavorite({
+        id: data.id,
+        name: data.name,
+        collection: data.collection,
+        price: data.price,
+        image: data.image,
+        color: data.color,
       })
     );
   }
@@ -79,11 +95,13 @@ function ProductDetails() {
           <div className={classes["info-section"]}>
             <div className={classes.header}>
               <h2>{data.name}</h2>
-              <FavItemButton isDetails />
+              <FavItemButton onFavorite={handleAddToFavorite} isFav={isFav}/>
             </div>
             <p className={classes.collection}>{data.collection}</p>
             <p className={classes.price}>
-              <span>{currencyFormatter.format(data.price).replace(/\s+/, "")}</span>
+              <span>
+                {currencyFormatter.format(data.price).replace(/\s+/, "")}
+              </span>
               <span>{` inkl. MwSt`}</span>
             </p>
             <form action="">

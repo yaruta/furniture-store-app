@@ -2,39 +2,23 @@ import { useState } from "react";
 
 import classes from "./FavItemButton.module.css";
 import FavoritesIcon from "../../Icons/FavoritesIcon";
+import FavoriteIconChecked from "../../Icons/FavoriteIconChecked";
 
-function FavItemButton({ isDetails = false }) {
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isFavoriteHover, setIsFavoriteHover] = useState(false);
-
-  function handleStartHoverFavorites() {
-    setIsFavoriteHover(true);
-  }
-
-  function handleStopHoverFavorites() {
-    setIsFavoriteHover(false);
-  }
+function FavItemButton({ onFavorite, isFav }) {
+  const [isFavorite, setIsFavorite] = useState(isFav);
 
   function handleClickFavorites() {
     setIsFavorite(!isFavorite);
+    onFavorite();
   }
 
   return (
     <button
-      className={
-        isDetails
-          ? classes["favorites-icon-details"]
-          : classes["favorites-icon"]
-      }
+      className={classes["favorites-icon"]}
       onClick={handleClickFavorites}
-      onMouseEnter={handleStartHoverFavorites}
-      onMouseLeave={handleStopHoverFavorites}
     >
-      <FavoritesIcon
-        color={isDetails ? "black" : isFavorite ? "rgb(230, 6, 2)" : "white"}
-        hover={isFavoriteHover}
-        hoverColor="rgb(230, 6, 2)"
-      />
+      {isFavorite && <FavoriteIconChecked />}
+      {!isFavorite && <FavoritesIcon />}
     </button>
   );
 }

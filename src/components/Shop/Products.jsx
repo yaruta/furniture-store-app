@@ -9,6 +9,7 @@ import ProductsPagesNavigation from "./ProductsPagesNavigation";
 import PageContent from "../UI/PageContent";
 import ErrorBlock from "../UI/ErrorBlock";
 import { useState } from "react";
+import PageTitle from "../UI/PageTitle";
 
 function Products() {
   const { data, isPending, isError, error } = useQuery({
@@ -51,6 +52,7 @@ function Products() {
   }
   return (
     <section>
+      <PageTitle>Produkte</PageTitle>
       <SortingNavigation />
       {content}
       <ProductsPagesNavigation />

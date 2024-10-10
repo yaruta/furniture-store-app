@@ -1,8 +1,8 @@
-import Accordion from "./Accordion";
-import PageContent from "../UI/PageContent";
 import { useQuery } from "@tanstack/react-query";
-import ErrorBlock from "../UI/ErrorBlock";
 import { fetchFAQ } from "../../util/http";
+import ErrorBlock from "../UI/ErrorBlock";
+import Accordion from "./Accordion";
+import PageTitle from "../UI/PageTitle";
 
 export default function FAQ() {
   const { data, isPending, isError, error } = useQuery({
@@ -44,10 +44,11 @@ export default function FAQ() {
       </Accordion>
     );
   }
-  
+
   return (
     <section>
-      <PageContent title="FAQ">{content}</PageContent>
+      <PageTitle>FAQ</PageTitle>
+      {content}
     </section>
   );
 }

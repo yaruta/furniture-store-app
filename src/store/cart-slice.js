@@ -4,7 +4,6 @@ const defaultValue = JSON.parse(localStorage.getItem("cart")) ?? {
   items: [],
   totalPrice: 0,
 };
-console.log(defaultValue);
 
 const cartSlice = createSlice({
   name: "cart",

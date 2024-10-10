@@ -9,6 +9,7 @@ import ProductDetailsPage from "./pages/ProductDetails";
 import AboutPage from "./pages/About";
 import FAQPage from "./pages/FAQPage";
 import ErrorPage from "./pages/Error";
+import FavoritesPage from "./pages/Favorites";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
             element: <ProductDetailsPage />,
           },
         ],
+      },
+      {
+        path: "favorites",
+        element: <FavoritesPage />
       },
       {
         path: "about",

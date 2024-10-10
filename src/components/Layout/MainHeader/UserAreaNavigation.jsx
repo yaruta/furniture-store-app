@@ -1,5 +1,5 @@
 import classes from "./UserAreaNavigation.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import LoginIcon from "../../Icons/LoginIcon";
 import FavoritesIcon from "../../Icons/FavoritesIcon";
@@ -11,14 +11,26 @@ import Bage from "./Bage";
 
 function UserAreaNavigation() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle());
   };
 
-  const items = useSelector((state) => state.cart.items);
-  const itemsAmount = items.reduce((accumulator, currentItem) => accumulator + parseInt(currentItem.quantity), 0);
-  const isItemInCart = itemsAmount > 0;
-  const isItemInFavorites = false;
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartItemsAmount = cartItems.reduce(
+    (accumulator, currentItem) => accumulator + parseInt(currentItem.quantity),
+    0
+  );
+  const isItemInCart = cartItemsAmount > 0;
+
+  const favoriteItems = useSelector((state) => state.favorites.items);
+  const favoriteItemsAmount = favoriteItems.length;
+  const isItemInFavorites = favoriteItemsAmount > 0;
+
+  function handleNavigate() {
+    navigate("/favorites");
+  }
 
   return (
     <nav className={classes.navigation}>
@@ -26,13 +38,13 @@ function UserAreaNavigation() {
         <Button className={classes["nav-button"]}>
           <LoginIcon />
         </Button>
-        <Button className={classes["nav-button"]}>
+        <Button className={classes["nav-button"]} onClick={handleNavigate}>
           <FavoritesIcon />
-          {isItemInFavorites && <Bage />}
+          {isItemInFavorites && <Bage value={favoriteItemsAmount}/>}
         </Button>
         <Button className={classes["nav-button"]} onClick={toggleCartHandler}>
           <CartIcon />
-          {isItemInCart && <Bage value={itemsAmount}/>}
+          {isItemInCart && <Bage value={cartItemsAmount} />}
         </Button>
       </ul>
     </nav>
