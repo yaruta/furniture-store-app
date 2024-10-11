@@ -2,6 +2,14 @@
     text-transform: uppercase;
     text-align: center;
     margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     font-weight: 400;
+}
+
+.content {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 200;
+    margin-bottom: 2rem;
 }

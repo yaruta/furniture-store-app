@@ -45,7 +45,7 @@ function ProductItem({ id, name, collection, price, image, color }) {
               className={classes["add-button"]}
               onClick={handleAddItemToCart}
             >
-              <AddIcon />
+              <AddIcon/>
             </Button>
           </div>
         </div>

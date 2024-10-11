@@ -43,14 +43,23 @@
 }
 
 .actions {
-  width: 10%;
+  width: 10%;;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-button {
   width: 2rem;
   height: 2rem;
-  fill: rgb(40, 39, 39);
+  fill: rgb(115, 113, 113);
+}
+
+.add-button:hover {
+  width: 3rem;
+  height: 3rem;
+}
+
+.add-button svg:hover {
+  fill: rgb(0, 0, 0);
 }

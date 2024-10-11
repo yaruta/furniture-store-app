@@ -47,7 +47,7 @@ export default function FAQ() {
 
   return (
     <section>
-      <PageTitle>FAQ</PageTitle>
+      <PageTitle title="FAQ"/>
       {content}
     </section>
   );

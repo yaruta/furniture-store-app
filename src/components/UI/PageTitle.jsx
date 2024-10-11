@@ -1,7 +1,12 @@
-import classes from './PageTitle.module.css';
+import classes from "./PageTitle.module.css";
 
-function PageTitle({children}) {
-    return <h2 className={classes.pageTitle}>{children}</h2>
+function PageTitle({ title, children }) {
+  return (
+    <>
+      <h2 className={classes.pageTitle}>{title}</h2>
+      <p className={classes.content}>{children}</p>
+    </>
+  );
 }
 
 export default PageTitle;

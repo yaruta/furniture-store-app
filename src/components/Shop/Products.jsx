@@ -8,7 +8,6 @@ import SortingNavigation from "./SortingNavigation";
 import ProductsPagesNavigation from "./ProductsPagesNavigation";
 import PageContent from "../UI/PageContent";
 import ErrorBlock from "../UI/ErrorBlock";
-import { useState } from "react";
 import PageTitle from "../UI/PageTitle";
 
 function Products() {
@@ -19,6 +18,7 @@ function Products() {
   });
 
   let content;
+  let quantity = 0;
 
   if (isPending) {
     content = (
@@ -49,13 +49,23 @@ function Products() {
           ))}
       </ul>
     );
+    quantity = Object.values(data).length;
   }
   return (
     <section>
-      <PageTitle>Produkte</PageTitle>
+      <PageTitle title="Produkte">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+        placerat, erat vitae condimentum euismod, nibh enim vehicula nisi, id
+        malesuada augue nisi a turpis. Proin a orci justo. Donec nec commodo
+        massa. Praesent ac turpis placerat, dictum lectus eget, consectetur
+        metus. Orci varius natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus. Fusce tellus dui, volutpat ac ultrices ac,
+        aliquam vel enim. Maecenas iaculis diam ligula, a viverra leo feugiat
+        sed.
+      </PageTitle>
       <SortingNavigation />
       {content}
-      <ProductsPagesNavigation />
+      <ProductsPagesNavigation quantity={quantity} />
     </section>
   );
 }

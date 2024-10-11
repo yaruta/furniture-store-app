@@ -3,7 +3,6 @@ import DesignIcon from "../Icons/DesignIcon";
 import BuildIcon from "../Icons/BuildIcon";
 import PaymentIcon from "../Icons/PaymentIcon";
 import DeliveryIcon from "../Icons/DeliveryIcon";
-import PageTitle from "../UI/PageTitle";
 
 const INFO = [
   {
@@ -35,7 +34,6 @@ const INFO = [
 function InfoSection() {
   return (
     <article className={classes.infoSection}>
-      <PageTitle>Some header</PageTitle>
       <div className={classes.infoItems}>
         {INFO.map((infoItem) => (
           <div key={infoItem.title} className={classes.infoItem}>

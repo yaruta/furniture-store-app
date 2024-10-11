@@ -1,9 +1,9 @@
 import classes from './ProductsPagesNavigation.module.css';
 import Button from '../UI/Button';
 
-function ProductsPagesNavigation() {
+function ProductsPagesNavigation({quantity}) {
   return (
-    <div>
+    <div className={classes.navigation}>
       <ul className={classes['page-list']}>
         <li>
           <Button>1</Button>
@@ -15,6 +15,7 @@ function ProductsPagesNavigation() {
           <Button>3</Button>
         </li>
       </ul>
+      <p>{quantity} Artikeln</p>
     </div>
   );
 }
