@@ -1,9 +1,7 @@
 import classes from "./CartItem.module.css";
-import cartImage from "../../assets/images/product-1.png";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { currencyFormatter } from "../../util/formatting";
-import { useState } from "react";
 
 function CartItem({
   id,
@@ -40,7 +38,7 @@ function CartItem({
           <p className={classes.collection}>{collection}</p>
           <div className={classes.details}>
             <div style={{ backgroundColor: `${color}` }} />
-            <select onChange={handleUpdateQuantity} className={classes.quantity}>
+            <select name="quantity" onChange={handleUpdateQuantity} className={classes.quantity}>
               <option defaultChecked>{quantity}</option>
               <option value="1">1</option>
               <option value="2">2</option>

@@ -1,21 +1,32 @@
-import classes from "./Products.module.css";
-
 import { useQuery } from "@tanstack/react-query";
 import { fetchShopProducts } from "../../util/http";
+import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
-import ProductItem from "./ProductItem/ProductItem";
 import SortingNavigation from "./SortingNavigation";
 import ProductsPagesNavigation from "./ProductsPagesNavigation";
 import PageContent from "../UI/PageContent";
 import ErrorBlock from "../UI/ErrorBlock";
 import PageTitle from "../UI/PageTitle";
+import SortedProducts from "./ProductTypes/SortedProducts";
+
+const PRODUCTS_PAGE_DESCRIPTION =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat, erat vitae condimentum euismod, nibh enim vehicula nisi, id malesuada augue nisi a turpis. Proin a orci justo. Donec nec commodo massa. Praesent ac turpis placerat, dictum lectus eget, consectetur metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce tellus dui, volutpat ac ultrices ac,aliquam vel enim. Maecenas iaculis diam ligula, a viverra leo feugiat sed.";
 
 function Products() {
+  const [searchParams] = useSearchParams();
+  const filterType = searchParams.get("type");
+  const [sortType, setSortType] = useState("new");
+
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: ({ signal }) => fetchShopProducts({ signal }),
     staleTime: 5000,
   });
+
+  function handleSort(type) {
+    setSortType(type);
+  }
 
   let content;
   let quantity = 0;
@@ -41,29 +52,18 @@ function Products() {
   }
 
   if (data && !isError) {
-    content = (
-      <ul id={classes.products}>
-        {!isPending &&
-          Object.values(data).map((product) => (
-            <ProductItem key={product.id} {...product} />
-          ))}
-      </ul>
-    );
-    quantity = Object.values(data).length;
+    let products = Object.values(data);
+    if (filterType) {
+      products = products.filter((product) => product.type === filterType);
+    }
+    content = <SortedProducts products={products} sortType={sortType} />;
+    quantity = products.length;
   }
+  
   return (
     <section>
-      <PageTitle title="Produkte">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-        placerat, erat vitae condimentum euismod, nibh enim vehicula nisi, id
-        malesuada augue nisi a turpis. Proin a orci justo. Donec nec commodo
-        massa. Praesent ac turpis placerat, dictum lectus eget, consectetur
-        metus. Orci varius natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus. Fusce tellus dui, volutpat ac ultrices ac,
-        aliquam vel enim. Maecenas iaculis diam ligula, a viverra leo feugiat
-        sed.
-      </PageTitle>
-      <SortingNavigation />
+      <PageTitle title="Produkte">{PRODUCTS_PAGE_DESCRIPTION}</PageTitle>
+      <SortingNavigation onSort={handleSort} />
       {content}
       <ProductsPagesNavigation quantity={quantity} />
     </section>
