@@ -1,23 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
 import classes from "./HeroSection.module.css";
-import { accItems } from "../../store/hero";
 
 import HeroItem from "./HeroItem";
 import Button from "../UI/Button";
 import PreviousIcon from "../Icons/PreviousIcon";
-import NextIcon from '../Icons/NextIcon';
+import NextIcon from "../Icons/NextIcon";
 
-function HeroSection() {
-  const defaultValue = {
-    image: accItems[0].image,
-    collection: accItems[0].collection,
-    title: accItems[0].title,
-    description: accItems[0].description,
-    index: 0,
-  };
-  const [selectedImage, setSelectedImage] = useState(defaultValue);
-  const accLength = accItems.length;
+function HeroSection({ data }) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const hero = Object.values(data);
+  const heroLength = hero.length;
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -27,56 +20,29 @@ function HeroSection() {
     return () => {
       clearInterval(timeout);
     };
-  }, [selectedImage]);
+  }, [selectedIndex]);
 
   function handlePrevious() {
-    const newIndex = selectedImage.index - 1;
-    const lastIndex = accLength - 1;
-    setSelectedImage(
-      newIndex >= 0
-        ? {
-            image: accItems[newIndex].image,
-            collection: accItems[newIndex].collection,
-            index: newIndex,
-            title: accItems[newIndex].title,
-            description: accItems[newIndex].description,
-          }
-        : {
-            image: accItems[lastIndex].image,
-            collection: accItems[lastIndex].collection,
-            index: lastIndex,
-            title: accItems[lastIndex].title,
-            description: accItems[lastIndex].description,
-          }
-    );
+    const newIndex = selectedIndex - 1;
+    const lastIndex = heroLength - 1;
+    setSelectedIndex(newIndex >= 0 ? newIndex : lastIndex);
   }
 
   function handleNext() {
-    const newIndex = selectedImage.index + 1;
-    setSelectedImage(
-      newIndex >= accLength
-        ? {
-            image: accItems[0].image,
-            collection: accItems[0].collection,
-            index: 0,
-            title: accItems[0].title,
-            description: accItems[0].description,
-          }
-        : {
-            image: accItems[newIndex].image,
-            collection: accItems[newIndex].collection,
-            index: newIndex,
-            title: accItems[newIndex].title,
-            description: accItems[newIndex].description,
-          }
-    );
+    const newIndex = selectedIndex + 1;
+    const arrLength = heroLength;
+    setSelectedIndex(newIndex >= arrLength ? 0 : newIndex);
   }
 
   return (
     <section className={classes.hero}>
-      <Button onClick={handlePrevious} className={classes["hero-button"]}><PreviousIcon/></Button>
-      <HeroItem {...selectedImage} />
-      <Button onClick={handleNext} className={classes["hero-button"]}><NextIcon /></Button>
+      <Button onClick={handlePrevious} className={classes["hero-button"]}>
+        <PreviousIcon />
+      </Button>
+      <HeroItem {...hero[selectedIndex]} />
+      <Button onClick={handleNext} className={classes["hero-button"]}>
+        <NextIcon />
+      </Button>
     </section>
   );
 }

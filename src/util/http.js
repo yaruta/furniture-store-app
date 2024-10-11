@@ -44,3 +44,17 @@ export async function fetchFAQ({signal}) {
     const data = await response.json();
     return data;
 }
+
+export async function fetchHero({signal}) {
+    const response = await fetch('https://furniture-shop-md-default-rtdb.europe-west1.firebasedatabase.app/hero.json', {signal});
+
+    if(!response.ok) {
+        const error = new Error("An error occured while fetching the hero");
+        error.code = error.status;
+        error.info = await response.json();
+        throw error;
+    }
+
+    const data = await response.json();
+    return data;
+}

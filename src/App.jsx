@@ -3,7 +3,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./util/http";
 
 import RootLayout from "./pages/RootLayout";
-import MainPage from "./pages/Home";
+import HomePage, { loader as heroLoader } from "./pages/Home";
 import ProductsPage from "./pages/Products";
 import ProductDetailsPage from "./pages/ProductDetails";
 import AboutPage from "./pages/About";
@@ -19,7 +19,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <MainPage />,
+        element: <HomePage />,
+        loader: heroLoader,
       },
       {
         path: "shop",
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       },
       {
         path: "favorites",
-        element: <FavoritesPage />
+        element: <FavoritesPage />,
       },
       {
         path: "about",
