@@ -1,22 +1,45 @@
-import classes from './ProductsPagesNavigation.module.css';
-import Button from '../UI/Button';
+import classes from "./ProductsPagesNavigation.module.css";
 
-function ProductsPagesNavigation({quantity}) {
-  const NUMBER_OF_PRODUCTS_PER_PAGE = 6;
-  const numberOfPages = Math.ceil(quantity / NUMBER_OF_PRODUCTS_PER_PAGE);
+function ProductsPagesNavigation({
+  numberOfProductsPerPage = 6,
+  onPage,
+  quantity,
+  activePage,
+}) {
+  const numberOfPages = Math.ceil(quantity / numberOfProductsPerPage);
+  const pages = [];
+  for (let i = 0; i < numberOfPages; i++) {
+    pages.push(i + 1);
+  }
+
+  let content = (
+    <>
+      {activePage !== 1 && (
+        <li>
+          <button onClick={() => onPage(activePage - 1)}>{"<"}</button>
+        </li>
+      )}
+      {pages.map((page) => (
+        <li key={page}>
+          <button
+            onClick={() => onPage(page)}
+            className={activePage === page ? classes.active : undefined}
+          >
+            {page}
+          </button>
+        </li>
+      ))}
+      {activePage !== pages.length && (
+        <li>
+          <button onClick={() => onPage(activePage + 1)}>{">"}</button>
+        </li>
+      )}
+    </>
+  );
+
   return (
     <div className={classes.navigation}>
-      <ul className={classes['page-list']}>
-        <li>
-          <Button>1</Button>
-        </li>
-        <li>
-          <Button>2</Button>
-        </li>
-        <li>
-          <Button>3</Button>
-        </li>
-      </ul>
+      <ul className={classes["page-list"]}>{content}</ul>
       <p>{quantity} Artikeln</p>
     </div>
   );

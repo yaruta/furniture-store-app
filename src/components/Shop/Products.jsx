@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetchShopProducts } from "../../util/http";
 import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import SortingNavigation from "./SortingNavigation";
 import ProductsPagesNavigation from "./ProductsPagesNavigation";
@@ -18,6 +18,13 @@ function Products() {
   const filterType = searchParams.get("type");
   const [sortType, setSortType] = useState("new");
 
+  const [pageNumber, setPageNumber] = useState(1);
+  const [numberOfProductsPerPage, setNumberOfProductsPerPage] = useState(6);
+
+  useEffect(() => {
+    setPageNumber(1);
+  }, [filterType, sortType]);
+
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: ({ signal }) => fetchShopProducts({ signal }),
@@ -26,6 +33,10 @@ function Products() {
 
   function handleSort(type) {
     setSortType(type);
+  }
+
+  function handleGrid(amountPerPage) {
+    setNumberOfProductsPerPage(amountPerPage);
   }
 
   let content;
@@ -56,16 +67,28 @@ function Products() {
     if (filterType) {
       products = products.filter((product) => product.type === filterType);
     }
-    content = <SortedProducts products={products} sortType={sortType} />;
+    content = (
+      <SortedProducts
+        products={products}
+        sortType={sortType}
+        startItem={(pageNumber - 1) * numberOfProductsPerPage}
+        numberOfProductsPerPage={numberOfProductsPerPage}
+      />
+    );
     quantity = products.length;
   }
-  
+
   return (
     <section>
       <PageTitle title="Produkte">{PRODUCTS_PAGE_DESCRIPTION}</PageTitle>
-      <SortingNavigation onSort={handleSort} />
+      <SortingNavigation onSort={handleSort} onGrid={handleGrid}/>
       {content}
-      <ProductsPagesNavigation quantity={quantity} />
+      <ProductsPagesNavigation
+        onPage={(page) => setPageNumber(page)}
+        quantity={quantity}
+        numberOfProductsPerPage={numberOfProductsPerPage}
+        activePage={pageNumber}
+      />
     </section>
   );
 }

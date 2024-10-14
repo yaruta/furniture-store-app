@@ -12,6 +12,7 @@
 .sort-products {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .sort-products select {
@@ -22,8 +23,20 @@
   color: grey;
   padding: 0 1rem .2rem 1rem;
   outline: none;
+  margin-right: 3rem;
 }
 
 .sort-products option {
     font-weight: 200;
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    padding-top: .2rem;
+}
+
+.grid button {
+    background-color: transparent;
+    border: none;
 }

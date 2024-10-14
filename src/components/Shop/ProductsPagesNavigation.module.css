@@ -1,13 +1,40 @@
 .navigation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+}
+
+.navigation p {
+  margin: 0;
+  font-weight: 200;
 }
 
 .page-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-left: 0;
+  margin: 1rem 0 ;
+}
+
+.page-list button {
+    background-color: transparent;
+    border: none
+}
+
+.page-list button:hover {
+    color: rgb(245, 11, 7);
+}
+
+.page-list .active {
+    font-weight: 600;
+    color: rgb(245, 11, 7);
 }
