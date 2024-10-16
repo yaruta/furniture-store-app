@@ -1,0 +1,29 @@
+.totalPrice {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.priceLine {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+
+.priceLine span:first-of-type {
+  font-weight: 200;
+}
+
+.priceLine span:last-of-type {
+  font-weight: 400;
+}
+
+
+.priceLine:last-of-type{
+    border-top: 1px solid rgb(218, 218, 218);
+    padding-top: 2rem;
+}
+
+
+.priceLine:last-of-type span:first-of-type{
+    font-weight: 400;
+}

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./util/http";
+import { useEffect } from "react";
 
 import RootLayout from "./pages/RootLayout";
 import HomePage, { loader as heroLoader } from "./pages/Home";
@@ -10,6 +11,8 @@ import AboutPage from "./pages/About";
 import FAQPage from "./pages/FAQPage";
 import ErrorPage from "./pages/Error";
 import FavoritesPage from "./pages/Favorites";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 const router = createBrowserRouter([
   {
@@ -47,11 +50,27 @@ const router = createBrowserRouter([
         path: "faq",
         element: <FAQPage />,
       },
+      {
+        path: "cart",
+        element: <CartPage />
+      },
+      {
+        path: "checkout",
+        element: <CheckoutPage />,
+      }
     ],
   },
 ]);
 
 function App() {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      localStorage.removeItem("cart");
+      localStorage.removeItem("favorites");
+    }, 1000*60*60*24*7);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />

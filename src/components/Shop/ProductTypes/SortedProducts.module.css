@@ -11,9 +11,10 @@
 }
 
 .prodX4 {
-    grid-template-columns: repeat(auto-fit, minmax(30rem, .5rem));
+    /* grid-template-columns: repeat(auto-fit, minmax(30rem, .5rem)); */
+    grid-template-columns: 1fr 1fr;
 }
 
 .prodX6 {
-    grid-template-columns: repeat(auto-fit, minmax(20rem, .3333fr));
+    grid-template-columns: 1fr 1fr 1fr;
 }

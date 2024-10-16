@@ -1,0 +1,11 @@
+.form {
+    width: 60%;
+}
+
+.formLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}

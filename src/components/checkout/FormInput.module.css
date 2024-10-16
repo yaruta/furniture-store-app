@@ -1,0 +1,29 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formInput input {
+  line-height: 2rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  outline: none;
+  border: 1px solid rgb(203, 203, 203);
+}
+
+.error input {
+  border: 1px solid red;
+}
+
+.error span {
+  display: block;
+  width: 100%;
+  color: red;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.disabled {
+  display: none;
+}

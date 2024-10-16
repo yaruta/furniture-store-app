@@ -23,7 +23,7 @@ function Products() {
 
   useEffect(() => {
     setPageNumber(1);
-  }, [filterType, sortType]);
+  }, [filterType, sortType, numberOfProductsPerPage]);
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],

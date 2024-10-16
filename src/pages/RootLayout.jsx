@@ -8,7 +8,7 @@ function RootLayout() {
   return (
     <>
       <MainHeader />
-      {showCart && <Cart />}
+      {showCart && <Cart modal />}
       <main>
         <Outlet />
       </main>

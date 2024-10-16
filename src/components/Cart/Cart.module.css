@@ -1,59 +1,97 @@
 .cartHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgb(203, 201, 201);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(203, 201, 201);
 }
 
 .cartHeader h2 {
-    text-transform: uppercase;
-    font-weight: 400;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
 .cartHeader button {
-    background-color: transparent;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-align: center;
-    width: 2rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+  width: 2rem;
+  outline: none;
 }
 
 .cartHeader button:hover {
-    color: rgb(245, 11, 7);
+  color: rgb(245, 11, 7);
 }
 
 .cartList {
-    padding-left: 0;
-    margin-top: 0;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.cartList .empty {
+  font-weight: 200;
+  border-bottom: 1px solid rgb(203, 201, 201);
+  padding-bottom: 3rem;
+  padding-top: 2rem;
 }
 
 .cartTotal {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid rgb(203, 201, 201);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgb(203, 201, 201);
 }
 
 .cartTotal span:first-of-type {
-    font-weight: 200;
+  font-weight: 200;
 }
 
 .cartTotal span:last-of-type {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .cartActions {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.cartButton{
-    background-color: rgb(245, 11, 7);
-    color: white;
+.cartButton {
+  background-color: rgb(245, 11, 7);
+  color: white;
 }
 
+.cartFullscreen {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.productsInfo {
+  width: 60%;
+}
+
+.generalInfo {
+  width: 40%;
+}
+
+.cartFullscreen .cartTotal {
+  margin-top: 1rem;
+}
+
+.additionalInfo {
+  font-weight: 200;
+  font-size: 0.8rem;
+}
+
+.actButton {
+    min-width: 100%;
+}
