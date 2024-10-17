@@ -1,0 +1,38 @@
+.pickupType {
+  list-style: none;
+  border: 1px solid grey;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 200;
+}
+
+.pickupType input {
+  display: none;
+}
+
+.pickupType label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+
+}
+
+.pickupType label > span:last-of-type{
+    font-weight: 400;
+}
+
+.pickupType:hover {
+  cursor: pointer;
+}
+
+.pickupType p {
+    margin: 0;
+    font-size: .8rem;
+}
+
+.pickupType:has(input:checked) {
+  border: 1px solid black;
+}
+

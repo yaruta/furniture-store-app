@@ -1,28 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./UserDataForm.module.css";
 import FormInput from "./FormInput";
 import { isValidInput } from "../../util/validating";
 import { Form } from "react-router-dom";
 
-function UserDataForm() {
+function UserDataForm({ onError }) {
   const [isError, setIsError] = useState({
-    firstName: false,
-    lastName: false,
-    street: false,
-    houseNumber: false,
-    postcode: false,
-    city: false,
+    firstName: "",
+    lastName: "",
+    street: "",
+    houseNumber: "",
+    postcode: "",
+    city: "",
     email: false,
   });
 
+  useEffect(() => {
+    const errors = Object.values(isError).filter((error) => error === true || error === "");
+    if (errors.length > 0) {
+      onError(errors);
+    } else {
+      onError(null);
+    }
+  }, [isError]);
+
   function handleChange(event) {
-    setIsError((prevState) => {
-      return { ...prevState, [event.target.name]: false };
-    });
-    const isValid = isValidInput(event.target.value, event.target.name);
+    const value = event.target.value;
+    const name = event.target.name;
+    const isValid = isValidInput(value, name);
     if (!isValid) {
       setIsError((prevState) => {
-        return { ...prevState, [event.target.name]: true };
+        return { ...prevState, [name]: true };
+      });
+    } else {
+      setIsError((prevState) => {
+        return { ...prevState, [name]: false };
       });
     }
   }
@@ -39,6 +51,7 @@ function UserDataForm() {
           errorMessage="Der Vorname sollte 2-16 Zeichen lang sein und darf keine Zahlen oder
        Sonderzeichen enthalten."
           isError={isError.firstName}
+          required
         />
         <FormInput
           label="Nachname"
@@ -49,6 +62,7 @@ function UserDataForm() {
           errorMessage="Der Nachname sollte 2-16 Zeichen lang sein und darf keine Zahlen
        oder Sonderzeichen enthalten."
           isError={isError.lastName}
+          required
         />
       </div>
       <div className={classes.formLine}>
@@ -60,6 +74,7 @@ function UserDataForm() {
           onChange={handleChange}
           errorMessage="Die Straße sollte mindestens 3 Zeichen lang sein."
           isError={isError.street}
+          required
         />
         <FormInput
           label="Hausnummer"
@@ -69,6 +84,7 @@ function UserDataForm() {
           onChange={handleChange}
           errorMessage="Bitte geben Sie eine gültige Hausnummer ein."
           isError={isError.houseNumber}
+          required
         />
       </div>
       <div className={classes.formLine}>
@@ -80,6 +96,7 @@ function UserDataForm() {
           onChange={handleChange}
           errorMessage="Bitte geben Sie eine gültige Postleitzahl ein."
           isError={isError.postcode}
+          required
         />
         <FormInput
           label="Stadt"
@@ -89,6 +106,7 @@ function UserDataForm() {
           onChange={handleChange}
           errorMessage="Die Stadt sollte mindestens 3 Zeichen lang sein."
           isError={isError.city}
+          required
         />
       </div>
       <div className={classes.formLine}>
@@ -100,6 +118,7 @@ function UserDataForm() {
           onChange={handleChange}
           errorMessage="Bitte geben Sie eine gültige E-Mail ein."
           isError={false}
+          required
         />
       </div>
     </Form>

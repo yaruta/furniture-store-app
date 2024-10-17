@@ -1,0 +1,28 @@
+.deliveryType {
+  list-style: none;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.deliveryType input {
+  display: none;
+}
+
+.deliveryType label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 200;
+}
+
+.deliveryType:hover {
+  cursor: pointer;
+}
+
+.deliveryType:has(input:checked) {
+  border: 2px solid black;
+}
+
+.deliveryType input:checked + label {
+  font-weight: 400;
+}

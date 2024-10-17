@@ -18,7 +18,9 @@ function FormInput(props) {
     >
       <label htmlFor={id}>{label}</label>
       <input id={id} {...inputProps} onBlur={handleBlur} />
-      <span className={blured && isError ? undefined : classes.disabled}>
+      <span
+        className={blured && isError ? undefined : classes.disabled}
+      >
         {errorMessage}
       </span>
     </div>

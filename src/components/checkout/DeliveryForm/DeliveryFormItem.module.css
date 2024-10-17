@@ -1,0 +1,24 @@
+.delivery {
+  list-style: none;
+  border: 1px solid black;
+  padding: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.delivery label {
+  font-weight: 200;
+  width: 90%;
+}
+
+.delivery:hover {
+  cursor: pointer;
+}
+
+.delivery:has(input:checked) {
+  border: 2px solid black;
+}
+
+.delivery input:checked + label {
+  font-weight: 400;
+}

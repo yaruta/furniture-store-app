@@ -17,6 +17,8 @@ export function isValidInput(value, type) {
     isValid = postcodeReg.test(value);
   } else if (type === "city") {
     isValid = cityReg.test(value);
+  } else if (type === "email") {
+    isValid = true;
   }
 
   return isValid;
