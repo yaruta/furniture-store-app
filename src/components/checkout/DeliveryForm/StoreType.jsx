@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import Header from "../../UI/Header";
 import StoreAddressItem from "./StoreAddressItem";
 
-function StoreType() {
+function StoreType({ onPickup }) {
+  useEffect(() => {
+    onPickup(0);
+  }, []);
+  
   return (
     <div>
       <Header styleType="type2">Standorte der Geschäfte</Header>

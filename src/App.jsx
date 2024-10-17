@@ -12,7 +12,11 @@ import FAQPage from "./pages/FAQPage";
 import ErrorPage from "./pages/Error";
 import FavoritesPage from "./pages/Favorites";
 import CartPage from "./pages/CartPage";
-import CheckoutPage from "./pages/CheckoutPage";
+import CheckoutRoot from "./pages/checkout/CheckoutRoot";
+import UserFormPage from "./pages/checkout/UserFormPage";
+import DeliveryFormPage from "./pages/checkout/DeliveryFormPage";
+import PaymentFormPage from "./pages/checkout/PaymentFormPage";
+import SummaryPage from "./pages/checkout/SummaryPage";
 
 const router = createBrowserRouter([
   {
@@ -56,7 +60,25 @@ const router = createBrowserRouter([
       },
       {
         path: "checkout",
-        element: <CheckoutPage />,
+        element: <CheckoutRoot />,
+        children: [
+          {
+            path: "userinfo",
+            element: <UserFormPage />
+          },
+          {
+            path: "delivery",
+            element: <DeliveryFormPage />
+          },
+          {
+            path: "payment",
+            element: <PaymentFormPage />
+          },
+          {
+            path: "summary",
+            element: <SummaryPage />
+          }
+        ]
       }
     ],
   },

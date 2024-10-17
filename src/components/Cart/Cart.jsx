@@ -52,7 +52,7 @@ export default function Cart({ modal }) {
               path="/cart"
               onClose={handleCloseCart}
             />
-            <CtaButton title="Zur Kasse" path="/checkout" typ2 />
+            <CtaButton title="Zur Kasse" path="/checkout/userinfo" typ2 />
           </div>
         </Modal>
       )}
@@ -68,7 +68,7 @@ export default function Cart({ modal }) {
               </div>
               <p className={classes.additionalInfo}>Versand wird an der Kasse berechnet*</p>
               <div className={classes.cartActions}>
-                <CtaButton title="Zur Kasse" path="/checkout" typ2 className={classes.actButton}/>
+                <CtaButton title="Zur Kasse" path="/checkout/userinfo" typ2 className={classes.actButton}/>
               </div>
             </div>
           </section>

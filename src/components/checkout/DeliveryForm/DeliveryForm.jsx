@@ -1,5 +1,5 @@
 import classes from "./DeliveryForm.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DeliveryType from "./DeliveryType";
 import Header from "../../UI/Header";
 import StoreType from "./StoreType";
@@ -10,12 +10,23 @@ import { checkoutActions } from "../../../store/checkout-slice";
 function DeliveryForm() {
   const dispatch = useDispatch();
   const [delivery, setDelivery] = useState("pickup");
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
+
+  useEffect(() => {
+    dispatch(
+      checkoutActions.addDelivery({
+        delivery: { type: delivery, deliveryPrice: deliveryPrice },
+      })
+    );
+  }, [delivery, deliveryPrice]);
 
   function handleDeliveryTypeChange(event) {
     setDelivery(event.target.value);
-    dispatch(
-      checkoutActions.addDelivery({ delivery: { type: event.target.value } })
-    );
+  }
+
+  function handleChangeDeliveryPrice(price) {
+    console.log(price);
+    setDeliveryPrice(price);
   }
 
   return (
@@ -36,8 +47,8 @@ function DeliveryForm() {
           defaultChecked
         />
       </form>
-      {delivery === "delivery" && <DeliveryType />}
-      {delivery === "pickup" && <StoreType />}
+      {delivery === "delivery" && <DeliveryType onDelivery={handleChangeDeliveryPrice}/>}
+      {delivery === "pickup" && <StoreType onPickup={handleChangeDeliveryPrice}/>}
     </section>
   );
 }

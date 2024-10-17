@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import classes from "./UserDataForm.module.css";
 import FormInput from "./FormInput";
-import { isValidInput } from "../../util/validating";
+import { isValidInput } from "../../../util/validating";
 import { Form } from "react-router-dom";
 
 function UserDataForm({ onError }) {

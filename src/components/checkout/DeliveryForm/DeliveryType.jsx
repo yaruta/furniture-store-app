@@ -1,7 +1,20 @@
+import { useEffect, useState } from "react";
 import Header from "../../UI/Header";
 import DeliveryTypeItem from "./DeliveryTypeItem";
 
-function DeliveryType() {
+function DeliveryType({ onDelivery }) {
+  const priceStandart = 3.95;
+  const priceFast = 6.95;
+  const [price, setPrice] = useState(priceStandart);
+
+  useEffect(() => {
+    onDelivery(price);
+  }, [price]);
+
+  function handleClick(price) {
+    setPrice(price);
+  }
+
   return (
     <div>
       <Header styleType="type2">Versandtart</Header>
@@ -9,10 +22,16 @@ function DeliveryType() {
         <DeliveryTypeItem
           id="standart"
           type="Standardlieferung"
-          price={3.95}
+          price={priceStandart}
+          onClick={() => handleClick(priceStandart)}
           defaultChecked
         />
-        <DeliveryTypeItem id="fast" type="Schnelle lieferung" price={6.95} />
+        <DeliveryTypeItem
+          id="fast"
+          type="Schnelle lieferung"
+          price={priceFast}
+          onClick={() => handleClick(priceFast)}
+        />
       </div>
     </div>
   );

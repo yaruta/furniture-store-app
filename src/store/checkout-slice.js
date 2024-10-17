@@ -12,9 +12,6 @@ const checkoutSlice = createSlice({
       state.delivery = {...action.payload.delivery};
       console.log(state.delivery);
     },
-    // removeUserData(state) {
-    //   state.userdata = null;
-    // },
   },
 });
 
