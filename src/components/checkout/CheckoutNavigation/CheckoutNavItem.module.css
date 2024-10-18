@@ -24,10 +24,16 @@
 
 .active .itemNumber {
   font-weight: 400;
+  background-color: white;
   color: rgb(221, 4, 4);
   box-shadow: 1px 1px 3px rgba(221, 4, 4, 0.4);
 }
 
 .active span:last-of-type {
   color: rgb(221, 4, 4);
+}
+
+.checked {
+    background-color: rgb(221, 4, 4);
+    color: white;
 }

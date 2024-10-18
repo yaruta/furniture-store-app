@@ -1,7 +1,7 @@
+import SummarySection from "../../components/checkout/Summary/SummarySection";
 
 function SummaryPage() {
-    return <p>Summary</p>;
-  }
-  
-  export default SummaryPage;
-  
+  return <SummarySection />;
+}
+
+export default SummaryPage;

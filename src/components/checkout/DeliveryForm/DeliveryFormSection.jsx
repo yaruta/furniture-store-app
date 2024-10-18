@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import DeliveryForm from "./DeliveryForm";
 import Section from "../../UI/Section";
+import Header from "../../UI/Header";
 import CheckoutSidebar from "../CheckoutSidebar";
 
 function DeliveryFormSection() {
   const navigate = useNavigate();
-
 
   function handleBack() {
     navigate("/checkout/userinfo");
@@ -20,6 +20,7 @@ function DeliveryFormSection() {
   return (
     <Section>
       <div className={classes.formsSection}>
+        <Header>Lieferung</Header>
         <DeliveryForm />
       </div>
       <CheckoutSidebar

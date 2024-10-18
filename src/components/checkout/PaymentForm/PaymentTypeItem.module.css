@@ -1,0 +1,27 @@
+.paymentType {
+  list-style: none;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: .5rem;
+}
+
+.paymentType label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 200;
+}
+
+.paymentType:hover {
+  cursor: pointer;
+}
+
+.paymentType:has(input:checked) {
+  border: 2px solid black;
+}
+
+.paymentType input:checked + label {
+  font-weight: 400;
+}

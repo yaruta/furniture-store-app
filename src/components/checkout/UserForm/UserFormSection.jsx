@@ -1,21 +1,21 @@
 import classes from "./UserFormSection.module.css";
 
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { checkoutActions } from "../../../store/checkout-slice";
 import UserDataForm from "./UserDataForm";
-import TotalPrice from "../TotalPrice";
 import TextButton from "../../UI/TextButton";
 import Divider from "../../UI/Divider";
 import Header from "../../UI/Header";
-import { useNavigate } from "react-router-dom";
 import Section from "../../UI/Section";
 import CheckoutSidebar from "../CheckoutSidebar";
 
 function UserFormSection() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [asGast, setAsGast] = useState(false);
+  const { userdata } = useSelector((state) => state.checkout);
+  const [asGast, setAsGast] = useState(userdata ? true : false);
   const [formErrors, setFormErrors] = useState(null);
 
   function handleSubmit(event) {

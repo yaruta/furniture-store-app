@@ -1,16 +1,15 @@
 import classes from "./Cart.module.css";
 
-import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { uiActions } from "../../store/ui-slice";
+import { currencyFormatter } from "../../util/formatting";
 
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
 import CtaButton from "../UI/CTAButton";
-import { currencyFormatter } from "../../util/formatting";
 import PageTitle from "../UI/PageTitle";
 import CheckoutSidebar from "../checkout/CheckoutSidebar";
-import { useNavigate } from "react-router-dom";
 
 export default function Cart({ modal }) {
   const navigate = useNavigate();
@@ -62,8 +61,14 @@ export default function Cart({ modal }) {
               title="Warenkorb anzeigen"
               path="/cart"
               onClose={handleCloseCart}
+              disabled={items.length === 0}
             />
-            <CtaButton title="Zur Kasse" path="/checkout/userinfo" typ2 />
+            <CtaButton
+              title="Zur Kasse"
+              path="/checkout/userinfo"
+              typ2
+              disabled={items.length === 0}
+            />
           </div>
         </Modal>
       )}
@@ -76,6 +81,7 @@ export default function Cart({ modal }) {
               onNext={handleNext}
               onBack={handleBack}
               backTitle="Zurück zum Shop"
+              disabled={items.length === 0}
             />
           </section>
         </>

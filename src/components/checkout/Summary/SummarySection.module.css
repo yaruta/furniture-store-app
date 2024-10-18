@@ -1,0 +1,14 @@
+.summary {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.actions {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+  }

@@ -4,6 +4,7 @@ export function isValidInput(value, type) {
   const houseNumberReg = RegExp(/^[0-9]{1,4}$/);
   const postcodeReg = RegExp(/^[0-9]{5}$/);
   const cityReg = RegExp(/^[A-Za-z/-]{3,20}$/);
+  const emailReg = RegExp(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/);
 
   let isValid;
   
@@ -18,7 +19,7 @@ export function isValidInput(value, type) {
   } else if (type === "city") {
     isValid = cityReg.test(value);
   } else if (type === "email") {
-    isValid = true;
+    isValid = emailReg.test(value);
   }
 
   return isValid;
