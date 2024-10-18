@@ -9,13 +9,24 @@ import CartItem from "./CartItem";
 import CtaButton from "../UI/CTAButton";
 import { currencyFormatter } from "../../util/formatting";
 import PageTitle from "../UI/PageTitle";
+import CheckoutSidebar from "../checkout/CheckoutSidebar";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart({ modal }) {
+  const navigate = useNavigate();
   const { items, totalPrice } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   function handleCloseCart() {
     dispatch(uiActions.toggle());
+  }
+
+  function handleNext() {
+    navigate("/checkout/userinfo");
+  }
+
+  function handleBack() {
+    navigate("/shop");
   }
 
   let content;
@@ -61,16 +72,11 @@ export default function Cart({ modal }) {
           <PageTitle title="Ihr Warenkorb" />
           <section className={classes.cartFullscreen}>
             <div className={classes.productsInfo}>{content}</div>
-            <div className={classes.generalInfo}>
-              <div className={classes.cartTotal}>
-                <span>Zwischensumme</span>
-                <span>{currencyFormatter.format(totalPrice)}</span>
-              </div>
-              <p className={classes.additionalInfo}>Versand wird an der Kasse berechnet*</p>
-              <div className={classes.cartActions}>
-                <CtaButton title="Zur Kasse" path="/checkout/userinfo" typ2 className={classes.actButton}/>
-              </div>
-            </div>
+            <CheckoutSidebar
+              onNext={handleNext}
+              onBack={handleBack}
+              backTitle="Zurück zum Shop"
+            />
           </section>
         </>
       )}
