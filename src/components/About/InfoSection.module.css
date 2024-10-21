@@ -1,9 +1,3 @@
-.infoSection {
-  width: 70%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .infoSection h1 {
   text-transform: uppercase;
   text-align: center;
@@ -31,8 +25,3 @@
   font-weight: 400;
 }
 
-.info {
-  text-align: center;
-  margin: 2rem;
-  font-weight: 200;
-}

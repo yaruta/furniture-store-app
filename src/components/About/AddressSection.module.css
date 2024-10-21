@@ -1,0 +1,37 @@
+.addressSection {
+  margin-top: 6rem;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+#mapContainer {
+  width: 60%;
+  height: 25rem;
+  background-color: grey;
+  margin-bottom: 2rem;
+}
+
+.address {
+  width: 40%;
+  height: auto;
+}
+
+.header {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-weight: 300;
+}
+
+.info {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3rem;
+}
+
+.info p {
+    font-weight: 200;
+}

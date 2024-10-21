@@ -2,7 +2,7 @@ export default function PaymentIcon() {
   return (
     <svg
       id="fi_1989125"
-      enable-background="new 0 0 124 124"
+      enableBackground="new 0 0 124 124"
       height="60"
       viewBox="0 0 124 124"
       width="60"
