@@ -2,11 +2,13 @@ import classes from "./ProductItem.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
+import { favoritesActions } from "../../../store/favorites-slice";
 import { currencyFormatter } from "../../../util/formatting";
 import AddIcon from "../../Icons/AddIcon";
 import Button from "../../UI/Button";
+import FavItemButton from "./FavItemButton";
 
-function ProductItem({ id, name, collection, price, image, color }) {
+function ProductItem({ id, name, collection, price, image, color, isFav }) {
   const dispatch = useDispatch();
 
   function handleAddItemToCart() {
@@ -19,6 +21,18 @@ function ProductItem({ id, name, collection, price, image, color }) {
         image,
         quantity: 1,
         color: Object.values(color)[0],
+      })
+    );
+  }
+  function handleAddToFavorite() {
+    dispatch(
+      favoritesActions.toggleFavorite({
+        id,
+        name,
+        collection,
+        price,
+        image,
+        color,
       })
     );
   }
@@ -41,11 +55,12 @@ function ProductItem({ id, name, collection, price, image, color }) {
             </p>
           </div>
           <div className={classes.actions}>
+            <FavItemButton onFavorite={handleAddToFavorite} isFav={isFav} />
             <Button
               className={classes["add-button"]}
               onClick={handleAddItemToCart}
             >
-              <AddIcon/>
+              <AddIcon />
             </Button>
           </div>
         </div>

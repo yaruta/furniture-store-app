@@ -4,7 +4,7 @@ import ProductItem from "../Shop/ProductItem/ProductItem";
 import PageTitle from "../UI/PageTitle";
 
 function FavoriteProducts() {
-  const items = useSelector((state) => state.favorites.items);
+  const favoriteItems = useSelector((state) => state.favorites.items);
 
   return (
     <section>
@@ -17,11 +17,11 @@ function FavoriteProducts() {
         vitae elit dignissim efficitur. Proin ut lectus nec felis condimentum
         pharetra vel in felis.
       </PageTitle>
-      {items.length > 0 ? (
+      {favoriteItems.length > 0 ? (
         <ul className={classes.favorites}>
-          {items.map((item) => (
-            <ProductItem key={item.id} {...item} />
-          ))}
+          {favoriteItems.map((item) => {
+            return <ProductItem key={item.id} isFav={true} {...item} />;
+          })}
         </ul>
       ) : (
         <p style={{ textAlign: "center" }}>

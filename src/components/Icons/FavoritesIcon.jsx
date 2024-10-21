@@ -7,6 +7,7 @@ export default function FavoritesIcon() {
       viewBox="0 0 64 64"
       width="24"
       xmlns="http://www.w3.org/2000/svg"
+      fill="black"
     >
       <g>
         <g>
