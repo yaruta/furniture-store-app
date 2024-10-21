@@ -5,7 +5,7 @@ import PaymentTypeItem from "./PaymentTypeItem";
 
 function PaymentForm() {
   const dispatch = useDispatch();
-  const { type: paymentType } = useSelector((state) => state.checkout.payment);
+  const { payment: paymentType } = useSelector((state) => state.checkout);
   const [payment, setPayment] = useState(paymentType ? paymentType : "paypal");
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function PaymentForm() {
         label="Karte"
         name="payment"
         onChange={handlePaymentTypeChange}
-        defaultChecked={paymentType && paymentType === "card"}
+        defaultChecked={paymentType && paymentType.type === "card"}
       />
       <PaymentTypeItem
         id="paypal"
@@ -35,7 +35,7 @@ function PaymentForm() {
         name="payment"
         onChange={handlePaymentTypeChange}
         defaultChecked={
-          (paymentType && paymentType === "paypal") || !paymentType
+          (paymentType && paymentType.type === "paypal") || !paymentType
         }
       />
     </form>

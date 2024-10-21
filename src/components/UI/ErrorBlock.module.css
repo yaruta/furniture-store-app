@@ -3,6 +3,7 @@
   box-shadow: 0 0 10px rgb(207, 207, 207);
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

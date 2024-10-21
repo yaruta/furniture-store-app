@@ -1,21 +1,17 @@
 import classes from "./UserAreaNavigation.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { uiActions } from "../../../store/ui-slice";
 
 import LoginIcon from "../../Icons/LoginIcon";
 import FavoritesIcon from "../../Icons/FavoritesIcon";
 import CartIcon from "../../Icons/CartIcon";
 import Button from "../../UI/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { uiActions } from "../../../store/ui-slice";
 import Bage from "./Bage";
 
 function UserAreaNavigation() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const toggleCartHandler = () => {
-    dispatch(uiActions.toggle());
-  };
 
   const cartItems = useSelector((state) => state.cart.items);
   const cartItemsAmount = cartItems.reduce(
@@ -27,6 +23,10 @@ function UserAreaNavigation() {
   const favoriteItems = useSelector((state) => state.favorites.items);
   const favoriteItemsAmount = favoriteItems.length;
   const isItemInFavorites = favoriteItemsAmount > 0;
+
+  const toggleCartHandler = () => {
+    dispatch(uiActions.toggle());
+  };
 
   function handleNavigate() {
     navigate("/favorites");
@@ -40,7 +40,7 @@ function UserAreaNavigation() {
         </Button>
         <Button className={classes["nav-button"]} onClick={handleNavigate}>
           <FavoritesIcon />
-          {isItemInFavorites && <Bage value={favoriteItemsAmount}/>}
+          {isItemInFavorites && <Bage value={favoriteItemsAmount} />}
         </Button>
         <Button className={classes["nav-button"]} onClick={toggleCartHandler}>
           <CartIcon />

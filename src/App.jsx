@@ -17,6 +17,7 @@ import UserFormPage from "./pages/checkout/UserFormPage";
 import DeliveryFormPage from "./pages/checkout/DeliveryFormPage";
 import PaymentFormPage from "./pages/checkout/PaymentFormPage";
 import SummaryPage from "./pages/checkout/SummaryPage";
+import CompletedPage from "./pages/checkout/CompletedPage";
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
           {
             path: "summary",
             element: <SummaryPage />
+          },
+          {
+            path: "completed",
+            element: <CompletedPage />
           }
         ]
       }

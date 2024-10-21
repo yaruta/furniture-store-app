@@ -21,6 +21,12 @@ const checkoutSlice = createSlice({
       console.log(state.payment);
       localStorage.setItem("checkout", JSON.stringify(state));
     },
+    clearCheckoutData(state) {
+      localStorage.removeItem("checkout");
+      state.userdata = null;
+      state.delivery = null;
+      state.payment = null;
+    }
   },
 });
 
