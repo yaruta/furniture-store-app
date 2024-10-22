@@ -1,11 +1,21 @@
 import classes from "./AddressSection.module.css";
 import { useRef, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAddress } from "../../util/http";
+
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { MAP_ACCESS_TOKEN } from "../../util/token";
+
 import Header from "../UI/Header";
+import ErrorBlock from "../UI/ErrorBlock";
 
 function AddressSection() {
+  const { data, isError, error } = useQuery({
+    queryKey: ["address"],
+    queryFn: fetchAddress,
+  });
+
   const mapRef = useRef();
   const mapContainerRef = useRef();
   const markerRef = useRef();
@@ -33,17 +43,28 @@ function AddressSection() {
         <div id={classes.mapContainer} ref={mapContainerRef}></div>
         <div className={classes.address}>
           <Header styleType="type1">Adresse</Header>
-          <div className={classes.info}>
-            <div>
-              <h2 className={classes.header}>Möbel-demo</h2>
-              <p>Mustermann Str. 26</p>
-              <p>10000 Berlin</p>
+          {data && (
+            <div className={classes.info}>
+              <div>
+                <h2 className={classes.header}>{data.name}</h2>
+                <p>{`${data.street} ${data.houseNumber}`}</p>
+                <p>{`${data.postcode} ${data.city}`}</p>
+              </div>
+              <div>
+                <h2 className={classes.header}>Öffnungszeiten</h2>
+                <p>Mon-Sam 10:00-20:00Uhr</p>
+              </div>
             </div>
-            <div>
-              <h2 className={classes.header}>Öffnungszeiten</h2>
-              <p>Mon-Sam 10:00-20:00Uhr</p>
-            </div>
-          </div>
+          )}
+          {isError && (
+            <ErrorBlock
+              title="Die Adresse konnte nicht geladen werden"
+              message={
+                error.info?.message ||
+                "Die Adresse konnte nicht abgerufen werden. Bitte versuchen Sie es später noch einmal."
+              }
+            />
+          )}
         </div>
       </section>
     </>
