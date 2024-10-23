@@ -15,3 +15,10 @@
 .logo a:hover h1 {
   color: black;
 }
+
+@media(max-width: 660px) {
+  .logo a h1 {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+}

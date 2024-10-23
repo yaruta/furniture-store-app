@@ -1,4 +1,3 @@
-import classes from "./AboutSection.module.css";
 import AddressSection from "./AddressSection";
 import InfoSection from "./InfoSection";
 import PageTitle from "../UI/PageTitle";

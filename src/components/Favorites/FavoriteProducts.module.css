@@ -1,12 +1,35 @@
 .favorites {
-    width: 70%;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, .33fr));
-    gap: 3rem;  
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 0;
-    margin-top: 1rem
+  width: 70%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+  margin-top: 1rem;
 }
 
+@media (max-width: 1050px) {
+  .favorites {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .favorites {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .favorites {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .favorites {
+    grid-template-columns: 1fr;
+  }
+}

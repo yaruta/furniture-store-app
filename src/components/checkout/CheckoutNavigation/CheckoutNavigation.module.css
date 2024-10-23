@@ -1,14 +1,28 @@
 .checkoutNavigation {
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .checkoutNavigation > ul {
-    padding-left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding-left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+@media (max-width: 1050px) {
+  .checkoutNavigation {
+    width: 50%;
+  }
+}
+
+@media (max-width: 992px) {
+  .checkoutNavigation {
+    width: 70%;
+  }
+}
+
+

@@ -1,4 +1,5 @@
 .mainHeader {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,4 +10,29 @@
   position: sticky;
   top: 0;
   background-color: white;
+}
+
+.navigation {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    width: 65%;
+  }
+}
+
+@media (max-width: 660px) {
+  .mainHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+  .navigation {
+    width: 100%;
+  }
 }

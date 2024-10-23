@@ -25,3 +25,30 @@
   font-weight: 400;
 }
 
+@media (max-width: 1180px) {
+  .infoItems {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoSection {
+    width: 100%;
+  }
+  .infoItem {
+    padding-bottom: 2rem;
+  }
+  .infoItem p {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .infoItems {
+    grid-template-columns: 1fr;
+  }
+  .infoItem {
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+}

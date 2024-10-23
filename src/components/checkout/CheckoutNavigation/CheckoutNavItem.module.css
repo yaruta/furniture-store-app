@@ -34,6 +34,12 @@
 }
 
 .checked {
-    background-color: rgb(221, 4, 4);
-    color: white;
+  background-color: rgb(221, 4, 4);
+  color: white;
+}
+
+@media (max-width: 500px) {
+  .checkoutItem span:last-of-type {
+    font-size: .8rem;
+  }
 }

@@ -21,18 +21,67 @@
 }
 
 .header {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: 300;
-    text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 300;
+  text-transform: uppercase;
 }
 
 .info {
-    display: flex;
-    justify-content: flex-start;
-    gap: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
 }
 
 .info p {
-    font-weight: 200;
+  font-weight: 200;
+}
+
+@media (max-width: 1200px) {
+  .info {
+    flex-direction: column;
+    gap: 0;
+  }
+  .address {
+    width: 30%;
+  }
+  #mapContainer {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1050px) {
+  .addressSection {
+    width: 80%;
+  }
+  .address {
+    width: 20%;
+  }
+  #mapContainer {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .addressSection {
+    width: 90%;
+  }
+}
+
+@media (max-width: 850px) {
+  .addressSection {
+    flex-direction: column;
+    gap: 0;
+  }
+  .address {
+    width: 100%;
+  }
+  #mapContainer {
+    width: 100%;
+    height: 20rem;
+  }
+  .info {
+    flex-direction: row;
+    gap: 3rem;
+  }
 }

@@ -42,7 +42,7 @@ function UserFormSection() {
   }
 
   return (
-    <Section>
+    <Section className={classes.checkout}>
       <div className={classes.formsSection}>
         <Header>Deine Daten</Header>
         <p>Login...</p>

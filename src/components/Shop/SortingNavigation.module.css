@@ -1,18 +1,18 @@
 .products-navigation {
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 1rem;
-    margin-top: 3rem;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
 }
 
 .sort-products {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .sort-products select {
@@ -21,22 +21,43 @@
   font-size: 1rem;
   font-weight: 200;
   color: grey;
-  padding: 0 1rem .2rem 1rem;
+  padding: 0 1rem 0.2rem 1rem;
   outline: none;
   margin-right: 3rem;
 }
 
 .sort-products option {
-    font-weight: 200;
+  font-weight: 200;
 }
 
 .grid {
-    display: flex;
-    align-items: center;
-    padding-top: .2rem;
+  display: flex;
+  align-items: center;
+  padding-top: 0.2rem;
 }
 
 .grid button {
-    background-color: transparent;
-    border: none;
+  background-color: transparent;
+  border: none;
+}
+
+@media (max-width: 1050px) {
+  .products-navigation {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .products-navigation {
+    width: 90%;
+    margin-top: 1rem;
+  }
+
+  .grid {
+    display: none;
+  }
+
+  .sort-products select {
+    margin-right: 0;
+  }
 }

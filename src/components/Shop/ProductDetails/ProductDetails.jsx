@@ -19,8 +19,9 @@ function ProductDetails() {
   const dispatch = useDispatch();
 
   const params = useParams();
-  const favoriteItems = useSelector(state => state.favorites.items);
-  const isFav = favoriteItems.find(item => item.id === params.productId) !== undefined;
+  const favoriteItems = useSelector((state) => state.favorites.items);
+  const isFav =
+    favoriteItems.find((item) => item.id === params.productId) !== undefined;
 
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products", { id: params.productId }],
@@ -95,7 +96,7 @@ function ProductDetails() {
           <div className={classes["info-section"]}>
             <div className={classes.header}>
               <h2>{data.name}</h2>
-              <FavItemButton onFavorite={handleAddToFavorite} isFav={isFav}/>
+              <FavItemButton onFavorite={handleAddToFavorite} isFav={isFav} />
             </div>
             <p className={classes.collection}>{data.collection}</p>
             <p className={classes.price}>
@@ -110,7 +111,6 @@ function ProductDetails() {
             </form>
           </div>
           <AddButton onClick={handleAddItemToCart}>Add to Cart</AddButton>
-          <p className={classes.description}>{data.description}</p>
         </div>
       </>
     );
@@ -124,6 +124,7 @@ function ProductDetails() {
         </Link>
         {content}
       </section>
+      {data && <p className={classes.description}>{data.description}</p>}
     </>
   );
 }

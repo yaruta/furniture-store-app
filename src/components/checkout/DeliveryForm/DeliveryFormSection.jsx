@@ -18,7 +18,7 @@ function DeliveryFormSection() {
   }
 
   return (
-    <Section>
+    <Section className={classes.checkout}>
       <div className={classes.formsSection}>
         <Header>Lieferung</Header>
         <DeliveryForm />

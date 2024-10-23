@@ -87,3 +87,21 @@
 .itemInfo .price {
   margin-top: 1rem;
 }
+
+@media (max-width: 900px) {
+  .itemImage {
+    width: 15%;
+  }
+  .itemInfo {
+    width: 85%;
+  }
+}
+
+@media (max-width: 750px) {
+  .itemImage {
+    width: 30%;
+  }
+  .itemInfo {
+    width: 70%;
+  }
+}

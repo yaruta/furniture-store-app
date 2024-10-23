@@ -1,62 +1,101 @@
 .item-details {
-    width: 75%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 .item-details-column {
-    width: 50%;
-    margin: 3rem 2rem;
+  width: 50%;
+  margin: 3rem 2rem;
 }
 
 .item-details-column img {
-    width: 100%;
+  width: 100%;
 }
 
 .info-section .header {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header h2 {
-    margin: 0;
-    text-transform: uppercase;
-    font-size: 1.6rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.6rem;
 }
 
 .info-section .collection {
-    margin: 0;
-    text-transform: uppercase;
-    font-size: 1.5rem;
-    border-bottom: 1px solid rgb(191, 189, 189);
-    padding-bottom: .75rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  border-bottom: 1px solid rgb(191, 189, 189);
+  padding-bottom: 0.75rem;
 }
 
-
 .info-section .price {
-    margin-top: .75rem;
-    margin-bottom: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .info-section .price span:first-of-type {
-    font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .info-section .price span:last-of-type {
-    font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .description {
-    border-top: 1px solid rgb(191, 189, 189);
-    padding-top: 2rem;
-    font-weight: 200;
+  border-top: 1px solid rgb(191, 189, 189);
+  padding-top: 2rem;
+  font-weight: 200;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
 }
 
 .back {
-    position: absolute;
-    top: 2.5rem;
-    left: -11rem;
+  position: absolute;
+  top: 2.5rem;
+  left: -11rem;
 }
+
+@media (max-width: 1050px) {
+  .item-details {
+    width: 80%;
+  }
+  .description {
+    width: 75%;
+  }
+}
+
+@media (max-width: 992px) {
+  .item-details {
+    width: 90%;
+  }
+  .description {
+    width: 85%;
+  }
+}
+
+@media (max-width: 768px) {
+  .item-details {
+    flex-direction: column;
+  }
+  .item-details-column {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .item-details-column img {
+    height: 25rem;
+    object-fit: cover;
+  }
+  .item-details-column:last-of-type {
+    margin-top: 0;
+  }
+} 

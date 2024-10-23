@@ -7,12 +7,15 @@ import NewProductItem from "./NewProductItem";
 import PageContent from "../../UI/PageContent";
 import ErrorBlock from "../../UI/ErrorBlock";
 import PageTitle from "../../UI/PageTitle";
+import useScreenWidth from "../../../hooks/screen-width";
 
 function NewProductsSection() {
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: ({ signal }) => fetchShopProducts({ signal }),
   });
+
+  const screenWidth = useScreenWidth();
 
   let content;
 
@@ -38,7 +41,12 @@ function NewProductsSection() {
 
   if (data && !isError) {
     const products = Object.values(data);
-    const newItems = products.slice(products.length - 4);
+    let newItems;
+    if (screenWidth > 1250 || screenWidth < 768) {
+      newItems = products.slice(products.length - 4);
+    } else {
+      newItems = products.slice(products.length - 3);
+    }
     content = (
       <ul id={classes.products}>
         {newItems.map((item) => (

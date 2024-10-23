@@ -22,3 +22,9 @@ body.modal {
 .modal::backdrop {
   background-color: rgba(0, 0, 0, 0.55);
 }
+
+@media (max-width: 600px) {
+  .modal {
+    min-width: 100%;
+  }
+}

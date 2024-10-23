@@ -50,3 +50,9 @@
   width: 1rem;
   height: 1rem;
 }
+
+@media (max-width: 700px) {
+  .details {
+    font-size: .8rem;
+  }
+}

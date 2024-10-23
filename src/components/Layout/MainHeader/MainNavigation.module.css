@@ -24,3 +24,17 @@
   border-bottom: 1px solid rgb(221, 4, 4);
   color: rgb(221, 4, 4);
 }
+
+@media (max-width: 768px) {
+  .main-navigation li {
+    min-width: 3.5rem;
+  }
+}
+
+@media(max-width: 660px) {
+  .main-navigation li {
+    text-align: left;
+    padding-left: 0;
+  }
+}
+

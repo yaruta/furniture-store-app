@@ -18,8 +18,41 @@
 #products {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   gap: 2rem;
   padding-left: 0;
   margin-top: 1rem;
+}
+
+@media(max-width: 1260px) {
+  #products {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, .33fr));
+  }
+}
+
+@media (max-width: 1050px) {
+  .new-products article {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .new-products article {
+    width: 90%;
+  }
+}
+
+@media(max-width: 768px) {
+  #products {
+    grid-template-columns: 1fr 1fr;
+    
+  }
+  .new-products {
+    padding-top: 0;
+  }
+  .new-products article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }

@@ -12,37 +12,37 @@ function CheckoutInfo() {
     <article className={classes.checkoutInfo}>
       {userdata && delivery && payment && (
         <>
-          <CheckoutInfoItem
-            title="Kontaktinformationen"
-            info={userdata.email}
-          />
-          <CheckoutInfoItem title="Rechnungdaten">
-            <Address {...userdata} />
-          </CheckoutInfoItem>
-          <CheckoutInfoItem
-            title="Versandart"
-            info={delivery.type === "pickup" ? "Abholung" : "Lieferung"}
-          />
-          {delivery.type === "delivery" && (
-            <CheckoutInfoItem title="Lieferdaten">
+            <CheckoutInfoItem
+              title="Kontaktinformationen"
+              info={userdata.email}
+            />
+            <CheckoutInfoItem title="Rechnungdaten">
               <Address {...userdata} />
             </CheckoutInfoItem>
-          )}
-          {delivery.type === "pickup" && (
-            <CheckoutInfoItem title="Abholadresse">
-              <Address
-                name="Möbel-Deko"
-                street="Mustermann Str."
-                houseNumber={22}
-                postcode="10000"
-                city="Berlin"
-              />
-            </CheckoutInfoItem>
-          )}
-          <CheckoutInfoItem
-            title="Zahlung"
-            info={payment.type === "card" ? "Karte" : "Paypal"}
-          />
+            <CheckoutInfoItem
+              title="Versandart"
+              info={delivery.type === "pickup" ? "Abholung" : "Lieferung"}
+            />
+            {delivery.type === "delivery" && (
+              <CheckoutInfoItem title="Lieferdaten">
+                <Address {...userdata} />
+              </CheckoutInfoItem>
+            )}
+            {delivery.type === "pickup" && (
+              <CheckoutInfoItem title="Abholadresse">
+                <Address
+                  name="Möbel-Deko"
+                  street="Mustermann Str."
+                  houseNumber={22}
+                  postcode="10000"
+                  city="Berlin"
+                />
+              </CheckoutInfoItem>
+            )}
+            <CheckoutInfoItem
+              title="Zahlung"
+              info={payment.type === "card" ? "Karte" : "Paypal"}
+            />
         </>
       )}
     </article>

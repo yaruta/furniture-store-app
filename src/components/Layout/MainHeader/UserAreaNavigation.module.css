@@ -1,5 +1,6 @@
 .navigation {
     width: 12%;
+    min-width: 9rem;
 }
 
 .navigation ul{

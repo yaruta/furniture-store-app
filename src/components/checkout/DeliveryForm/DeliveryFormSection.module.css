@@ -3,3 +3,13 @@
   text-align: left;
 }
 
+@media (max-width: 900px) {
+  .formsSection {
+    width: 100%;
+    border-bottom: 1px solid rgb(203, 203, 203);
+    padding-bottom: 2rem;
+  }
+  .checkout {
+    flex-direction: column;
+  }
+}

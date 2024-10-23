@@ -95,3 +95,24 @@
 .actButton {
     min-width: 100%;
 }
+
+@media (max-width: 1050px) {
+  .cartFullscreen {
+    width: 80%;
+  }
+}
+
+@media (max-width: 992px) {
+  .cartFullscreen {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .cartFullscreen {
+    flex-direction: column;
+  }
+  .productsInfo {
+    width: 100%;
+  }
+}

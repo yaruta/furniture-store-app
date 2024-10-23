@@ -10,3 +10,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+@media (max-width: 900px) {
+  .generalInfo {
+    width: 100%;
+    border-left: none;
+    padding-left: 0;
+  }
+}

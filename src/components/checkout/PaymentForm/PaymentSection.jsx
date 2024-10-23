@@ -16,7 +16,7 @@ function Payment() {
     navigate("/checkout/delivery");
   }
   return (
-    <Section>
+    <Section className={classes.checkout}>
       <div className={classes.formsSection}>
         <Header>Zahlung</Header>
         <PaymentForm />

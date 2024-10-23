@@ -8,8 +8,10 @@ function MainHeader() {
   return (
     <header className={classes.mainHeader}>
       <Logo />
-      <MainNavigation />
-      <UserAreaNavigation />
+      <div className={classes.navigation}>
+        <MainNavigation />
+        <UserAreaNavigation />
+      </div>
     </header>
   );
 }
