@@ -1,0 +1,11 @@
+.smNavigation {
+    min-width: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem
+}
+
+.smNavigation a:hover svg {
+    fill: red;
+}

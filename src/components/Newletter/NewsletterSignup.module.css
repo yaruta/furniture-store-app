@@ -1,0 +1,87 @@
+.newsletter {
+  min-width: 25%;
+}
+
+.newsletterFullscreen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 15%;
+  background-color: rgb(241, 241, 241);
+}
+
+.newsletter h2 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.newsletterFullscreen h2 {
+  display: none;
+}
+
+.newsletter input,
+.newsletterFullscreen input {
+  line-height: 2rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  outline: none;
+  border: 1px solid rgb(203, 203, 203);
+  min-width: 10rem;
+}
+
+.newsletterFullscreen input {
+  min-width: 70%;
+}
+
+.input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.button {
+  padding-bottom: 0.55rem;
+  padding-top: 0.55rem;
+}
+
+.newsletterFullscreen .button {
+  width: 25%;
+}
+
+@media (max-width: 1050px) {
+  .newsletterFullscreen {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media (max-width: 992px) {
+  .newsletterFullscreen {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .newsletterFullscreen .input {
+    flex-direction: column;
+  }
+  .newsletterFullscreen input {
+    width: 100%;
+  }
+  .newsletterFullscreen .button {
+    width: 100%;
+  }
+}
+

@@ -58,7 +58,6 @@ function NewProductsSection() {
 
   return (
     <section className={classes["new-products"]}>
-      <div className={classes.divider}></div>
       <PageTitle title="Herbst/Winter 2024">
         Phasellus fermentum venenatis sapien, quis mattis urna maximus eu.
         Integer posuere urna ac arcu vestibulum, id ultricies quam suscipit.

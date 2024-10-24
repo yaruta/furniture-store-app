@@ -46,8 +46,8 @@ export default function FAQ() {
   }
 
   return (
-    <section>
-      <PageTitle title="FAQ"/>
+    <section style={{ marginBottom: "5rem" }}>
+      <PageTitle title="FAQ" />
       {content}
     </section>
   );

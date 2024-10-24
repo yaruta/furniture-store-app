@@ -7,7 +7,7 @@ function FavoriteProducts() {
   const favoriteItems = useSelector((state) => state.favorites.items);
 
   return (
-    <section>
+    <section style={{marginBottom: '5rem'}}>
       <PageTitle title="Lieblingsprodukte">
         Nulla blandit congue neque et cursus. Mauris vel sapien varius leo
         laoreet feugiat id quis enim. Ut quis leo facilisis, interdum odio a,

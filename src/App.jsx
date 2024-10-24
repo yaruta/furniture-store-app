@@ -18,6 +18,7 @@ import DeliveryFormPage from "./pages/checkout/DeliveryFormPage";
 import PaymentFormPage from "./pages/checkout/PaymentFormPage";
 import SummaryPage from "./pages/checkout/SummaryPage";
 import CompletedPage from "./pages/checkout/CompletedPage";
+import NewsletterPage, {action as newsletterAction} from "./pages/Newsletter";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <CartPage />
+      },
+      {
+        path: "newsletter",
+        element: <NewsletterPage />,
+        action: newsletterAction
       },
       {
         path: "checkout",

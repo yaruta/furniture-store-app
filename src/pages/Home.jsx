@@ -5,6 +5,7 @@ import HeroSection from "../components/Hero/HeroSection";
 import NewProductsSection from "../components/Shop/NewProductsSection/NewProducts";
 import PageContent from "../components/UI/PageContent";
 import ErrorBlock from "../components/UI/ErrorBlock";
+import NewsletterSignup from "../components/Newletter/NewsletterSignup";
 
 function HomePage() {
   const { data, isPending, isError, error } = useQuery({
@@ -42,6 +43,7 @@ function HomePage() {
   return (
     <>
       {content}
+      <NewsletterSignup isFullscreen/>
       <NewProductsSection />
     </>
   );
