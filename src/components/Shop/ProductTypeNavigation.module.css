@@ -19,12 +19,12 @@
 .type-navigation li a {
   font-size: 1rem;
   text-decoration: none;
-  color: rgb(108, 108, 108);
+  color: var(--dark-grey-color);
   border-bottom: 1px solid transparent;
   font-weight: 300;
 }
 
 .type-navigation li a:hover,
 .type-navigation li a.active {
-  border-bottom: 1px solid rgb(108, 108, 108);
+  border-bottom: 1px solid var(--dark-grey-color);
 }

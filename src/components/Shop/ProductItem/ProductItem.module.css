@@ -1,6 +1,6 @@
 .item {
   padding-bottom: 1rem;
-  box-shadow: 2px 2px 10px rgb(207, 207, 207);
+  box-shadow: 2px 2px 10px var(--grey-color);
   /* padding: .5rem; */
 }
 
@@ -55,5 +55,5 @@
 }
 
 .add-button svg:hover {
-  fill: rgb(255, 0, 0);
+  fill: var(--main-color);
 }

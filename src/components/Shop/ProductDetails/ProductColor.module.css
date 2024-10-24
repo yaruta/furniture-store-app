@@ -22,5 +22,5 @@
 }
 
 .color input:checked+label {
-    border: 3px solid rgb(245, 11, 7);
+    border: 3px solid var(--main-color);
 }

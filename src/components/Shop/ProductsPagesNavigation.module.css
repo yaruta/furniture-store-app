@@ -28,10 +28,10 @@
 }
 
 .page-list button:hover {
-    color: rgb(245, 11, 7);
+    color: var(--main-color);
 }
 
 .page-list .active {
     font-weight: 600;
-    color: rgb(245, 11, 7);
+    color: var(--main-color);
 }

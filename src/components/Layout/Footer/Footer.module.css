@@ -4,7 +4,7 @@
   align-items: center;
   padding: 2rem 3rem 3rem 3rem;
   margin-top: auto;
-  background-color: rgb(241, 241, 241);
+  background-color: var(--grey-color);
   width: 100%;
 }
 

@@ -9,7 +9,7 @@
 .logo a h1 {
   font-weight: 500;
   font-family: "Oswald", sans-serif;
-  color: rgb(245, 11, 7);
+  color: var(--main-color);
 }
 
 .logo a:hover h1 {

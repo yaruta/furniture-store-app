@@ -2,14 +2,14 @@
   width: 100%;
   line-height: 2rem;
   background-color: transparent;
-  border: 2px solid rgb(245, 11, 7);
-  color: rgb(245, 11, 7);
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
   font-weight: 400;
   margin-bottom: 2rem;
 }
 
 .button:hover,
 .button:active {
-  background-color: rgb(245, 11, 7);
+  background-color: var(--main-color);
   color: white;
 }

@@ -2,7 +2,7 @@
     width: 1rem;
     height: 1rem;
     border-radius: .5rem;
-    background-color: rgb(221, 4, 4);
+    background-color: var(--main-color);
     color: white;
     position: absolute;
     right: -0.2rem;

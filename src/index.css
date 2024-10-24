@@ -1,3 +1,9 @@
+:root {
+  --main-color: rgb(245, 11, 7);
+  --grey-color: rgb(208, 208, 208);
+  --dark-grey-color: rgb(108, 108, 108);
+}
+
 html, body {
   max-width: 100%;
   overflow-x: hidden;

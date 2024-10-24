@@ -7,23 +7,23 @@
 .cta .typ2 {
   text-decoration: none;
   font-weight: 400;
-  border: 1px solid rgb(245, 11, 7);
+  border: 1px solid var(--main-color);
   padding: 0.5rem 2rem;
   text-align: center;
 }
 
 .cta .typ1 {
-  color: rgb(245, 11, 7);
+  color: var(--main-color);
 }
 
 .cta .typ2 {
-  background-color: rgb(245, 11, 7);
+  background-color: var(--main-color);
   color: white;
   width: 8rem;
 }
 
 .cta .typ1:hover,
 .cta .typ1:active {
-  background-color: rgb(245, 11, 7);
+  background-color: var(--main-color);
   color: white;
 }

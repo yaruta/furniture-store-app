@@ -8,6 +8,6 @@
   .divider span:first-of-type,
   .divider span:last-of-type {
     width: 45%;
-    border-bottom: 1px solid rgb(208, 208, 208);
+    border-bottom: 1px solid var(--grey-color);
   }
   

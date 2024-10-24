@@ -8,7 +8,7 @@
   min-width: 25rem;
   border: none;
   margin: 0;
-  background-color: rgb(245, 243, 243);
+  background-color: var(--grey-color);
   display: flex;
   flex-direction: column;
   padding: .5rem 1.5rem;

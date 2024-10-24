@@ -1,5 +1,5 @@
 .divider {
   width: 30%;
-  border-bottom: 2px solid rgb(204, 204, 204);
+  border-bottom: 2px solid var(--grey-color);
   margin-bottom: 1.4rem;
 }

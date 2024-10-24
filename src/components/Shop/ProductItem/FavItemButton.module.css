@@ -9,5 +9,5 @@
 }
 
 .favorites-icon svg:hover {
-  fill: rgb(245, 11, 7);
+  fill: var(--main-color);
 }

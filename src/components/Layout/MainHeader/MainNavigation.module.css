@@ -21,8 +21,8 @@
 
 .main-navigation li a:hover,
 .main-navigation li a.active {
-  border-bottom: 1px solid rgb(221, 4, 4);
-  color: rgb(221, 4, 4);
+  border-bottom: 1px solid var(--main-color);
+  color: var(--main-color);
 }
 
 @media (max-width: 768px) {

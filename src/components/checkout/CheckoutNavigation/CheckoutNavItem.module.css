@@ -16,7 +16,7 @@
   width: 2rem;
   height: 2rem;
   border-radius: 1rem;
-  box-shadow: 1px 1px 3px rgb(207, 207, 207);
+  box-shadow: 1px 1px 3px var(--grey-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,16 +25,16 @@
 .active .itemNumber {
   font-weight: 400;
   background-color: white;
-  color: rgb(221, 4, 4);
+  color: var(--main-color);
   box-shadow: 1px 1px 3px rgba(221, 4, 4, 0.4);
 }
 
 .active span:last-of-type {
-  color: rgb(221, 4, 4);
+  color: var(--main-color);
 }
 
 .checked {
-  background-color: rgb(221, 4, 4);
+  background-color: var(--main-color);
   color: white;
 }
 
