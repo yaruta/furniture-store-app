@@ -16,3 +16,7 @@
     position: relative;
     outline: none;
 }
+
+.nav-button:hover svg {
+    fill: red;
+  }

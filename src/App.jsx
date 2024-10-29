@@ -18,7 +18,9 @@ import DeliveryFormPage from "./pages/checkout/DeliveryFormPage";
 import PaymentFormPage from "./pages/checkout/PaymentFormPage";
 import SummaryPage from "./pages/checkout/SummaryPage";
 import CompletedPage from "./pages/checkout/CompletedPage";
-import NewsletterPage, {action as newsletterAction} from "./pages/Newsletter";
+import NewsletterPage, { action as newsletterAction } from "./pages/Newsletter";
+import AuthenticationPage from "./pages/Authentication";
+import AuthProvider from "./store/authContext";
 
 const router = createBrowserRouter([
   {
@@ -58,12 +60,16 @@ const router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <CartPage />
+        element: <CartPage />,
       },
       {
         path: "newsletter",
         element: <NewsletterPage />,
-        action: newsletterAction
+        action: newsletterAction,
+      },
+      {
+        path: "auth",
+        element: <AuthenticationPage />,
       },
       {
         path: "checkout",
@@ -71,26 +77,26 @@ const router = createBrowserRouter([
         children: [
           {
             path: "userinfo",
-            element: <UserFormPage />
+            element: <UserFormPage />,
           },
           {
             path: "delivery",
-            element: <DeliveryFormPage />
+            element: <DeliveryFormPage />,
           },
           {
             path: "payment",
-            element: <PaymentFormPage />
+            element: <PaymentFormPage />,
           },
           {
             path: "summary",
-            element: <SummaryPage />
+            element: <SummaryPage />,
           },
           {
             path: "completed",
-            element: <CompletedPage />
-          }
-        ]
-      }
+            element: <CompletedPage />,
+          },
+        ],
+      },
     ],
   },
 ]);
@@ -100,14 +106,17 @@ function App() {
     const timer = setTimeout(() => {
       localStorage.removeItem("cart");
       localStorage.removeItem("favorites");
-    }, 1000*60*60*24*7);
+    }, 1000 * 60 * 60 * 24 * 7);
 
     return () => clearTimeout(timer);
   }, []);
+
   return (
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <AuthProvider>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </AuthProvider>
   );
 }
 

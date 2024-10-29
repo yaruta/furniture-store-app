@@ -10,6 +10,7 @@ import Divider from "../../UI/Divider";
 import Header from "../../UI/Header";
 import Section from "../../UI/Section";
 import CheckoutSidebar from "../CheckoutSidebar";
+import AuthForm from "../../Authentication/AuthForm";
 
 function UserFormSection() {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ function UserFormSection() {
     <Section className={classes.checkout}>
       <div className={classes.formsSection}>
         <Header>Deine Daten</Header>
-        <p>Login...</p>
+        <AuthForm />
         <Divider />
         {!asGast && (
           <TextButton onClick={handleAsGastClick}>

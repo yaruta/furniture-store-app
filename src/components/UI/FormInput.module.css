@@ -5,6 +5,10 @@
   text-align: left;
 }
 
+.formInput label {
+  font-weight: 300;
+}
+
 .formInput input {
   line-height: 2rem;
   font-family: "Oswald", sans-serif;

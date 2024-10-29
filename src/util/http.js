@@ -93,20 +93,20 @@ export async function sendOrder(orderData) {
   return response.json();
 }
 
+export async function fetchAddress({ signal }) {
+  const response = await fetch(
+    "https://furniture-shop-md-default-rtdb.europe-west1.firebasedatabase.app/info.json",
+    { signal }
+  );
 
-export async function fetchAddress({signal}) {
-    const response = await fetch(
-        "https://furniture-shop-md-default-rtdb.europe-west1.firebasedatabase.app/info.json",
-        { signal }
-      );
-    
-      if (!response.ok) {
-        const error = new Error("An error occured while fetching the address");
-        error.code = error.status;
-        error.info = await response.json();
-        throw error;
-      }
-    
-      const {address} = await response.json();
-      return address;
+  if (!response.ok) {
+    const error = new Error("An error occured while fetching the address");
+    error.code = error.status;
+    error.info = await response.json();
+    throw error;
+  }
+
+  const { address } = await response.json();
+  return address;
 }
+

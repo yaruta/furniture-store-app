@@ -1,0 +1,16 @@
+.authSection {
+    width: 70%;
+    margin: 3rem auto 5rem auto;
+
+   }
+
+.toggleLine {
+    font-weight: 200;
+    margin-top: 2rem;
+}
+
+.toggleLine a {
+    font-weight: 400;
+    color: black;
+    text-decoration: none;
+}

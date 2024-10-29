@@ -2,14 +2,18 @@ import classes from "./UserAreaNavigation.module.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../store/ui-slice";
+import { useAuth } from "../../../store/authContext";
+import { doSignOut } from "../../../firebase/auth";
 
 import LoginIcon from "../../Icons/LoginIcon";
+import LogoutIcon from "../../Icons/LogoutIcon";
 import FavoritesIcon from "../../Icons/FavoritesIcon";
 import CartIcon from "../../Icons/CartIcon";
 import Button from "../../UI/Button";
 import Bage from "./Bage";
 
 function UserAreaNavigation() {
+  const { userLoggedIn } = useAuth();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,17 +32,36 @@ function UserAreaNavigation() {
     dispatch(uiActions.toggle());
   };
 
-  function handleNavigate() {
-    navigate("/favorites");
+  function handleNavigate(path) {
+    navigate(path);
+  }
+
+  function handleLogout() {
+    doSignOut();
+    navigate("/");
   }
 
   return (
     <nav className={classes.navigation}>
       <ul>
-        <Button className={classes["nav-button"]}>
-          <LoginIcon />
-        </Button>
-        <Button className={classes["nav-button"]} onClick={handleNavigate}>
+        {!userLoggedIn && (
+          <Button
+            className={classes["nav-button"]}
+            onClick={() => handleNavigate("/auth?mode=login")}
+          >
+            <LoginIcon />
+          </Button>
+        )}
+        {userLoggedIn && (
+          <Button className={classes["nav-button"]} onClick={handleLogout}>
+            <LogoutIcon />
+          </Button>
+        )}
+
+        <Button
+          className={classes["nav-button"]}
+          onClick={() => handleNavigate("/favorites")}
+        >
           <FavoritesIcon />
           {isItemInFavorites && <Bage value={favoriteItemsAmount} />}
         </Button>

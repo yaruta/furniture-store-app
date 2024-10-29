@@ -9,7 +9,7 @@ const store = configureStore({
     ui: uiReducer,
     cart: cartReducer,
     favorites: favoritesReducer,
-    checkout: checkoutReducer
+    checkout: checkoutReducer,
   },
 });
 
