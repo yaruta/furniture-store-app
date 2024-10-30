@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { Form } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { isValidInput } from "../../../util/validating";
+import { useAuth } from "../../../store/authContext";
 import classes from "./UserDataForm.module.css";
 import FormInput from "../../UI/FormInput";
 
 function UserDataForm({ onError }) {
+  const {userLoggedIn, currentUser} = useAuth();
   const { userdata } = useSelector((state) => state.checkout);
   const [isError, setIsError] = useState(
     userdata
@@ -59,7 +61,7 @@ function UserDataForm({ onError }) {
     <Form id="checkout-form" className={classes.form}>
       <div className={classes.formLine}>
         <FormInput
-          label="Vorname"
+          label="Vorname*"
           type="text"
           id="firstName"
           name="firstName"
@@ -71,7 +73,7 @@ function UserDataForm({ onError }) {
           required
         />
         <FormInput
-          label="Nachname"
+          label="Nachname*"
           type="text"
           id="lastName"
           name="lastName"
@@ -85,7 +87,7 @@ function UserDataForm({ onError }) {
       </div>
       <div className={classes.formLine}>
         <FormInput
-          label="Straße"
+          label="Straße*"
           type="text"
           id="street"
           name="street"
@@ -96,7 +98,7 @@ function UserDataForm({ onError }) {
           required
         />
         <FormInput
-          label="Hausnummer"
+          label="Hausnummer*"
           type="text"
           id="houseNumber"
           name="houseNumber"
@@ -109,7 +111,7 @@ function UserDataForm({ onError }) {
       </div>
       <div className={classes.formLine}>
         <FormInput
-          label="Postleitzahl"
+          label="Postleitzahl*"
           type="text"
           id="postcode"
           name="postcode"
@@ -120,7 +122,7 @@ function UserDataForm({ onError }) {
           required
         />
         <FormInput
-          label="Stadt"
+          label="Stadt*"
           type="text"
           id="city"
           name="city"
@@ -133,14 +135,14 @@ function UserDataForm({ onError }) {
       </div>
       <div className={classes.formLine}>
         <FormInput
-          label="Email"
+          label="Email*"
           type="email"
           id="email"
           name="email"
           onChange={handleChange}
           errorMessage="Bitte geben Sie eine gültige E-Mail ein."
           isError={isError.email}
-          defaultValue={userdata ? userdata.email : ""}
+          defaultValue={userLoggedIn ? currentUser.email : userdata ? userdata.email : ""}
           required
         />
       </div>

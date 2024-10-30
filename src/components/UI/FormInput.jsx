@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function FormInput(props) {
   const { label, id, isError, errorMessage, ...inputProps } = props;
-
   const [blured, setBlured] = useState(false);
 
   function handleBlur() {

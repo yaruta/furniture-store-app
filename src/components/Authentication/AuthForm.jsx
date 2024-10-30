@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Form, useNavigate, useSearchParams } from "react-router-dom";
+import { Form, useNavigate, useLocation, useSearchParams } from "react-router-dom";
 import {
   doSignInWithEmailAndPassword,
   doCreateUserWithEmailAndPassword,
@@ -13,6 +13,7 @@ import TextButton from "../UI/TextButton";
 function AuthForm() {
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get("mode") !== "signup";
+  const {pathname} = useLocation();
   const navigate = useNavigate();
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,7 +66,7 @@ function AuthForm() {
         return;
       }
     }
-    navigate("/shop");
+    {pathname === "/auth" && navigate("/shop")};
   }
 
   return (

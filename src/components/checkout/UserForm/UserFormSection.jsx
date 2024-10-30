@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { checkoutActions } from "../../../store/checkout-slice";
+import { useAuth } from "../../../store/authContext";
 import UserDataForm from "./UserDataForm";
 import TextButton from "../../UI/TextButton";
 import Divider from "../../UI/Divider";
@@ -15,6 +16,7 @@ import AuthForm from "../../Authentication/AuthForm";
 function UserFormSection() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { userLoggedIn} = useAuth();
   const { userdata } = useSelector((state) => state.checkout);
   const [asGast, setAsGast] = useState(userdata ? true : false);
   const [formErrors, setFormErrors] = useState(null);
@@ -46,14 +48,20 @@ function UserFormSection() {
     <Section className={classes.checkout}>
       <div className={classes.formsSection}>
         <Header>Deine Daten</Header>
-        <AuthForm />
-        <Divider />
-        {!asGast && (
+        {!userLoggedIn && <>
+          <AuthForm /> 
+          <Divider />
+          {!asGast && (
           <TextButton onClick={handleAsGastClick}>
             Als Gast fortfahren
           </TextButton>
+          )}
+          {asGast && <UserDataForm onError={handleFormErrors} />}
+        </>}
+        {userLoggedIn && (
+            <UserDataForm onError={handleFormErrors} />
         )}
-        {asGast && <UserDataForm onError={handleFormErrors} />}
+       
       </div>
       <CheckoutSidebar
         form="checkout-form"
