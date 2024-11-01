@@ -2,6 +2,7 @@ import classes from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
 import { currencyFormatter } from "../../util/formatting";
+import { motion } from "framer-motion";
 
 function CartItem({
   id,
@@ -16,12 +17,12 @@ function CartItem({
   const dispatch = useDispatch();
 
   function handleRemoveItemFromCart() {
-    dispatch(cartActions.removeItem({id, color}));
+    dispatch(cartActions.removeItem({ id, color }));
   }
 
   function handleUpdateQuantity(event) {
     const updatedQuantity = event.target.value;
-    dispatch(cartActions.updateQuantity({id, color, updatedQuantity}));
+    dispatch(cartActions.updateQuantity({ id, color, updatedQuantity }));
   }
 
   return (
@@ -33,12 +34,22 @@ function CartItem({
         <div className={classes.itemInfo}>
           <div className={classes.header}>
             <h3>{name}</h3>
-            <button onClick={handleRemoveItemFromCart}>X</button>
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              onClick={handleRemoveItemFromCart}
+            >
+              X
+            </motion.button>
           </div>
           <p className={classes.collection}>{collection}</p>
           <div className={classes.details}>
             <div style={{ backgroundColor: `${color}` }} />
-            <select name="quantity" onChange={handleUpdateQuantity} className={classes.quantity}>
+            <motion.select
+              name="quantity"
+              whileHover={{ scale: 1.2 }}
+              onChange={handleUpdateQuantity}
+              className={classes.quantity}
+            >
               <option defaultChecked>{quantity}</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -46,7 +57,7 @@ function CartItem({
               <option value="4">4</option>
               <option value="5">5</option>
               <option value="6">6</option>
-            </select>
+            </motion.select>
             <span>{` x ${currencyFormatter.format(price)}`}</span>
           </div>
           <p className={classes.price}>

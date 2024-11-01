@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import classes from "./RootLayout.module.css";
+import { AnimatePresence } from "framer-motion";
 
 import MainHeader from "../components/Layout/MainHeader/MainHeader";
 import Cart from "../components/Cart/Cart";
@@ -13,7 +14,7 @@ function RootLayout() {
   return (
     <main className={classes.main}>
       <MainHeader />
-      {showCart && <Cart modal />}
+      <AnimatePresence>{showCart && <Cart modal />}</AnimatePresence>
       <section>
         <Outlet />
       </section>

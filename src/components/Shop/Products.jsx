@@ -9,13 +9,11 @@ import PageContent from "../UI/PageContent";
 import ErrorBlock from "../UI/ErrorBlock";
 import PageTitle from "../UI/PageTitle";
 import SortedProducts from "./ProductTypes/SortedProducts";
-import useScreenWidth from "../../hooks/screen-width";
 
 const PRODUCTS_PAGE_DESCRIPTION =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat, erat vitae condimentum euismod, nibh enim vehicula nisi, id malesuada augue nisi a turpis. Proin a orci justo. Donec nec commodo massa. Praesent ac turpis placerat, dictum lectus eget, consectetur metus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce tellus dui, volutpat ac ultrices ac,aliquam vel enim. Maecenas iaculis diam ligula, a viverra leo feugiat sed.";
 
 function Products() {
-  const screenWidth = useScreenWidth();
   const [searchParams] = useSearchParams();
   const filterType = searchParams.get("type");
   const [sortType, setSortType] = useState("new");
@@ -81,9 +79,10 @@ function Products() {
   }
 
   return (
-    <section>
+    <section
+    >
       <PageTitle title="Produkte">{PRODUCTS_PAGE_DESCRIPTION}</PageTitle>
-      <SortingNavigation onSort={handleSort} onGrid={handleGrid}/>
+      <SortingNavigation onSort={handleSort} onGrid={handleGrid} />
       {content}
       <ProductsPagesNavigation
         onPage={(page) => setPageNumber(page)}

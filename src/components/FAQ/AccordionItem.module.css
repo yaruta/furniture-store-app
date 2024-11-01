@@ -1,6 +1,9 @@
 .accordionItem {
   list-style: none;
   border-top: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .accordionItem h3 {

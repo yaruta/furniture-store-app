@@ -4,11 +4,21 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/cart-slice";
 import { favoritesActions } from "../../../store/favorites-slice";
 import { currencyFormatter } from "../../../util/formatting";
+import { motion } from "framer-motion";
 import AddIcon from "../../Icons/AddIcon";
 import Button from "../../UI/Button";
 import FavItemButton from "./FavItemButton";
 
-function ProductItem({ id, name, collection, price, image, color, isFav }) {
+function ProductItem({
+  id,
+  name,
+  collection,
+  price,
+  image,
+  color,
+  isFav,
+  key,
+}) {
   const dispatch = useDispatch();
 
   function handleAddItemToCart() {
@@ -39,7 +49,12 @@ function ProductItem({ id, name, collection, price, image, color, isFav }) {
 
   return (
     <li className={classes.item}>
-      <article>
+      <motion.article
+        variants={{
+          hidden: { opacity: 0, y: -50 },
+          visible: { opacity: 1, y: 0 },
+        }}
+      >
         <Link to={`/shop/${id}`}>
           <div className={classes["image-section"]}>
             <img src={image} alt="product image" />
@@ -64,7 +79,7 @@ function ProductItem({ id, name, collection, price, image, color, isFav }) {
             </Button>
           </div>
         </div>
-      </article>
+      </motion.article>
     </li>
   );
 }

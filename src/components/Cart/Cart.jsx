@@ -4,10 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { uiActions } from "../../store/ui-slice";
 import { currencyFormatter } from "../../util/formatting";
+import { motion } from "framer-motion";
 
 import Modal from "../UI/Modal";
 import CartItem from "./CartItem";
-import CtaButton from "../UI/CTAButton";
+import LinkButton from "../UI/LinkButton";
 import PageTitle from "../UI/PageTitle";
 import CheckoutSidebar from "../checkout/CheckoutSidebar";
 
@@ -46,10 +47,16 @@ export default function Cart({ modal }) {
   return (
     <>
       {modal && (
-        <Modal open onClose={handleCloseCart} onPathnameClose="/cart">
+        <Modal open onClose={handleCloseCart}>
           <div className={classes.cartHeader}>
             <h2>Ihr Warenkorb</h2>
-            <button onClick={handleCloseCart}>X</button>
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              transition={{ type: "spring", stiffness: 500 }}
+              onClick={handleCloseCart}
+            >
+              X
+            </motion.button>
           </div>
           {content}
           <div className={classes.cartTotal}>
@@ -57,13 +64,12 @@ export default function Cart({ modal }) {
             <span>{currencyFormatter.format(totalPrice)}</span>
           </div>
           <div className={classes.cartActions}>
-            <CtaButton
+            <LinkButton
               title="Warenkorb anzeigen"
               path="/cart"
-              onClose={handleCloseCart}
               disabled={items.length === 0}
             />
-            <CtaButton
+            <LinkButton
               title="Zur Kasse"
               path="/checkout/userinfo"
               typ2

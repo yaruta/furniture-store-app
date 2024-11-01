@@ -1,10 +1,16 @@
 import classes from "./Button.module.css";
+import { motion } from "framer-motion";
 
 function Button({ children, className, ...props }) {
   return (
-    <button className={`${classes["icon-button"]} ${className}`} {...props}>
+    <motion.button
+      whileHover={{ scale: 1.2 }}
+      transition={{ type: "spring" }}
+      className={`${classes["icon-button"]} ${className}`}
+      {...props}
+    >
       {children}
-    </button>
+    </motion.button>
   );
 }
 

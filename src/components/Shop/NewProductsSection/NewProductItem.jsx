@@ -23,7 +23,7 @@ function NewProductItem({id, name, collection, image}) {
       >
         <div className={classes["item-image"]}>
           <img src={image} alt={name} />
-          <span className={classes["new-bage"]}>New</span>
+          <span className={classes["new-badge"]}>New</span>
         </div>
         {isHover && (
           <div className={classes["item-info"]}>

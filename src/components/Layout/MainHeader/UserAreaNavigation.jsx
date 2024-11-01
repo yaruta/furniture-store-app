@@ -10,7 +10,7 @@ import LogoutIcon from "../../Icons/LogoutIcon";
 import FavoritesIcon from "../../Icons/FavoritesIcon";
 import CartIcon from "../../Icons/CartIcon";
 import Button from "../../UI/Button";
-import Bage from "./Bage";
+import Badge from "./Badge";
 
 function UserAreaNavigation() {
   const { userLoggedIn } = useAuth();
@@ -46,7 +46,7 @@ function UserAreaNavigation() {
       <ul>
         {!userLoggedIn && (
           <Button
-            className={classes["nav-button"]}
+            className={`${classes["nav-button"]} ${classes.login}`}
             onClick={() => handleNavigate("/auth?mode=login")}
           >
             <LoginIcon />
@@ -63,11 +63,11 @@ function UserAreaNavigation() {
           onClick={() => handleNavigate("/favorites")}
         >
           <FavoritesIcon />
-          {isItemInFavorites && <Bage value={favoriteItemsAmount} />}
+          {isItemInFavorites && <Badge value={favoriteItemsAmount} />}
         </Button>
         <Button className={classes["nav-button"]} onClick={toggleCartHandler}>
           <CartIcon />
-          {isItemInCart && <Bage value={cartItemsAmount} />}
+          {isItemInCart && <Badge value={cartItemsAmount} />}
         </Button>
       </ul>
     </nav>

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchShopProducts } from "../../../util/http";
 
 import classes from "./NewProducts.module.css";
-import CtaButton from "../../UI/CTAButton";
+import LinkButton from "../../UI/LinkButton";
 import NewProductItem from "./NewProductItem";
 import PageContent from "../../UI/PageContent";
 import ErrorBlock from "../../UI/ErrorBlock";
@@ -69,7 +69,9 @@ function NewProductsSection() {
       </PageTitle>
       <article>
         {content}
-        <CtaButton path="/shop" title="Zum Shop" />
+        <div className={classes.actions}>
+          <LinkButton path="/shop" title="Zum Shop" />
+        </div>
       </article>
     </section>
   );

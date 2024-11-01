@@ -39,6 +39,12 @@
   white-space: pre-wrap;
 }
 
+.actions {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
 @media (max-width: 1050px) {
   .hero-item {
     width: 80%;

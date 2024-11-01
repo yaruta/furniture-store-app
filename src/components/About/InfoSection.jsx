@@ -1,4 +1,5 @@
 import classes from "./InfoSection.module.css";
+import { motion } from "framer-motion";
 import DesignIcon from "../Icons/DesignIcon";
 import BuildIcon from "../Icons/BuildIcon";
 import PaymentIcon from "../Icons/PaymentIcon";
@@ -33,17 +34,36 @@ const INFO = [
 
 function InfoSection() {
   return (
-    <article className={classes.infoSection}>
-      <div className={classes.infoItems}>
+    <motion.article
+      className={classes.infoSection}
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+      }}
+      initial="hidden"
+      animate="visible"
+    >
+      <motion.div
+        variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        className={classes.infoItems}
+      >
         {INFO.map((infoItem) => (
-          <div key={infoItem.title} className={classes.infoItem}>
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: -50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ type: "spring ", duration: 0.3 }}
+            key={infoItem.title}
+            className={classes.infoItem}
+          >
             <h2>{infoItem.title}</h2>
             {infoItem.icon}
             <p>{infoItem.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
-    </article>
+      </motion.div>
+    </motion.article>
   );
 }
 

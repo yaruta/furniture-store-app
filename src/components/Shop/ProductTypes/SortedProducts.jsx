@@ -1,6 +1,7 @@
 import classes from "./SortedProducts.module.css";
 import { useSelector } from "react-redux";
 import { sortProducts } from "../../../util/sorting";
+import { motion } from "framer-motion";
 import ProductItem from "../ProductItem/ProductItem";
 
 function SortedProducts({
@@ -18,7 +19,13 @@ function SortedProducts({
   const favoriteItems = useSelector((state) => state.favorites.items);
 
   return (
-    <ul
+    <motion.ul
+      variants={{
+        hidden: { opacity: 0, y: -50 },
+        visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.15 } },
+      }}
+      initial="hidden"
+      animate="visible"
       id={classes.products}
       className={
         numberOfProductsPerPage === 4 ? classes.prodX4 : classes.prodX6
@@ -31,7 +38,7 @@ function SortedProducts({
 
         return <ProductItem key={product.id} isFav={isFav} {...product} />;
       })}
-    </ul>
+    </motion.ul>
   );
 }
 

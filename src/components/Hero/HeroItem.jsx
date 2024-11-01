@@ -1,10 +1,18 @@
-import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import classes from "./HeroItem.module.css";
-import CtaButton from "../UI/CTAButton";
+import LinkButton from "../UI/LinkButton";
+import useScreenWidth from "../../hooks/screen-width";
 
 function HeroItem({ image, collection, title, description }) {
+  const width = useScreenWidth();
   return (
-    <article className={classes["hero-item"]}>
+    <motion.article
+      initial={{ opacity: 0, x: width, transition: { duration: 0.5 } }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -width, transition: { duration: 0.5 } }}
+      transition={{ duration: 1.8 }}
+      className={classes["hero-item"]}
+    >
       <img src={image} alt={title} />
       <div className={classes["hero-info"]}>
         <div>
@@ -12,9 +20,11 @@ function HeroItem({ image, collection, title, description }) {
           <p className={classes.title}>{title}</p>
           <p>{description}</p>
         </div>
-        <CtaButton path="/shop" title="Zum Shop"/>
+        <div className={classes.actions}>
+          <LinkButton path="/shop" title="Zum Shop" />
+        </div>
       </div>
-    </article>
+    </motion.article>
   );
 }
 
