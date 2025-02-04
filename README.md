@@ -17,6 +17,8 @@ The **Furniture Store App** is a web application that allows users to browse, se
 - **API Handling**: TanStack Query (React Query)
 - **Styling**: Tailwind CSS / CSS Modules
 - **Routing**: React Router
+- **Database**: Firebase Firestore
+- **Authentication**: Firebase Authentication
 
 ## 📂 Project Structure
 ```
@@ -55,5 +57,5 @@ This project is open-source and available under the **MIT License**.
 
 ## 📬 Contact
 If you have any questions or feedback, feel free to reach out:
-📧 Email: kh.yaruta"gmail.com  
+📧 Email: kh.yaruta@gmail.com  
 🐙 GitHub: [yaruta](https://github.com/yaruta)
