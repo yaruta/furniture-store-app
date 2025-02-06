@@ -1,3 +1,11 @@
+/**
+ * AboutSection component displays about information.
+ *
+ * This component renders the title and description using the `PageTitle` component,
+ * followed by the `InfoSection` and `AddressSection` components.
+ * 
+ * @returns {JSX.Element} - The rendered about section with info, and address.
+ */
 import AddressSection from "./AddressSection";
 import InfoSection from "./InfoSection";
 import PageTitle from "../UI/PageTitle";
@@ -6,7 +14,7 @@ import Section from "../UI/Section";
 function AboutSection() {
   return (
     <>
-      <PageTitle title="Lieblingsprodukte">
+      <PageTitle title="Hbbdsfbsb dsdjfb">
         Nulla blandit congue neque et cursus. Mauris vel sapien varius leo
         laoreet feugiat id quis enim. Ut quis leo facilisis, interdum odio a,
         laoreet augue. Sed convallis quis mi vitae interdum. Pellentesque at

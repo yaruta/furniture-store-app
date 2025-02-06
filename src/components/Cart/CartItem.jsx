@@ -1,3 +1,18 @@
+/**
+ * CartItem component represents an individual item in the shopping cart.
+ * It displays the item details, quantity, price, and allows the user to remove or update the quantity of the item.
+ * 
+ * @param {Object} props - Component properties
+ * @param {string} props.id - Unique identifier for the cart item
+ * @param {string} props.name - Name of the product
+ * @param {string} props.collection - Collection to which the product belongs
+ * @param {number} props.quantity - Quantity of the product in the cart
+ * @param {number} props.price - Price of the product per unit
+ * @param {string} props.image - URL of the product image
+ * @param {string} props.color - Color of the product
+ * @param {number} props.totalPrice - Total price for the product (quantity * price)
+ * @returns {JSX.Element} - The rendered cart item
+ */
 import classes from "./CartItem.module.css";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart-slice";
@@ -16,10 +31,18 @@ function CartItem({
 }) {
   const dispatch = useDispatch();
 
+  /**
+   * Removes the item from the cart by dispatching the removeItem action with the item's id and color.
+   */
   function handleRemoveItemFromCart() {
     dispatch(cartActions.removeItem({ id, color }));
   }
 
+  /**
+   * Updates the quantity of the item in the cart by dispatching the updateQuantity action with the updated value.
+   * 
+   * @param {Object} event - The change event triggered when the quantity is updated
+   */
   function handleUpdateQuantity(event) {
     const updatedQuantity = event.target.value;
     dispatch(cartActions.updateQuantity({ id, color, updatedQuantity }));

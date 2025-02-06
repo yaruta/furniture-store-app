@@ -1,3 +1,8 @@
+/**
+ * DeliveryIcon component.
+ * This component renders a delivery icon as an SVG for AboutPage.
+ * @returns {JSX.Element} The delivery icon component.
+ */
 export default function DeliveryIcon() {
   return (
     <svg

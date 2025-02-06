@@ -1,3 +1,9 @@
+/**
+ * Logo component renders the brand's logo as a clickable link.
+ * Clicking the logo navigates to the homepage.
+ *
+ * @returns {JSX.Element} - Rendered Logo component with a clickable brand name
+ */
 import { Link } from "react-router-dom";
 import classes from "./Logo.module.css";
 

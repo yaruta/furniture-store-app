@@ -1,3 +1,7 @@
+/**
+ * DesignIcon component renders a design icon as an SVG. Used for AboutPage.
+ * @returns {JSX.Element} The design icon component.
+ */
 export default function DesignIcon() {
   return (
     <svg

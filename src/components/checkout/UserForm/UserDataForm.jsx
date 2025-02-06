@@ -1,3 +1,11 @@
+/**
+ * UserDataForm is a form component for capturing user data such as first name, last name, address, and email.
+ * It validates the user input and provides error messages if the input does not meet the required criteria.
+ * 
+ * @param {function} onError - A callback function to handle form validation errors.
+ * 
+ * @returns {JSX.Element} - A form element with input fields for user data.
+ */
 import { useEffect, useState } from "react";
 import { Form } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -7,7 +15,11 @@ import classes from "./UserDataForm.module.css";
 import FormInput from "../../UI/FormInput";
 
 function UserDataForm({ onError }) {
-  const {userLoggedIn, currentUser} = useAuth();
+  /**
+   * Hook to check if the user is logged in
+   * If the user logged in, then we will use email from 'current user' as the default email
+  */
+  const {userLoggedIn, currentUser} = useAuth(); 
   const { userdata } = useSelector((state) => state.checkout);
   const [isError, setIsError] = useState(
     userdata
@@ -42,6 +54,11 @@ function UserDataForm({ onError }) {
     }
   }, [isError]);
 
+  /**
+   * Handles input field changes, validating the user input.
+   * 
+   * @param {Event} event - The event object triggered by an input change.
+   */
   function handleChange(event) {
     const value = event.target.value;
     const name = event.target.name;

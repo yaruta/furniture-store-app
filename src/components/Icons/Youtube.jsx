@@ -1,3 +1,7 @@
+/**
+ * YoutubeIcon component renders a youtube icon as an SVG. Used in Social Media Section.
+ * @returns {JSX.Element} The youtube icon component.
+ */
 function YoutubeIcon() {
   return (
     <svg

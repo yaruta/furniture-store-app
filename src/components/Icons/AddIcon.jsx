@@ -1,3 +1,9 @@
+/**
+ * AddIcon is a functional component that renders an SVG representing a plus 
+ * icon, typically used for adding items.
+ *
+ * @returns {JSX.Element} The rendered SVG icon.
+ */
 export default function AddIcon() {
   return (
     <svg

@@ -1,4 +1,10 @@
-import { redirect } from "react-router-dom";
+/**
+ * Represents the authentication page of the application.
+ * This page contains the authentication section for user login and registration.
+ *
+ * @returns {JSX.Element} The AuthenticationPage component.
+ */
+
 import AuthSection from "../components/Authentication/AuthSection";
 
 function AuthenticationPage() {

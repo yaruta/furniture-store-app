@@ -1,6 +1,10 @@
+/**
+ * HomePage component that renders the main sections of the homepage.
+ *
+ * @returns {JSX.Element} The HomePage component.
+ */
 import { fetchHero, queryClient } from "../util/http";
 import { useQuery } from "@tanstack/react-query";
-
 import HeroSection from "../components/Hero/HeroSection";
 import NewProductsSection from "../components/Shop/NewProductsSection/NewProducts";
 import PageContent from "../components/UI/PageContent";
@@ -51,6 +55,11 @@ function HomePage() {
 
 export default HomePage;
 
+/**
+ * Pre-loads the hero section data before rendering the page.
+ *
+ * @returns {Promise} A promise that resolves with the hero section data.
+ */
 export function loader() {
   return queryClient.fetchQuery({
     queryKey: ["hero"],

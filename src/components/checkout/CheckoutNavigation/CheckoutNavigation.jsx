@@ -1,3 +1,16 @@
+/**
+ * The `CheckoutNavigation` component renders the navigation bar for the checkout process.
+ * 
+ * It uses the Redux `checkout` state to determine the status of each step (userdata, delivery, payment),
+ * and dynamically updates the navigation items to reflect whether each step is completed or not.
+ * 
+ * - The first item ("Userinformationen") is always enabled.
+ * - The second item ("Versand") is only enabled if user information is provided.
+ * - The third item ("Zahlung") is enabled only when both user information and delivery details are provided.
+ * - The final item ("Zusammenfassung") becomes enabled only when all prior steps are completed.
+ * 
+ * @returns {JSX.Element} - The rendered checkout navigation bar, with items representing each checkout step.
+ */
 import { useSelector } from "react-redux";
 import classes from "./CheckoutNavigation.module.css";
 import CheckoutNavItem from "./CheckoutNavItem";

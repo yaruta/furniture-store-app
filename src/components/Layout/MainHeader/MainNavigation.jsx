@@ -1,3 +1,10 @@
+/**
+ * MainNavigation component renders the main navigation bar for the application.
+ * It includes navigation links to the shop, about page, and FAQ.
+ * The active link is highlighted using CSS class.
+ * 
+ * @returns {JSX.Element} - Rendered main navigation bar with links to shop, about, and FAQ
+ */
 import { NavLink } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 

@@ -1,3 +1,7 @@
+/**
+ * InstagramIcon component renders a instagram icon as an SVG. Used in Social Media Section.
+ * @returns {JSX.Element} The instagram icon component.
+ */
 function InstagramIcon() {
   return (
     <svg

@@ -1,5 +1,13 @@
+/**
+ * Cart component renders a shopping cart that displays the items in the cart,
+ * the total price, and provides options to navigate to checkout or go back to the shop.
+ * The cart can be displayed as a modal or as a fullscreen section.
+ * 
+ * @param {Object} props - Component properties
+ * @param {boolean} props.modal - Flag to determine if the cart is displayed as a modal
+ * @returns {JSX.Element} - The rendered cart component
+ */
 import classes from "./Cart.module.css";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { uiActions } from "../../store/ui-slice";
@@ -17,14 +25,23 @@ export default function Cart({ modal }) {
   const { items, totalPrice } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+  /**
+   * Closes the cart modal by dispatching a toggle action.
+   */
   function handleCloseCart() {
     dispatch(uiActions.toggle());
   }
 
+  /**
+   * Navigates to the user info page in the checkout process.
+   */
   function handleNext() {
     navigate("/checkout/userinfo");
   }
 
+  /**
+   * Navigates back to the shop page.
+   */
   function handleBack() {
     navigate("/shop");
   }

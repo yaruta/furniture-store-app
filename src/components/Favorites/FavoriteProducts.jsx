@@ -1,9 +1,16 @@
+/**
+ * FavoriteProducts component displays a list of the user's favorite products.
+ * It retrieves the favorite items from the Redux store and renders them.
+ * 
+ * @returns {JSX.Element} - The rendered section of favorite products
+ */
 import { useSelector } from "react-redux";
 import classes from "./FavoriteProducts.module.css";
 import ProductItem from "../Shop/ProductItem/ProductItem";
 import PageTitle from "../UI/PageTitle";
 
 function FavoriteProducts() {
+  // Get the favorite items from the Redux store
   const favoriteItems = useSelector((state) => state.favorites.items);
 
   return (
@@ -17,6 +24,8 @@ function FavoriteProducts() {
         vitae elit dignissim efficitur. Proin ut lectus nec felis condimentum
         pharetra vel in felis.
       </PageTitle>
+      
+      {/* Conditionally render either the list of favorite items or a message */}
       {favoriteItems.length > 0 ? (
         <ul className={classes.favorites}>
           {favoriteItems.map((item) => {

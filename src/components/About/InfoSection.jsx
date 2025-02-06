@@ -5,6 +5,7 @@ import BuildIcon from "../Icons/BuildIcon";
 import PaymentIcon from "../Icons/PaymentIcon";
 import DeliveryIcon from "../Icons/DeliveryIcon";
 
+// Info data to display in the section
 const INFO = [
   {
     title: "Einzigartiges Design",
@@ -32,6 +33,15 @@ const INFO = [
   },
 ];
 
+/**
+ * InfoSection component displays a list of information items with animations.
+ * 
+ * This component uses `framer-motion` to animate the visibility and position
+ * of each information item. It renders a list of four sections (design, assembly, payment, delivery)
+ * with icons and descriptions. Each item appears with a staggered animation.
+ * 
+ * @returns {JSX.Element} - The rendered info section with animated items.
+ */
 function InfoSection() {
   return (
     <motion.article

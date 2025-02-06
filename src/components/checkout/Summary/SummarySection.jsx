@@ -1,3 +1,10 @@
+/**
+ * The SummarySection component displays the summary of the order, including user data, 
+ * delivery, payment information, cart items, and total price. It also handles the 
+ * submission of the order to the backend and navigation to the completion page.
+ *
+ * @returns {JSX.Element} The rendered SummarySection component.
+ */
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useMutation } from "@tanstack/react-query";
@@ -22,15 +29,21 @@ function SummarySection() {
   );
   const cart = useSelector((state) => state.cart);
 
+  // Mutation to send the order using react-query
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: sendOrder,
     onSuccess: () => {
+      // Navigate to the order completion page and reset checkout and cart state
       navigate("/checkout/completed");
       dispatch(checkoutActions.clearCheckoutData());
       dispatch(cartActions.clearCart());
     },
   });
 
+  /**
+   * Handles the submission of the order by calling the mutate function to send 
+   * the order details.
+   */
   function handleSubmit() {
     mutate({
       cart: cart,
@@ -40,10 +53,14 @@ function SummarySection() {
     });
   }
 
+  /**
+   * Navigates the user back to the payment page.
+   */
   function handleBack() {
     navigate("/checkout/payment");
   }
 
+  // Render content based on the mutation state (pending, error)
   let content;
   if (isPending) {
     content = (
@@ -72,6 +89,7 @@ function SummarySection() {
       <CheckoutInfo />
       <SummaryCart />
       <TotalPrice />
+      {/* Action buttons for navigating back or completing the purchase */}
       <div className={classes.actions}>
         <TextButton onClick={handleBack}>Zurück</TextButton>
         <TextButton styleType="type2" onClick={handleSubmit}>

@@ -1,3 +1,11 @@
+/**
+ * The DeliveryType component displays the available delivery methods 
+ * (standard or fast) for the user to choose from during the checkout process.
+ * It updates the delivery price based on the selected method and notifies the parent component.
+ * 
+ * @param {function} onDelivery - Callback function to update the delivery price.
+ * @returns {JSX.Element} - A section for selecting the delivery method.
+ */
 import { useEffect, useState } from "react";
 import Header from "../../UI/Header";
 import DeliveryTypeItem from "./DeliveryTypeItem";
@@ -15,6 +23,10 @@ function DeliveryType({ onDelivery }) {
     onDelivery(price);
   }, [price]);
 
+  /**
+   * Handle the click event for selecting a delivery type and update the price.
+   * @param {number} price - The price of the selected delivery option.
+   */
   function handleClick(price) {
     setPrice(price);
   }

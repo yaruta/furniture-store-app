@@ -1,3 +1,8 @@
+/**
+ * CartIcon component.
+ * This component renders a cart icon as an SVG.
+ * @returns {JSX.Element} The cart icon component.
+ */
 function CartIcon() {
   return (
     <svg

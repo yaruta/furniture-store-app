@@ -1,3 +1,12 @@
+/**
+ * The PaymentForm component manages the payment method selection in the checkout process.
+ * It allows the user to choose between different payment methods, such as credit card and PayPal.
+ * 
+ * The component uses Redux to manage the payment method state and adds the selected
+ * payment method to the Redux store.
+ * 
+ * @returns {JSX.Element} - The rendered form for selecting a payment method.
+ */
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { checkoutActions } from "../../../store/checkout-slice";
@@ -9,6 +18,7 @@ function PaymentForm() {
   const [payment, setPayment] = useState(paymentType ? paymentType : "paypal");
 
   useEffect(() => {
+    // Adds the selected payment method to the store
     dispatch(
       checkoutActions.addPayment({
         payment: { type: payment },
@@ -16,6 +26,10 @@ function PaymentForm() {
     );
   }, [payment]);
 
+  /**
+   * Handles the change in selected payment method.
+   * @param {React.ChangeEvent<HTMLInputElement>} event - The change event from the radio button.
+   */
   function handlePaymentTypeChange(event) {
     setPayment(event.target.value);
   }

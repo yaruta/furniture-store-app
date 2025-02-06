@@ -1,3 +1,9 @@
+/**
+ * The `Completed` component is displayed when the user has successfully completed a purchase.
+ * It thanks the user for the purchase and provides a button to navigate back to the shop.
+ * 
+ * @returns {JSX.Element} - A page showing a thank you message and a button to navigate back to the shop.
+ */
 import classes from "./Completed.module.css";
 import { useNavigate } from "react-router-dom";
 
@@ -6,6 +12,9 @@ import TextButton from "../../UI/TextButton";
 
 function Completed() {
   const navigate = useNavigate();
+  /**
+   * Navigates the user back to the shop page when the button is clicked.
+   */
   function handleClick() {
     navigate("/shop");
   }

@@ -1,3 +1,7 @@
+/**
+ * GridIcon9 component renders a table icon as an SVG.
+ * @returns {JSX.Element} The table icon component.
+ */
 function GridIcon9() {
   return (
     <svg

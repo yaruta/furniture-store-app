@@ -1,3 +1,9 @@
+/**
+ * ErrorPage component displays an error message when a route fails to load.
+ * It handles different error statuses (e.g., 404, 500) and shows appropriate messages.
+ *
+ * @returns {JSX.Element} The ErrorPage component.
+ */
 import { useRouteError, Link } from "react-router-dom";
 import MainHeader from "../components/Layout/MainHeader/MainHeader";
 import PageContent from "../components/UI/PageContent";
@@ -6,12 +12,13 @@ import { uiActions } from "../store/ui-slice";
 import { useEffect } from "react";
 
 function ErrorPage() {
-  const error = useRouteError();
+  const error = useRouteError(); // Retrieves the error object from React Router
   const dispatch = useDispatch();
 
   let title = "An error occured!";
   let message = "Something went wrong!";
 
+  // Handling specific error statuses
   if (error.status === 500) {
     message = error.data.message;
   }
@@ -21,6 +28,7 @@ function ErrorPage() {
     message = "Die gewünschte Seite ist leider nicht vorhanden!";
   }
   useEffect(() => {
+    // Dispatch an error notification when the component mounts
     dispatch(
       uiActions.showNotification({
         title: title,
@@ -28,11 +36,12 @@ function ErrorPage() {
         status: "error",
       })
     );
+    // Automatically hide the notification after 3 seconds
     const timeout = setTimeout(() => {
       dispatch(uiActions.hideNotification());
     }, 3000);
 
-    return () => clearTimeout(timeout);А
+    return () => clearTimeout(timeout); // Cleanup function to prevent memory leaks
   }, []);
  
 

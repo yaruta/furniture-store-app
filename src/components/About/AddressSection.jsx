@@ -1,3 +1,12 @@
+/**
+ * AddressSection component displays the address and location on a map.
+ *
+ * This component uses the `useQuery` hook to fetch address data and render it.
+ * It displays a map using Mapbox GL and places a marker at a predefined location.
+ * If there is an error in fetching the address data, it shows an error block.
+ *
+ * @returns {JSX.Element} - The rendered address section with map and address details.
+ */
 import classes from "./AddressSection.module.css";
 import { useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -11,15 +20,18 @@ import Header from "../UI/Header";
 import ErrorBlock from "../UI/ErrorBlock";
 
 function AddressSection() {
+  // Fetch address data using React Query
   const { data, isError, error } = useQuery({
     queryKey: ["address"],
     queryFn: fetchAddress,
   });
 
+  // Refs for map and marker
   const mapRef = useRef();
   const mapContainerRef = useRef();
   const markerRef = useRef();
 
+  // Initialize the map and marker when the component is mounted
   useEffect(() => {
     mapboxgl.accessToken = MAP_ACCESS_TOKEN;
     mapRef.current = new mapboxgl.Map({
@@ -31,6 +43,7 @@ function AddressSection() {
       .setLngLat([13.41053, 52.52437])
       .addTo(mapRef.current);
 
+    // Cleanup the map and marker when the component is unmounted
     return () => {
       mapRef.current.remove();
       markerRef.current.remove();

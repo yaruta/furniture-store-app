@@ -1,3 +1,11 @@
+/**
+ * A component to display the detailed information of a product.
+ * 
+ * Fetches product data using React Query and allows users to select color, quantity,
+ * and add the product to the cart or favorites.
+ *
+ * @returns {JSX.Element} The product details page content.
+ */
 import classes from "./ProductDetails.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,27 +26,44 @@ import { currencyFormatter } from "../../../util/formatting";
 function ProductDetails() {
   const dispatch = useDispatch();
 
+  // Retrieve the product ID from URL params
   const params = useParams();
+
+  // Access favorite items from the Redux store
   const favoriteItems = useSelector((state) => state.favorites.items);
+  // Check if the current product is already in favorites
   const isFav =
     favoriteItems.find((item) => item.id === params.productId) !== undefined;
 
+  // Fetch product data from API using React Query
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products", { id: params.productId }],
     queryFn: ({ signal, queryKey }) => fetchProduct({ signal, ...queryKey[1] }),
   });
 
+  // State for selected color and quantity
   const [selectedColor, setSelectedColor] = useState();
   const [selectedQuantity, setSelectedQuantity] = useState(1);
 
+  /**
+   * Handles the selection of a color.
+   * @param {string} color - The selected color.
+   */
   function handleSelectColor(color) {
     setSelectedColor(color);
   }
 
+  /**
+   * Handles the selection of a quantity.
+   * @param {number} quantity - The selected quantity.
+   */
   function handleSelectQuantity(quantity) {
     setSelectedQuantity(quantity);
   }
 
+  /**
+   * Adds the current product to the cart.
+   */
   function handleAddItemToCart() {
     dispatch(
       cartActions.addItem({
@@ -53,6 +78,9 @@ function ProductDetails() {
     );
   }
 
+  /**
+   * Toggles the product in the favorites list.
+   */
   function handleAddToFavorite() {
     dispatch(
       favoritesActions.toggleFavorite({
