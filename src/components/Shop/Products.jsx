@@ -1,9 +1,11 @@
 /**
- * Component represents the product listing page with sorting, filtering, and pagination.
+ * Component representing the product listing page with sorting, filtering, and pagination.
  * It fetches product data and displays it with sorting and pagination options.
- * 
+ *
+ * @module Products
  * @returns {JSX.Element} The rendered product listing page with sorting and pagination controls.
  */
+
 import { useQuery } from "@tanstack/react-query";
 import { fetchShopProducts } from "../../util/http";
 import { useSearchParams } from "react-router-dom";
@@ -26,7 +28,7 @@ function Products() {
   const [searchParams] = useSearchParams();
   const filterType = searchParams.get("type");
 
-   /**
+  /**
    * State hook for managing the sorting type (e.g., 'new', 'popular').
    */
   const [sortType, setSortType] = useState("new");
@@ -115,8 +117,7 @@ function Products() {
   }
 
   return (
-    <section
-    >
+    <section>
       <PageTitle title="Produkte">{PRODUCTS_PAGE_DESCRIPTION}</PageTitle>
       <SortingNavigation onSort={handleSort} onGrid={handleGrid} />
       {content}

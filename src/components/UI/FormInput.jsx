@@ -2,6 +2,7 @@
  * A form input component that includes validation error handling.
  * It displays an error message below the input field when the input is blurred and there's an error.
  * 
+ * @module FormInput
  * @param {Object} props - The properties passed to the component.
  * @param {string} props.label - The label text for the input field.
  * @param {string} props.id - The unique identifier for the input field.

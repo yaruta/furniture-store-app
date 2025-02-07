@@ -2,6 +2,7 @@
  * SocialMediaNavigation component renders a section with social media links.
  * It provides links to Instagram, Facebook, and YouTube, each represented by an icon.
  *
+ * @module SocialMediaNavigation
  * @returns {JSX.Element} - Rendered SocialMediaNavigation component with social media links
  */
 import { Link } from "react-router-dom";

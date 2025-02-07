@@ -2,6 +2,7 @@
  * FavoriteProducts component displays a list of the user's favorite products.
  * It retrieves the favorite items from the Redux store and renders them.
  * 
+ * @module FavoriteProducts
  * @returns {JSX.Element} - The rendered section of favorite products
  */
 import { useSelector } from "react-redux";

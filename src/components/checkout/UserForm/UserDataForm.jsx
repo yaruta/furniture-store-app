@@ -2,6 +2,7 @@
  * UserDataForm is a form component for capturing user data such as first name, last name, address, and email.
  * It validates the user input and provides error messages if the input does not meet the required criteria.
  * 
+ * @module UserDataForm
  * @param {function} onError - A callback function to handle form validation errors.
  * 
  * @returns {JSX.Element} - A form element with input fields for user data.

@@ -4,6 +4,7 @@
  * This component displays available color options for the product and allows the user
  * to select a color. The first color in the list is selected by default.
  * 
+ * @module ProductColor
  * @param {Object} props - The component props.
  * @param {Object} props.colors - An object containing available color options.
  * @param {Function} props.onColor - Callback function to handle the selected color.

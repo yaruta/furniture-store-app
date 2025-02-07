@@ -28,6 +28,7 @@ export function useAccordionContext() {
  * Accordion component that provides state management for opening and closing accordion items.
  * It uses a context to share the open/close state across the accordion items.
  * 
+ * @module Accordion
  * @param {Object} props - The component props
  * @param {string} props.defaultOpenId - The id of the item to open by default
  * @param {JSX.Element[]} props.children - The AccordionItem components to be rendered within the accordion

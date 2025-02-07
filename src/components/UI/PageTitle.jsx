@@ -2,6 +2,7 @@
  * A component that displays a page title and additional content below it.
  * The title is displayed as a <h2> element, and the children are rendered as a <p> element.
  * 
+ * @module PageTitle
  * @param {Object} props - The properties passed to the component.
  * @param {string} props.title - The title of the page, displayed as an <h2> element.
  * @param {React.ReactNode} props.children - The content to be displayed below the title, rendered as a <p> element.

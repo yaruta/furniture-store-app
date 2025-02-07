@@ -3,6 +3,7 @@
  * It displays buttons for login/logout, favorites, and cart, along with the number
  * of items in the cart and favorites.
  * 
+ * @module UserAreaNavigation
  * @returns {JSX.Element} - The rendered navigation bar with user-related actions
  */
 import classes from "./UserAreaNavigation.module.css";

@@ -1,5 +1,7 @@
 /**
  * LoginIcon component renders a login icon as an SVG. 
+ * 
+ * @module LoginIcon
  * @returns {JSX.Element} The login icon component.
  */
 export default function LoginIcon() {

@@ -2,6 +2,7 @@
  * MainHeader component renders the main header of the application.
  * It includes the logo, main navigation, user area navigation, and optionally a notification.
  * 
+ * @module MainHeader
  * @returns {JSX.Element} - Rendered main header section with logo, navigation, and notification
  */
 import classes from "./MainHeader.module.css";

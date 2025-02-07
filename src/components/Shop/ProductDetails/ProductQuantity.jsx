@@ -5,6 +5,7 @@
  * to select the quantity of the product. The minimum quantity is 1 and the 
  * maximum is 8. The quantity is updated when the user changes the value.
  * 
+ * @module ProductQuantity
  * @param {Object} props - The component props.
  * @param {Function} props.onQuantity - Callback function to handle the selected quantity.
  * 

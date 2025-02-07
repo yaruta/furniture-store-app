@@ -4,6 +4,7 @@
  * This component renders the title and description using the `PageTitle` component,
  * followed by the `InfoSection` and `AddressSection` components.
  * 
+ * @module AboutSection
  * @returns {JSX.Element} - The rendered about section with info, and address.
  */
 import AddressSection from "./AddressSection";

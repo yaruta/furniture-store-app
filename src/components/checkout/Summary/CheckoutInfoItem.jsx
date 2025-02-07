@@ -2,6 +2,7 @@
  * The CheckoutInfoItem component is used to display a piece of information with a title.
  * It optionally accepts an `info` prop to display text and a `children` prop to render additional content.
  *
+ * @module CheckoutInfoItem
  * @param {Object} props - The component props.
  * @param {string} props.title - The title for the information item.
  * @param {string} [props.info] - The information text to display (optional).

@@ -2,6 +2,7 @@
  * The Address component renders a user's address details.
  * It displays the full name, street address, and city information.
  *
+ * @module Address
  * @param {Object} props - The props passed to the component.
  * @param {string} props.firstName - The first name of the user.
  * @param {string} props.lastName - The last name of the user.

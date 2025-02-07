@@ -2,6 +2,7 @@
  * A button component that applies motion effects and custom styling.
  * The button scales up when hovered.
  * 
+ * @module Button
  * @param {object} props - The properties passed to the button component.
  * @param {React.ReactNode} children - The content to be displayed inside the button (usually text or icons).
  * @param {string} [className] - Optional additional class names to be added to the button.

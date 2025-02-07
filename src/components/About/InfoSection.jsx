@@ -40,6 +40,7 @@ const INFO = [
  * of each information item. It renders a list of four sections (design, assembly, payment, delivery)
  * with icons and descriptions. Each item appears with a staggered animation.
  * 
+ * @module InfoSection
  * @returns {JSX.Element} - The rendered info section with animated items.
  */
 function InfoSection() {

@@ -3,6 +3,7 @@
  * delivery, payment information, cart items, and total price. It also handles the 
  * submission of the order to the backend and navigation to the completion page.
  *
+ * @module SummarySection
  * @returns {JSX.Element} The rendered SummarySection component.
  */
 import { useNavigate } from "react-router-dom";

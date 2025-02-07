@@ -1,5 +1,7 @@
 /**
  * PaymentIcon component renders a payment icon as an SVG. 
+ * 
+ * @module PaymentIcon
  * @returns {JSX.Element} The payment icon component.
  */
 export default function PaymentIcon() {

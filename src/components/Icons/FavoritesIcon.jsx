@@ -1,5 +1,7 @@
 /**
  * FavoritesIcon component renders an unchecked favorite icon as an SVG.
+ * 
+ * @module FavoriteIcon
  * @returns {JSX.Element} The favorite icon component.
  */
 export default function FavoritesIcon() {

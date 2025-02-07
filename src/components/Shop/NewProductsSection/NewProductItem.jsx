@@ -4,6 +4,7 @@
  * 
  * Displays product image, collection, and name. Shows additional information when hovered over.
  * 
+ * @module NewProductItem
  * @param {Object} props - The component props.
  * @param {string} props.id - The unique identifier for the product.
  * @param {string} props.name - The name of the product.

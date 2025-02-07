@@ -2,6 +2,7 @@
  * Badge component displays a badge with a value inside it.
  * The badge animates by scaling when rendered.
  *
+ * @module Badge
  * @param {Object} props - Component props
  * @param {string|number} props.value - The value to display inside the badge
  * @returns {JSX.Element} - Rendered Badge component with animated scaling effect

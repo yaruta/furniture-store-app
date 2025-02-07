@@ -1,5 +1,7 @@
 /**
  * FacebookIcon component renders a facebook icon as an SVG. Used in Social Media Section.
+ * 
+ * @module FacebookIcon
  * @returns {JSX.Element} The facebook icon component.
  */
 function FacebookIcon() {

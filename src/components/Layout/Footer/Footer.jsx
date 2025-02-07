@@ -2,6 +2,7 @@
  * Footer component displays the footer section of the page with address, social media navigation, and newsletter signup.
  * It fetches the address data using React Query and handles any errors during data retrieval.
  *
+ * @module Footer
  * @returns {JSX.Element} - Rendered Footer component
  */
 import { useQuery } from "@tanstack/react-query";

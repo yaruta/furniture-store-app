@@ -2,6 +2,7 @@
  * The SummaryCartItem component displays detailed information about a single item in the cart.
  * This includes the product's name, collection, quantity, price, total price, color, and image.
  *
+ * @module SummaryCartItem
  * @param {Object} props - The properties passed to the component.
  * @param {string} props.name - The name of the item.
  * @param {string} props.collection - The collection the item belongs to.

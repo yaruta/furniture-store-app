@@ -3,6 +3,7 @@
  * and adjust the delivery price accordingly. It updates the checkout state with the selected delivery type 
  * and the corresponding delivery price.
  * 
+ * @module DeliveryForm
  * @returns {JSX.Element} - A form that lets the user select a delivery type and displays relevant options.
  */
 import { useEffect, useState } from "react";

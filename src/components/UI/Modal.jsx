@@ -3,6 +3,7 @@
  * It uses the React Portal API to render the modal outside the main component tree. 
  * The modal has entrance and exit animations.
  * 
+ * @module Modal
  * @param {Object} props - The properties passed to the component.
  * @param {boolean} props.open - A flag that determines if the modal is open or closed.
  * @param {Function} props.onClose - A function to handle closing the modal.

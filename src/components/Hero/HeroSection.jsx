@@ -3,6 +3,7 @@
  * The component automatically cycles through the hero items every 8 seconds.
  * Users can also manually navigate to the next item using the next button.
  *
+ * @module HeroSection
  * @param {Object} props - Component properties
  * @param {Object} props.data - The hero data containing the featured items
  * @returns {JSX.Element} - Rendered HeroSection component

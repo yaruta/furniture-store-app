@@ -1,5 +1,7 @@
 /**
  * GridIcon4 component renders a table icon as an SVG.
+ * 
+ * @module GridIcon4
  * @returns {JSX.Element} The table icon component.
  */
 function GridIcon4() {

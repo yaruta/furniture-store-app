@@ -2,6 +2,7 @@
  * A component that wraps its children inside a <section> element.
  * It allows additional CSS classes to be added for styling.
  * 
+ * @module Section
  * @param {Object} props - The properties passed to the component.
  * @param {React.ReactNode} props.children - The content to be displayed inside the section.
  * @param {string} [props.className=""] - Optional additional class names to customize the section's styling.

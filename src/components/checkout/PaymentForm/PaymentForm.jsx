@@ -5,6 +5,7 @@
  * The component uses Redux to manage the payment method state and adds the selected
  * payment method to the Redux store.
  * 
+ * @module PaymentForm
  * @returns {JSX.Element} - The rendered form for selecting a payment method.
  */
 import { useState, useEffect } from "react";

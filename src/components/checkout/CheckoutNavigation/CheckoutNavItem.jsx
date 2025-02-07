@@ -11,6 +11,7 @@
  * - The `disabled` prop prevents navigation if set to `true`, by triggering the `handleNoClick` function.
  * - The `checked` prop is used to apply a special style indicating that the step has been completed (if `true`).
  * 
+ * @module CheckoutNavItem
  * @param {Object} props - The props object.
  * @param {number} props.number - The step number to display.
  * @param {string} props.title - The title of the step.

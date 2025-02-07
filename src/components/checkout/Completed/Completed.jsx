@@ -2,6 +2,7 @@
  * The `Completed` component is displayed when the user has successfully completed a purchase.
  * It thanks the user for the purchase and provides a button to navigate back to the shop.
  * 
+ * @module Completed
  * @returns {JSX.Element} - A page showing a thank you message and a button to navigate back to the shop.
  */
 import classes from "./Completed.module.css";

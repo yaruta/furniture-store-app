@@ -3,6 +3,7 @@
  * the total price, and provides options to navigate to checkout or go back to the shop.
  * The cart can be displayed as a modal or as a fullscreen section.
  * 
+ * @module Cart
  * @param {Object} props - Component properties
  * @param {boolean} props.modal - Flag to determine if the cart is displayed as a modal
  * @returns {JSX.Element} - The rendered cart component

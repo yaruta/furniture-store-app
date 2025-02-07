@@ -1,6 +1,7 @@
 /**
  * Component for sorting and grid selection in the product listing.
  *
+ * @module SortingNavigation
  * @param {Object} props - The component props.
  * @param {Function} props.onSort - Function to handle sorting selection.
  * @param {Function} props.onGrid - Function to handle grid layout selection.

@@ -2,6 +2,7 @@
  * The PaymentTypeItem component renders a radio button input for selecting a payment method.
  * It includes a label that displays the payment method type (e.g., "Credit Card", "PayPal").
  * 
+ * @module PaymentTypeItem
  * @param {string} id - The unique identifier for the radio button.
  * @param {string} label - The label displayed next to the radio button, describing the payment method.
  * @param {string} name - The name attribute for the radio button input, ensuring that the items are grouped together.

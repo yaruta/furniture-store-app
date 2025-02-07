@@ -5,6 +5,7 @@
  * and displays a paginated list of products with animation. It uses Redux to get the favorite items 
  * and marks products as favorites if they are in the user's favorite list.
  * 
+ * @module SortedProducts
  * @param {Object} props - The component props.
  * @param {Array} props.products - The list of products to be sorted and displayed.
  * @param {string} props.sortType - The type of sorting to be applied (e.g., "price", "popularity").

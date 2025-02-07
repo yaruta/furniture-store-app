@@ -1,6 +1,7 @@
 /**
  * BuildIcon is a functional component that renders an SVG for AboutPage
  *
+ * @module BuildIcon
  * @returns {JSX.Element} The rendered SVG icon.
  */
 export default function BuildIcon() {

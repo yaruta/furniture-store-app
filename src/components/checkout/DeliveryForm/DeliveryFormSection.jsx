@@ -3,6 +3,7 @@
  * in the checkout process. It renders a form for selecting the delivery method 
  * and provides navigation buttons for moving between sections of the checkout.
  * 
+ * @module DeliveryFormSection
  * @returns {JSX.Element} - A section displaying the delivery form and checkout sidebar.
  */
 import classes from "./DeliveryFormSection.module.css";

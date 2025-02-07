@@ -3,6 +3,7 @@
  * A notification component that displays a message with a title and status.
  * The notification can show different styles based on the provided status (success, error).
  * 
+ * @module Notification
  * @param {Object} props - The properties passed to the component.
  * @param {string} props.title - The title of the notification.
  * @param {string} props.message - The message to display in the notification.

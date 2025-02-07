@@ -2,6 +2,7 @@
  * FAQ component fetches and displays a list of frequently asked questions.
  * It uses React Query to fetch the FAQ data and renders it in an accordion-style list.
  * 
+ * @module FAQ
  * @returns {JSX.Element} - The rendered FAQ section
  */
 import { useQuery } from "@tanstack/react-query";

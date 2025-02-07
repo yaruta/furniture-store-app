@@ -2,6 +2,7 @@
  * A simple divider component that visually separates content with an "or" text in the middle.
  * It is commonly used for separating two sections, like in forms or options.
  * 
+ * @module Divider
  * @returns {JSX.Element} - The rendered divider component.
  */
 import classes from './Divider.module.css';

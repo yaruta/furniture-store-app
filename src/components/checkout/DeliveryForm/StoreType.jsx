@@ -6,6 +6,7 @@
  * It also handles any errors that occur while fetching the address and
  * displays an error message if necessary.
  * 
+ * @module StoreType
  * @param {function} onPickup - Callback function passed as a prop to notify the parent
  * that the price for the pickup option has been updated.
  * @returns {JSX.Element} - The rendered component with store address details or an error block.

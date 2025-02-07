@@ -2,6 +2,7 @@
  * CartItem component represents an individual item in the shopping cart.
  * It displays the item details, quantity, price, and allows the user to remove or update the quantity of the item.
  * 
+ * @module CartItem
  * @param {Object} props - Component properties
  * @param {string} props.id - Unique identifier for the cart item
  * @param {string} props.name - Name of the product

@@ -4,6 +4,7 @@
  * Fetches product data using React Query and allows users to select color, quantity,
  * and add the product to the cart or favorites.
  *
+ * @module ProductDetails
  * @returns {JSX.Element} The product details page content.
  */
 import classes from "./ProductDetails.module.css";

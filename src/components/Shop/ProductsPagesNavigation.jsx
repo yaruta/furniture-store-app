@@ -1,6 +1,7 @@
 /**
  * Component for navigating through product pages.
  *
+ * @module ProductsPagesNavigation
  * @param {Object} props - Component props.
  * @param {number} [props.numberOfProductsPerPage] - Number of products displayed per page.
  * @param {Function} props.onPage - Function to handle page changes.

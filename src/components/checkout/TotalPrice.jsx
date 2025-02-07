@@ -5,6 +5,7 @@
  * It pulls the `totalPrice` and `delivery` information from the Redux state,
  * and formats them using a utility function (`currencyFormatter`) for display.
  * 
+ * @module TotalPrice
  * @returns {JSX.Element} - The rendered total price section, showing the item 
  *                         subtotal, delivery price (if available), and the total price.
  */

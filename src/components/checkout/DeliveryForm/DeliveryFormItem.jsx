@@ -1,6 +1,7 @@
 /**
  * The DeliveryFormItem component is used to display a radio button input for selecting a delivery option.
  * 
+ * @module DeliveryFormItem
  * @param {Object} props - The props for the component.
  * @param {string} props.id - The unique identifier for the radio button.
  * @param {string} props.name - The name of the radio button group, used for grouping options.

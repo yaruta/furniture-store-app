@@ -4,6 +4,7 @@
  * It displays the store's name, the delivery price (if any), the store's address,
  * and the typical pickup time.
  * 
+ * @module StoreAddressItem
  * @param {string} id - The unique identifier for the store location.
  * @param {string} name - The name of the store.
  * @param {number} price - The price associated with the store pickup option.

@@ -9,6 +9,7 @@
  * - The third item ("Zahlung") is enabled only when both user information and delivery details are provided.
  * - The final item ("Zusammenfassung") becomes enabled only when all prior steps are completed.
  * 
+ * @module CheckoutNavigation
  * @returns {JSX.Element} - The rendered checkout navigation bar, with items representing each checkout step.
  */
 import { useSelector } from "react-redux";

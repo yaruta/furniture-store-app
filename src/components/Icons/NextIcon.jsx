@@ -1,5 +1,7 @@
 /**
  * NextIcon component renders a next arrow icon as an SVG. 
+ * 
+ * @module NextIcon
  * @returns {JSX.Element} The next icon component.
  */
 export default function NextIcon() {

@@ -2,6 +2,7 @@
  * AccordionItem component displays a single item in the accordion.
  * The item consists of a question (header) and an answer (content) that can be toggled open/close.
  * 
+ * @module AccordionItem
  * @param {Object} props - The component props
  * @param {string} props.id - The unique identifier for the accordion item
  * @param {string} props.question - The question or header text to be displayed

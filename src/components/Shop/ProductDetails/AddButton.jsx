@@ -5,6 +5,7 @@
  * styles from the AddButton module. It spreads all other passed props onto 
  * the button element, such as event handlers or custom attributes.
  * 
+ * @module AddButton
  * @param {Object} props - The component props.
  * @param {React.ReactNode} props.children - The content to be displayed inside the button (e.g., text).
  * 

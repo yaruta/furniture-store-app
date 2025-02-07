@@ -3,6 +3,7 @@
  * (standard or fast) for the user to choose from during the checkout process.
  * It updates the delivery price based on the selected method and notifies the parent component.
  * 
+ * @module DeliveryType
  * @param {function} onDelivery - Callback function to update the delivery price.
  * @returns {JSX.Element} - A section for selecting the delivery method.
  */

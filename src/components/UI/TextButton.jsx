@@ -2,6 +2,7 @@
  * A button component that provides hover animation and supports different styles.
  * It accepts different props such as style type and custom class names for customization.
  * 
+ * @module TextButton
  * @param {Object} props - The properties passed to the component.
  * @param {React.ReactNode} props.children - The content (text or elements) inside the button.
  * @param {string} [props.className] - Optional additional class names for custom styling.

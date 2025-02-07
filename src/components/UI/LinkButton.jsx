@@ -2,6 +2,7 @@
  * A customizable link button that uses React Router's Link component.
  * The button has hover effects and supports two different styles.
  * 
+ * @module LinkButton
  * @param {Object} props - The properties passed to the component.
  * @param {string} props.path - The target path for the link.
  * @param {string} props.title - The text to be displayed inside the button.

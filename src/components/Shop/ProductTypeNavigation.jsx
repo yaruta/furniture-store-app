@@ -1,6 +1,7 @@
 /**
  * Component for navigating between different product types in the shop.
  *
+ * @module ProductTypeNavigation
  * @returns {JSX.Element} The rendered product type navigation component.
  */
 import classes from "./ProductTypeNavigation.module.css";

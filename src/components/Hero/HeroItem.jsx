@@ -3,6 +3,7 @@
  * product title, description, and a button linking to the shop.
  * It also uses animation on entry and exit via Framer Motion.
  *
+ * @module HeroItem
  * @param {Object} props - Component properties
  * @param {string} props.image - The URL of the image to display for the item
  * @param {string} props.collection - The collection name of the item

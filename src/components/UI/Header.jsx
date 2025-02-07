@@ -1,6 +1,7 @@
 /**
  * A header component that displays a header with different styles based on the provided style type.
  * 
+ * @module Header
  * @param {Object} props - The properties passed to the component.
  * @param {string} [props.styleType="type1"] - The style type for the header. Determines the class name applied for styling.
  * @param {string} props.children - The content of the header (usually text).

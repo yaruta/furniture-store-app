@@ -5,6 +5,7 @@
  * This component also handles adding the product to the cart and toggling the favorite status 
  * by dispatching actions to the Redux store.
  * 
+ * @module ProductItem
  * @param {Object} props - The component props.
  * @param {string} props.id - The unique identifier of the product.
  * @param {string} props.name - The name of the product.

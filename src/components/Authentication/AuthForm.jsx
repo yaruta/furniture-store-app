@@ -5,6 +5,7 @@
  * and handles form submission to either log the user in or create a new account.
  * The component also displays error messages in case of invalid input or authentication errors.
  * 
+ * @module AuthForm
  * @returns {JSX.Element} - The rendered authentication form for login or signup.
  */
 import { useState } from "react";

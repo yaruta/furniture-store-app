@@ -4,6 +4,7 @@
  * It fetches the latest products using a query, handles loading and error states,
  * and displays a list of new products based on the screen width.
  * 
+ * @module NewProductSection
  * @returns {JSX.Element} New products section with loading, error, or product list content.
  */
 import { useQuery } from "@tanstack/react-query";

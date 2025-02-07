@@ -4,6 +4,7 @@
  * 
  * This component also handles navigation between the checkout steps and manages the submission of the payment form.
  * 
+ * @module Payment
  * @returns {JSX.Element} - The rendered payment section of the checkout process.
  */
 import classes from "./PaymentSection.module.css";

@@ -3,6 +3,7 @@
  * in the checkout process, including the total price and navigation buttons 
  * (back and next).
  * 
+ * @module CheckoutSidebar
  * @param {object} props - The props passed to the `CheckoutSidebar` component.
  * @param {string} [props.form] - Optional form attribute to associate the sidebar with a specific form.
  * @param {function} props.onBack - Function to call when the "back" button is clicked.

@@ -3,6 +3,7 @@
  * by entering their email address. Displays a notification after successful
  * submission, and resets the input field.
  *
+ * @module NewsletterSignup
  * @param {boolean} isFullscreen - Determines if the newsletter signup form should occupy the full screen.
  * @returns {JSX.Element} - The rendered newsletter signup form.
  */

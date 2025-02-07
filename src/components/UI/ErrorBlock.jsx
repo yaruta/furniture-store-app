@@ -2,6 +2,7 @@
  * A component to display error messages in the UI.
  * It includes an error icon and a text block that contains the error title and message.
  * 
+ * @module ErrorBlock
  * @param {Object} props - The properties passed to the component.
  * @param {string} props.title - The title or heading of the error message.
  * @param {string} props.message - The detailed description or message of the error.

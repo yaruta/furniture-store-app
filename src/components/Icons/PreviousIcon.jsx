@@ -1,5 +1,7 @@
 /**
  * PreviouIcon component renders a previous arrow icon as an SVG. 
+ * 
+ * @module PreviousIcon
  * @returns {JSX.Element} The previous icon component.
  */
 export default function PreviousIcon() {

@@ -3,6 +3,7 @@
  * It displays an icon representing the current favorite status and
  * allows the user to add or remove an item from their favorites.
  * 
+ * @module FavItemButton
  * @param {Object} props - The component props.
  * @param {Function} props.onFavorite - The callback function to handle the toggle action.
  * @param {boolean} props.isFav - The initial favorite status of the item.

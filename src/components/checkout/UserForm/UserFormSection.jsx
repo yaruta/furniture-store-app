@@ -1,6 +1,8 @@
 /**
  * The UserFormSection component handles the user data form in the checkout process.
  * It allows the user to log in, continue as a guest, and submit user data.
+ * 
+ * @module UserFormSection
  */
 import classes from "./UserFormSection.module.css";
 

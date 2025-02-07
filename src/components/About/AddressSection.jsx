@@ -5,6 +5,7 @@
  * It displays a map using Mapbox GL and places a marker at a predefined location.
  * If there is an error in fetching the address data, it shows an error block.
  *
+ * @module AddressSection
  * @returns {JSX.Element} - The rendered address section with map and address details.
  */
 import classes from "./AddressSection.module.css";

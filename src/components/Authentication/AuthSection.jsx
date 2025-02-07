@@ -4,6 +4,7 @@
  * 
  * It includes the appropriate page title and toggles between login and sign-up modes.
  * 
+ * @module AuthSection
  * @returns {JSX.Element} - The rendered authentication section with either login or sign-up form.
  */
 import { useSearchParams, Link } from "react-router-dom";

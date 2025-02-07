@@ -4,6 +4,7 @@
  * 
  * The component conditionally renders based on the availability of userdata, delivery, and payment.
  *
+ * @module CheckoutInfo
  * @returns {JSX.Element} The rendered checkout information component.
  */
 import classes from "./CheckoutInfo.module.css";
