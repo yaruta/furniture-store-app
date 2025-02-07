@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/Shop/ProductDetails/ProductDetails.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/Shop/ProductDetails/ProductDetails.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * A component to display the detailed information of a product.
+ * 
+ * Fetches product data using React Query and allows users to select color, quantity,
+ * and add the product to the cart or favorites.
+ *
+ * @module ProductDetails
+ * @returns {JSX.Element} The product details page content.
+ */
+import classes from "./ProductDetails.module.css";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../../store/cart-slice";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProduct } from "../../../util/http";
+import { Link, useParams } from "react-router-dom";
+import { favoritesActions } from "../../../store/favorites-slice";
+import PageContent from "../../UI/PageContent";
+import ErrorBlock from "../../UI/ErrorBlock";
+import FavItemButton from "../ProductItem/FavItemButton";
+import AddButton from "./AddButton";
+import PreviousIcon from "../../Icons/PreviousIcon";
+import ProductColor from "./ProductColor";
+import ProductQuantity from "./ProductQuantity";
+import { currencyFormatter } from "../../../util/formatting";
+
+function ProductDetails() {
+  const dispatch = useDispatch();
+
+  // Retrieve the product ID from URL params
+  const params = useParams();
+
+  // Access favorite items from the Redux store
+  const favoriteItems = useSelector((state) => state.favorites.items);
+  // Check if the current product is already in favorites
+  const isFav =
+    favoriteItems.find((item) => item.id === params.productId) !== undefined;
+
+  // Fetch product data from API using React Query
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["products", { id: params.productId }],
+    queryFn: ({ signal, queryKey }) => fetchProduct({ signal, ...queryKey[1] }),
+  });
+
+  // State for selected color and quantity
+  const [selectedColor, setSelectedColor] = useState();
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  /**
+   * Handles the selection of a color.
+   * @param {string} color - The selected color.
+   */
+  function handleSelectColor(color) {
+    setSelectedColor(color);
+  }
+
+  /**
+   * Handles the selection of a quantity.
+   * @param {number} quantity - The selected quantity.
+   */
+  function handleSelectQuantity(quantity) {
+    setSelectedQuantity(quantity);
+  }
+
+  /**
+   * Adds the current product to the cart.
+   */
+  function handleAddItemToCart() {
+    dispatch(
+      cartActions.addItem({
+        id: data.id,
+        name: data.name,
+        collection: data.collection,
+        price: data.price,
+        image: data.image,
+        quantity: selectedQuantity,
+        color: selectedColor,
+      })
+    );
+  }
+
+  /**
+   * Toggles the product in the favorites list.
+   */
+  function handleAddToFavorite() {
+    dispatch(
+      favoritesActions.toggleFavorite({
+        id: data.id,
+        name: data.name,
+        collection: data.collection,
+        price: data.price,
+        image: data.image,
+        color: data.color,
+      })
+    );
+  }
+
+  let content;
+  if (isPending) {
+    content = (
+      &lt;PageContent title="Fetching...">
+        &lt;p>Fetching item...&lt;/p>
+      &lt;/PageContent>
+    );
+  }
+
+  if (isError) {
+    content = (
+      &lt;ErrorBlock
+        title="Produkt kann nicht geladen werden"
+        message={
+          error.info?.message ||
+          "Produkt kann nicht abgerufen werden. Bitte versuchen Sie es später noch einmal."
+        }
+      />
+    );
+  }
+  if (data &amp;&amp; !isError) {
+    content = (
+      &lt;>
+        &lt;div className={classes["item-details-column"]}>
+          &lt;img src={data.image} alt="Image" />
+        &lt;/div>
+        &lt;div className={classes["item-details-column"]}>
+          &lt;div className={classes["info-section"]}>
+            &lt;div className={classes.header}>
+              &lt;h2>{data.name}&lt;/h2>
+              &lt;FavItemButton onFavorite={handleAddToFavorite} isFav={isFav} />
+            &lt;/div>
+            &lt;p className={classes.collection}>{data.collection}&lt;/p>
+            &lt;p className={classes.price}>
+              &lt;span>
+                {currencyFormatter.format(data.price).replace(/\s+/, "")}
+              &lt;/span>
+              &lt;span>{` inkl. MwSt`}&lt;/span>
+            &lt;/p>
+            &lt;form action="">
+              &lt;ProductColor colors={data.color} onColor={handleSelectColor} />
+              &lt;ProductQuantity onQuantity={handleSelectQuantity} />
+            &lt;/form>
+          &lt;/div>
+          &lt;AddButton onClick={handleAddItemToCart}>Add to Cart&lt;/AddButton>
+        &lt;/div>
+      &lt;/>
+    );
+  }
+
+  return (
+    &lt;>
+      &lt;section className={classes["item-details"]}>
+        &lt;Link to="../" className={classes.back}>
+          &lt;PreviousIcon />
+        &lt;/Link>
+        {content}
+      &lt;/section>
+      {data &amp;&amp; &lt;p className={classes.description}>{data.description}&lt;/p>}
+    &lt;/>
+  );
+}
+
+export default ProductDetails;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AboutSection.html">AboutSection</a></li><li><a href="module-Accordion.html">Accordion</a></li><li><a href="module-AccordionItem.html">AccordionItem</a></li><li><a href="module-AddButton.html">AddButton</a></li><li><a href="module-AddIcon.html">AddIcon</a></li><li><a href="module-Address.html">Address</a></li><li><a href="module-AddressSection.html">AddressSection</a></li><li><a href="module-AuthForm.html">AuthForm</a></li><li><a href="module-AuthSection.html">AuthSection</a></li><li><a href="module-Badge.html">Badge</a></li><li><a href="module-BuildIcon.html">BuildIcon</a></li><li><a href="module-Button.html">Button</a></li><li><a href="module-Cart.html">Cart</a></li><li><a href="module-CartIcon.html">CartIcon</a></li><li><a href="module-CartItem.html">CartItem</a></li><li><a href="module-Checkout.html">Checkout</a></li><li><a href="module-CheckoutInfo.html">CheckoutInfo</a></li><li><a href="module-CheckoutInfoItem.html">CheckoutInfoItem</a></li><li><a href="module-CheckoutNavItem.html">CheckoutNavItem</a></li><li><a href="module-CheckoutNavigation.html">CheckoutNavigation</a></li><li><a href="module-CheckoutSidebar.html">CheckoutSidebar</a></li><li><a href="module-Completed.html">Completed</a></li><li><a href="module-DeliveryForm.html">DeliveryForm</a></li><li><a href="module-DeliveryFormItem.html">DeliveryFormItem</a></li><li><a href="module-DeliveryFormSection.html">DeliveryFormSection</a></li><li><a href="module-DeliveryIcon.html">DeliveryIcon</a></li><li><a href="module-DeliveryType.html">DeliveryType</a></li><li><a href="module-DeliveryTypeItem.html">DeliveryTypeItem</a></li><li><a href="module-DesignIcon.html">DesignIcon</a></li><li><a href="module-Divider.html">Divider</a></li><li><a href="module-ErrorBlock.html">ErrorBlock</a></li><li><a href="module-FAQ.html">FAQ</a></li><li><a href="module-FacebookIcon.html">FacebookIcon</a></li><li><a href="module-FavItemButton.html">FavItemButton</a></li><li><a href="module-FavoriteIcon.html">FavoriteIcon</a></li><li><a href="module-FavoriteIconChecked.html">FavoriteIconChecked</a></li><li><a href="module-FavoriteProducts.html">FavoriteProducts</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-FormInput.html">FormInput</a></li><li><a href="module-GridIcon4.html">GridIcon4</a></li><li><a href="module-GridIcon9.html">GridIcon9</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-HeroItem.html">HeroItem</a></li><li><a href="module-HeroSection.html">HeroSection</a></li><li><a href="module-InfoSection.html">InfoSection</a></li><li><a href="module-Input.html">Input</a></li><li><a href="module-InstagramIcon.html">InstagramIcon</a></li><li><a href="module-LinkButton.html">LinkButton</a></li><li><a href="module-LoginIcon.html">LoginIcon</a></li><li><a href="module-Logo.html">Logo</a></li><li><a href="module-LogoutIcon.html">LogoutIcon</a></li><li><a href="module-MainHeader.html">MainHeader</a></li><li><a href="module-MainNavigation.html">MainNavigation</a></li><li><a href="module-Modal.html">Modal</a></li><li><a href="module-NewProductItem.html">NewProductItem</a></li><li><a href="module-NewProductSection.html">NewProductSection</a></li><li><a href="module-NewsletterSignup.html">NewsletterSignup</a></li><li><a href="module-NextIcon.html">NextIcon</a></li><li><a href="module-Notification.html">Notification</a></li><li><a href="module-PageContent.html">PageContent</a></li><li><a href="module-PageTitle.html">PageTitle</a></li><li><a href="module-Payment.html">Payment</a></li><li><a href="module-PaymentForm.html">PaymentForm</a></li><li><a href="module-PaymentIcon.html">PaymentIcon</a></li><li><a href="module-PaymentTypeItem.html">PaymentTypeItem</a></li><li><a href="module-PreviousIcon.html">PreviousIcon</a></li><li><a href="module-ProductColor.html">ProductColor</a></li><li><a href="module-ProductDetails.html">ProductDetails</a></li><li><a href="module-ProductItem.html">ProductItem</a></li><li><a href="module-ProductQuantity.html">ProductQuantity</a></li><li><a href="module-ProductTypeNavigation.html">ProductTypeNavigation</a></li><li><a href="module-Products.html">Products</a></li><li><a href="module-ProductsPagesNavigation.html">ProductsPagesNavigation</a></li><li><a href="module-Section.html">Section</a></li><li><a href="module-SocialMediaNavigation.html">SocialMediaNavigation</a></li><li><a href="module-SortedProducts.html">SortedProducts</a></li><li><a href="module-SortingNavigation.html">SortingNavigation</a></li><li><a href="module-StoreAddressItem.html">StoreAddressItem</a></li><li><a href="module-StoreType.html">StoreType</a></li><li><a href="module-SummaryCart.html">SummaryCart</a></li><li><a href="module-SummaryCartItem.html">SummaryCartItem</a></li><li><a href="module-SummarySection.html">SummarySection</a></li><li><a href="module-TextButton.html">TextButton</a></li><li><a href="module-TotalPrice.html">TotalPrice</a></li><li><a href="module-UserAreaNavigation.html">UserAreaNavigation</a></li><li><a href="module-UserDataForm.html">UserDataForm</a></li><li><a href="module-UserFormSection.html">UserFormSection</a></li><li><a href="module-YoutubeIcon.html">YoutubeIcon</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#action">action</a></li><li><a href="global.html#checkoutSlice">checkoutSlice</a></li><li><a href="global.html#currencyFormatter">currencyFormatter</a></li><li><a href="global.html#defaultValue">defaultValue</a></li><li><a href="global.html#doCreateUserWithEmailAndPassword">doCreateUserWithEmailAndPassword</a></li><li><a href="global.html#doSignInWithEmailAndPassword">doSignInWithEmailAndPassword</a></li><li><a href="global.html#doSignOut">doSignOut</a></li><li><a href="global.html#favoritesSlice">favoritesSlice</a></li><li><a href="global.html#fetchAddress">fetchAddress</a></li><li><a href="global.html#fetchFAQ">fetchFAQ</a></li><li><a href="global.html#fetchHero">fetchHero</a></li><li><a href="global.html#fetchProduct">fetchProduct</a></li><li><a href="global.html#fetchShopProducts">fetchShopProducts</a></li><li><a href="global.html#isValidInput">isValidInput</a></li><li><a href="global.html#loader">loader</a></li><li><a href="global.html#queryClient">queryClient</a></li><li><a href="global.html#router">router</a></li><li><a href="global.html#sendOrder">sendOrder</a></li><li><a href="global.html#sortProducts">sortProducts</a></li><li><a href="global.html#store">store</a></li><li><a href="global.html#useAccordionContext">useAccordionContext</a></li><li><a href="global.html#useAuth">useAuth</a></li><li><a href="global.html#useScreenWidth">useScreenWidth</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

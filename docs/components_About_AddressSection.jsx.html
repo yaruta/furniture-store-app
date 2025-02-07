@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/About/AddressSection.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/About/AddressSection.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * AddressSection component displays the address and location on a map.
+ *
+ * This component uses the `useQuery` hook to fetch address data and render it.
+ * It displays a map using Mapbox GL and places a marker at a predefined location.
+ * If there is an error in fetching the address data, it shows an error block.
+ *
+ * @module AddressSection
+ * @returns {JSX.Element} - The rendered address section with map and address details.
+ */
+import classes from "./AddressSection.module.css";
+import { useRef, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { fetchAddress } from "../../util/http";
+
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { MAP_ACCESS_TOKEN } from "../../util/token";
+
+import Header from "../UI/Header";
+import ErrorBlock from "../UI/ErrorBlock";
+
+function AddressSection() {
+  // Fetch address data using React Query
+  const { data, isError, error } = useQuery({
+    queryKey: ["address"],
+    queryFn: fetchAddress,
+  });
+
+  // Refs for map and marker
+  const mapRef = useRef();
+  const mapContainerRef = useRef();
+  const markerRef = useRef();
+
+  // Initialize the map and marker when the component is mounted
+  useEffect(() => {
+    mapboxgl.accessToken = MAP_ACCESS_TOKEN;
+    mapRef.current = new mapboxgl.Map({
+      container: mapContainerRef.current,
+      center: [13.41053, 52.52437],
+      zoom: 14.0,
+    });
+    markerRef.current = new mapboxgl.Marker()
+      .setLngLat([13.41053, 52.52437])
+      .addTo(mapRef.current);
+
+    // Cleanup the map and marker when the component is unmounted
+    return () => {
+      mapRef.current.remove();
+      markerRef.current.remove();
+    };
+  }, []);
+
+  return (
+    &lt;>
+      &lt;section className={classes.addressSection}>
+        &lt;div id={classes.mapContainer} ref={mapContainerRef}>&lt;/div>
+        &lt;div className={classes.address}>
+          &lt;Header styleType="type1">Adresse&lt;/Header>
+          {data &amp;&amp; (
+            &lt;div className={classes.info}>
+              &lt;div>
+                &lt;h2 className={classes.header}>{data.name}&lt;/h2>
+                &lt;p>{`${data.street} ${data.houseNumber}`}&lt;/p>
+                &lt;p>{`${data.postcode} ${data.city}`}&lt;/p>
+              &lt;/div>
+              &lt;div>
+                &lt;h2 className={classes.header}>Öffnungszeiten&lt;/h2>
+                &lt;p>Mon-Sam 10:00-20:00Uhr&lt;/p>
+              &lt;/div>
+            &lt;/div>
+          )}
+          {isError &amp;&amp; (
+            &lt;ErrorBlock
+              title="Die Adresse konnte nicht geladen werden"
+              message={
+                error.info?.message ||
+                "Die Adresse konnte nicht abgerufen werden. Bitte versuchen Sie es später noch einmal."
+              }
+            />
+          )}
+        &lt;/div>
+      &lt;/section>
+    &lt;/>
+  );
+}
+
+export default AddressSection;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AboutSection.html">AboutSection</a></li><li><a href="module-Accordion.html">Accordion</a></li><li><a href="module-AccordionItem.html">AccordionItem</a></li><li><a href="module-AddButton.html">AddButton</a></li><li><a href="module-AddIcon.html">AddIcon</a></li><li><a href="module-Address.html">Address</a></li><li><a href="module-AddressSection.html">AddressSection</a></li><li><a href="module-AuthForm.html">AuthForm</a></li><li><a href="module-AuthSection.html">AuthSection</a></li><li><a href="module-Badge.html">Badge</a></li><li><a href="module-BuildIcon.html">BuildIcon</a></li><li><a href="module-Button.html">Button</a></li><li><a href="module-Cart.html">Cart</a></li><li><a href="module-CartIcon.html">CartIcon</a></li><li><a href="module-CartItem.html">CartItem</a></li><li><a href="module-Checkout.html">Checkout</a></li><li><a href="module-CheckoutInfo.html">CheckoutInfo</a></li><li><a href="module-CheckoutInfoItem.html">CheckoutInfoItem</a></li><li><a href="module-CheckoutNavItem.html">CheckoutNavItem</a></li><li><a href="module-CheckoutNavigation.html">CheckoutNavigation</a></li><li><a href="module-CheckoutSidebar.html">CheckoutSidebar</a></li><li><a href="module-Completed.html">Completed</a></li><li><a href="module-DeliveryForm.html">DeliveryForm</a></li><li><a href="module-DeliveryFormItem.html">DeliveryFormItem</a></li><li><a href="module-DeliveryFormSection.html">DeliveryFormSection</a></li><li><a href="module-DeliveryIcon.html">DeliveryIcon</a></li><li><a href="module-DeliveryType.html">DeliveryType</a></li><li><a href="module-DeliveryTypeItem.html">DeliveryTypeItem</a></li><li><a href="module-DesignIcon.html">DesignIcon</a></li><li><a href="module-Divider.html">Divider</a></li><li><a href="module-ErrorBlock.html">ErrorBlock</a></li><li><a href="module-FAQ.html">FAQ</a></li><li><a href="module-FacebookIcon.html">FacebookIcon</a></li><li><a href="module-FavItemButton.html">FavItemButton</a></li><li><a href="module-FavoriteIcon.html">FavoriteIcon</a></li><li><a href="module-FavoriteIconChecked.html">FavoriteIconChecked</a></li><li><a href="module-FavoriteProducts.html">FavoriteProducts</a></li><li><a href="module-Footer.html">Footer</a></li><li><a href="module-FormInput.html">FormInput</a></li><li><a href="module-GridIcon4.html">GridIcon4</a></li><li><a href="module-GridIcon9.html">GridIcon9</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-HeroItem.html">HeroItem</a></li><li><a href="module-HeroSection.html">HeroSection</a></li><li><a href="module-InfoSection.html">InfoSection</a></li><li><a href="module-Input.html">Input</a></li><li><a href="module-InstagramIcon.html">InstagramIcon</a></li><li><a href="module-LinkButton.html">LinkButton</a></li><li><a href="module-LoginIcon.html">LoginIcon</a></li><li><a href="module-Logo.html">Logo</a></li><li><a href="module-LogoutIcon.html">LogoutIcon</a></li><li><a href="module-MainHeader.html">MainHeader</a></li><li><a href="module-MainNavigation.html">MainNavigation</a></li><li><a href="module-Modal.html">Modal</a></li><li><a href="module-NewProductItem.html">NewProductItem</a></li><li><a href="module-NewProductSection.html">NewProductSection</a></li><li><a href="module-NewsletterSignup.html">NewsletterSignup</a></li><li><a href="module-NextIcon.html">NextIcon</a></li><li><a href="module-Notification.html">Notification</a></li><li><a href="module-PageContent.html">PageContent</a></li><li><a href="module-PageTitle.html">PageTitle</a></li><li><a href="module-Payment.html">Payment</a></li><li><a href="module-PaymentForm.html">PaymentForm</a></li><li><a href="module-PaymentIcon.html">PaymentIcon</a></li><li><a href="module-PaymentTypeItem.html">PaymentTypeItem</a></li><li><a href="module-PreviousIcon.html">PreviousIcon</a></li><li><a href="module-ProductColor.html">ProductColor</a></li><li><a href="module-ProductDetails.html">ProductDetails</a></li><li><a href="module-ProductItem.html">ProductItem</a></li><li><a href="module-ProductQuantity.html">ProductQuantity</a></li><li><a href="module-ProductTypeNavigation.html">ProductTypeNavigation</a></li><li><a href="module-Products.html">Products</a></li><li><a href="module-ProductsPagesNavigation.html">ProductsPagesNavigation</a></li><li><a href="module-Section.html">Section</a></li><li><a href="module-SocialMediaNavigation.html">SocialMediaNavigation</a></li><li><a href="module-SortedProducts.html">SortedProducts</a></li><li><a href="module-SortingNavigation.html">SortingNavigation</a></li><li><a href="module-StoreAddressItem.html">StoreAddressItem</a></li><li><a href="module-StoreType.html">StoreType</a></li><li><a href="module-SummaryCart.html">SummaryCart</a></li><li><a href="module-SummaryCartItem.html">SummaryCartItem</a></li><li><a href="module-SummarySection.html">SummarySection</a></li><li><a href="module-TextButton.html">TextButton</a></li><li><a href="module-TotalPrice.html">TotalPrice</a></li><li><a href="module-UserAreaNavigation.html">UserAreaNavigation</a></li><li><a href="module-UserDataForm.html">UserDataForm</a></li><li><a href="module-UserFormSection.html">UserFormSection</a></li><li><a href="module-YoutubeIcon.html">YoutubeIcon</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AuthContext">AuthContext</a></li><li><a href="global.html#action">action</a></li><li><a href="global.html#checkoutSlice">checkoutSlice</a></li><li><a href="global.html#currencyFormatter">currencyFormatter</a></li><li><a href="global.html#defaultValue">defaultValue</a></li><li><a href="global.html#doCreateUserWithEmailAndPassword">doCreateUserWithEmailAndPassword</a></li><li><a href="global.html#doSignInWithEmailAndPassword">doSignInWithEmailAndPassword</a></li><li><a href="global.html#doSignOut">doSignOut</a></li><li><a href="global.html#favoritesSlice">favoritesSlice</a></li><li><a href="global.html#fetchAddress">fetchAddress</a></li><li><a href="global.html#fetchFAQ">fetchFAQ</a></li><li><a href="global.html#fetchHero">fetchHero</a></li><li><a href="global.html#fetchProduct">fetchProduct</a></li><li><a href="global.html#fetchShopProducts">fetchShopProducts</a></li><li><a href="global.html#isValidInput">isValidInput</a></li><li><a href="global.html#loader">loader</a></li><li><a href="global.html#queryClient">queryClient</a></li><li><a href="global.html#router">router</a></li><li><a href="global.html#sendOrder">sendOrder</a></li><li><a href="global.html#sortProducts">sortProducts</a></li><li><a href="global.html#store">store</a></li><li><a href="global.html#useAccordionContext">useAccordionContext</a></li><li><a href="global.html#useAuth">useAuth</a></li><li><a href="global.html#useScreenWidth">useScreenWidth</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a>
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
