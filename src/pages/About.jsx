@@ -2,6 +2,7 @@
  * Represents the About page of the application.
  * This page displays information about the company or service.
  *
+ * @module AboutPage
  * @returns {JSX.Element} The About page component.
  */
 import AboutSection from "../components/About/AboutSection";

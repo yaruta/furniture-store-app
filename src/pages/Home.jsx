@@ -1,6 +1,7 @@
 /**
  * HomePage component that renders the main sections of the homepage.
  *
+ * @module HomePage
  * @returns {JSX.Element} The HomePage component.
  */
 import { fetchHero, queryClient } from "../util/http";

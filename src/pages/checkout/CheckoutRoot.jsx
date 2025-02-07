@@ -5,6 +5,7 @@
  * If the user has already completed the checkout (indicated by the path `/checkout/completed`),
  * the `Checkout` component will not be displayed. The `Outlet` component is used to render nested routes.
  *
+ * @module CheckoutRoot
  * @returns {JSX.Element} - The rendered checkout page with the optional `Checkout` component and nested routes.
  */
 import { Outlet, useLocation } from "react-router-dom";

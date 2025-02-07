@@ -5,6 +5,7 @@
  * using the `Outlet` component. Additionally, it conditionally displays
  * the cart using `AnimatePresence` from `framer-motion` for animation.
  * 
+ * @module RootLayout
  * @returns {JSX.Element} - The main layout of the app, including the header, footer, and conditional cart display.
  */
 import React from "react";

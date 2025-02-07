@@ -2,6 +2,7 @@
  * ErrorPage component displays an error message when a route fails to load.
  * It handles different error statuses (e.g., 404, 500) and shows appropriate messages.
  *
+ * @module ErrorPage
  * @returns {JSX.Element} The ErrorPage component.
  */
 import { useRouteError, Link } from "react-router-dom";

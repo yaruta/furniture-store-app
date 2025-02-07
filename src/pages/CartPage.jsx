@@ -2,6 +2,7 @@
  * Represents the cart page of the application.
  * Displays the shopping cart without a modal.
  *
+ * @module CartPage
  * @returns {JSX.Element} The CartPage component.
  */
 import Cart from "../components/Cart/Cart";

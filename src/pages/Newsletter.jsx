@@ -1,6 +1,7 @@
 /**
  * NewsletterPage component that renders the newsletter signup section.
  *
+ * @module NewsletterPage
  * @returns {JSX.Element} The NewsletterPage component.
  */
 import NewsletterSignup from "../components/Newletter/NewsletterSignup";

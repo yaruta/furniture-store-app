@@ -4,6 +4,7 @@
  * This component imports and renders the `ProductDetails` component,
  * which contains the detailed information about a specific product.
  * 
+ * @module ProductDetailsPage
  * @returns {JSX.Element} - The rendered product details page.
  */
 import ProductDetails from "../components/Shop/ProductDetails/ProductDetails";
