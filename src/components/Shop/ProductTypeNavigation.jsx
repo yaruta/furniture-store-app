@@ -1,8 +1,19 @@
+/**
+ * Component for navigating between different product types in the shop.
+ *
+ * @returns {JSX.Element} The rendered product type navigation component.
+ */
 import classes from "./ProductTypeNavigation.module.css";
 import { NavLink, useLocation } from "react-router-dom";
 
 function ProductTypeNavigation() {
+  /**
+   * Retrieves the current search parameters from the URL.
+   */
   const { search } = useLocation();
+  /**
+   * Extracts the "type" of product query parameter from the URL.
+   */
   const type = new URLSearchParams(search).get("type");
   
   return (

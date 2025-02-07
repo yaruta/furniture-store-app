@@ -30,30 +30,52 @@ function Products() {
    * State hook for managing the sorting type (e.g., 'new', 'popular').
    */
   const [sortType, setSortType] = useState("new");
+
+  /**
+   * State hooks for managing pagination.
+   */
   const [pageNumber, setPageNumber] = useState(1);
   const [numberOfProductsPerPage, setNumberOfProductsPerPage] = useState(6);
 
+  /**
+   * Reset page number when filter or sort type changes.
+   */
   useEffect(() => {
     setPageNumber(1);
   }, [filterType, sortType, numberOfProductsPerPage]);
 
+  /**
+   * Fetches products from the server using React Query.
+   */
   const { data, isPending, isError, error } = useQuery({
     queryKey: ["products"],
     queryFn: ({ signal }) => fetchShopProducts({ signal }),
     staleTime: 5000,
   });
 
+  /**
+   * Handles sorting of the products based on selected type.
+   * @param {string} type - The type to sort by (e.g., 'new', 'price').
+   */
   function handleSort(type) {
     setSortType(type);
   }
 
+  /**
+   * Handles changing the number of products displayed per page.
+   * @param {number} amountPerPage - The number of products to show per page.
+   */
   function handleGrid(amountPerPage) {
     setNumberOfProductsPerPage(amountPerPage);
   }
 
+  /**
+   * Variable to hold the content to display, depending on the loading state or errors.
+   */
   let content;
   let quantity = 0;
 
+  // Loading state
   if (isPending) {
     content = (
       <PageContent title="Fetching...">
@@ -62,6 +84,7 @@ function Products() {
     );
   }
 
+  // Error state
   if (isError) {
     content = (
       <ErrorBlock
@@ -74,6 +97,7 @@ function Products() {
     );
   }
 
+  // Data available and no errors
   if (data && !isError) {
     let products = Object.values(data);
     if (filterType) {
