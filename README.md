@@ -51,6 +51,9 @@ npm run dev
 ```
 The app will be available at **http://localhost:3000/**.
 
+## 📖 Documentation
+You can read the full documentation here:  
+➡️ **[View Documentation](https://yaruta.github.io/furniture-store-app/)**
 
 ## 📜 License
 This project is open-source and available under the **MIT License**.
