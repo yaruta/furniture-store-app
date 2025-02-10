@@ -1,0 +1,13 @@
+.cta a{
+  color: var(--main-color);
+  text-decoration: none;
+  border: 1px solid var(--main-color);
+  padding: .4rem 1rem;
+  color: var(--main-color);
+  min-width: 8rem;
+}
+
+.cta a:hover {
+    background-color: var(--main-color);
+    color: white;
+}
