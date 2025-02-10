@@ -24,7 +24,6 @@ const checkoutSlice = createSlice({
      */
     addUserData(state, action) {
       state.userdata = { ...action.payload.userdata };
-      console.log(state.userdata);
       localStorage.setItem("checkout", JSON.stringify(state));
     },
     /**
@@ -34,7 +33,6 @@ const checkoutSlice = createSlice({
      */
     addDelivery(state, action) {
       state.delivery = { ...action.payload.delivery };
-      console.log(state.delivery);
       localStorage.setItem("checkout", JSON.stringify(state));
     },
     /**
@@ -44,7 +42,6 @@ const checkoutSlice = createSlice({
      */
     addPayment(state, action) {
       state.payment = { ...action.payload.payment };
-      console.log(state.payment);
       localStorage.setItem("checkout", JSON.stringify(state));
     },
     /**
